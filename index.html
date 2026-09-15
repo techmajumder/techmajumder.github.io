@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sayan Majumder — Data Analyst &amp; Backend Developer</title>
-<meta name="description" content="Portfolio of Sayan Majumder — data analyst and backend developer based in Kolkata, India.">
+<title>Sayan Majumder — Aspiring AI Engineer</title>
+<meta name="description" content="Portfolio of Sayan Majumder — B.Tech Computer Science graduate and aspiring AI Engineer based in Kolkata, India.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -65,6 +65,10 @@
   #hero{padding-top:72px;}
   #hero h1{font-size:clamp(2rem,4vw,2.9rem);line-height:1.22;font-weight:600;max-width:16ch;letter-spacing:-0.01em;}
   #hero .hero-sub{margin-top:22px;max-width:56ch;color:var(--muted);font-size:1.05rem;}
+  .hero-layout{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:42px;align-items:start;}
+  .hero-photo{width:210px;height:250px;border:1px solid var(--line);background:var(--paper-raised);border-radius:var(--radius);overflow:hidden;}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;}
+  .hero-photo .ph{height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2.4rem;color:var(--muted-2);}
   .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
   .btn{display:inline-flex;align-items:center;padding:11px 22px;border-radius:var(--radius);font-size:0.92rem;font-weight:500;text-decoration:none;border:1px solid transparent;transition:transform .15s, background .15s, border-color .15s;}
   .btn:hover{transform:translateY(-1px);}
@@ -128,6 +132,11 @@
   .cert-mark{width:8px;height:8px;border-radius:2px;background:var(--teal);flex-shrink:0;margin-right:14px;align-self:center;}
   .cert-left{display:flex;align-items:center;}
 
+  /* ---------- Achievements / activities ---------- */
+  .simple-row{padding:16px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:0.92rem;}
+  .simple-row:last-child{border-bottom:none;}
+  .simple-row strong{display:block;color:var(--ink);font-size:0.98rem;margin-bottom:3px;}
+
   /* ---------- Contact ---------- */
   .contact-links{display:flex;flex-direction:column;gap:2px;margin-top:26px;max-width:420px;}
   .contact-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);}
@@ -150,6 +159,8 @@
     #main{margin-left:0;padding:0 22px 40px;}
     .section{padding-top:56px;max-width:100%;}
     .project-grid{grid-template-columns:1fr;}
+    .hero-layout{grid-template-columns:1fr;}
+    .hero-photo{width:150px;height:180px;}
     .skills-grid{grid-template-columns:1fr;}
     .edu-row{flex-direction:column;gap:6px;}
     .edu-period{width:auto;}
@@ -217,6 +228,8 @@
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#certifications">Certifications</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#activities">Activities</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="side-loc" id="sideLoc"></div>
@@ -224,13 +237,18 @@
 
   <main id="main">
     <section id="hero" class="section">
-      <h1 class="fade-in" id="heroHeadline"></h1>
-      <p class="hero-sub fade-in d1" id="heroSub"></p>
-      <div class="hero-ctas fade-in d1">
-        <a href="#projects" class="btn btn-primary">View projects</a>
-        <a href="#contact" class="btn btn-outline">Get in touch</a>
+      <div class="hero-layout">
+        <div>
+          <h1 class="fade-in" id="heroHeadline"></h1>
+          <p class="hero-sub fade-in d1" id="heroSub"></p>
+          <div class="hero-ctas fade-in d1">
+            <a href="#projects" class="btn btn-primary">View projects</a>
+            <a href="#contact" class="btn btn-outline">Get in touch</a>
+          </div>
+          <div class="ledger fade-in d2" id="statsLedger"></div>
+        </div>
+        <div class="hero-photo fade-in d2" id="heroPhoto" aria-label="Sayan Majumder photo"></div>
       </div>
-      <div class="ledger fade-in d2" id="statsLedger"></div>
     </section>
 
     <section id="about" class="section">
@@ -256,6 +274,16 @@
     <section id="certifications" class="section">
       <div class="section-head"><h2>Certifications</h2></div>
       <div id="certList"></div>
+    </section>
+
+    <section id="achievements" class="section">
+      <div class="section-head"><h2>Achievements</h2></div>
+      <div id="achievementList"></div>
+    </section>
+
+    <section id="activities" class="section">
+      <div class="section-head"><h2>Leadership &amp; Activities</h2></div>
+      <div id="activityList"></div>
     </section>
 
     <section id="contact" class="section">
@@ -314,67 +342,67 @@
   /* ============ DEFAULT CONTENT ============ */
   var DEFAULT_DATA = {
     name: "Sayan Majumder",
-    role: "Data Analyst & Backend Developer",
+    role: "Aspiring AI Engineer",
     location: "Kolkata, West Bengal, India",
-    photo: "",
-    heroHeadline: "I build things that turn raw data into decisions \u2014 and the software that carries them there.",
-    heroSub: "B.Tech in Computer Science & Business Systems from Netaji Subhash Engineering College (MAKAUT). I split my time between pulling insight out of data and building the backend systems that put it to use, currently deepening that with Spring Boot. Based in Kolkata, and open to data analyst roles.",
+    photo: "assets/sayan.jpg",
+    heroHeadline: "Building practical AI solutions with Python, machine learning, and GenAI.",
+    heroSub: "B.Tech Computer Science & Business Systems graduate from Netaji Subhash Engineering College (MAKAUT). I am building my foundation in AI, machine learning, data, and software development while preparing for GATE CSE.",
     stats: [
       { label: "DSA problems solved", value: "40+" },
-      { label: "Projects shipped", value: "5" },
-      { label: "Certifications earned", value: "2" }
+      { label: "ML / software projects", value: "4" },
+      { label: "Certifications", value: "2" }
     ],
-    about: "I'm finishing a B.Tech in Computer Science & Business Systems at Netaji Subhash Engineering College, affiliated to MAKAUT, in August 2026. My final-year project compared segmentation architectures for AI-based plant disease detection \u2014 the point where applied machine learning started to genuinely interest me. Since then I've worked across two things I enjoy in roughly equal measure: pulling insight out of messy datasets, and building the backend systems, mostly with Spring Boot, that carry those insights to the people who need to act on them. I'm based in Kolkata and currently looking for data analyst roles at startups here.",
+    about: "I am a B.Tech Computer Science & Business Systems graduate with hands-on experience in Python, Java, SQL, machine learning, Spring Boot, REST APIs, MySQL, and data tools. My current focus is moving deeper into AI engineering and Generative AI through practical projects, while strengthening my core Computer Science fundamentals for GATE CSE. I enjoy turning technical concepts into working applications and solving problems through structured, analytical thinking.",
     education: [
-      { degree: "B.Tech in Computer Science & Business Systems", school: "Netaji Subhash Engineering College (MAKAUT)", period: "2022\u20132026", detail: "CGPA 6.96" },
+      { degree: "B.Tech in Computer Science & Business Systems", school: "Netaji Subhash Engineering College (MAKAUT)", period: "2022–2026", detail: "CGPA 6.96/10 · Graduated August 2026" },
       { degree: "Class XII", school: "Dakshin Barasat Sibdas Acharaya High School", period: "2021", detail: "84.8%" },
       { degree: "Class X", school: "Dakshin Barasat Sibdas Acharaya High School", period: "2019", detail: "83.71%" }
     ],
     skills: [
-      { group: "Languages", items: "Python, Java, SQL (MySQL)" },
-      { group: "Data & Analytics", items: "Pandas, Power BI, NumPy" },
-      { group: "Backend", items: "Spring Boot, JPA / Hibernate, REST APIs" },
-      { group: "Tools", items: "Git & GitHub, Postman, Streamlit" }
+      { group: "Programming", items: "Python, Java, SQL" },
+      { group: "AI / Machine Learning", items: "scikit-learn, Pandas, NumPy, Matplotlib, Model Evaluation" },
+      { group: "Backend Development", items: "Spring Boot, Spring Data JPA, REST APIs, CRUD, Dependency Injection, Exception Handling" },
+      { group: "Data & BI", items: "MySQL, Power BI, Excel, EDA" },
+      { group: "Tools", items: "Git, GitHub, Postman, VS Code, Jupyter Notebook, Streamlit" },
+      { group: "Core CS", items: "OOP, DSA, DBMS, Operating Systems, Computer Networks" }
     ],
     certifications: [
-      { name: "Mendix Rapid Developer Certification", issuer: "Mendix" },
+      { name: "Mendix Rapid Developer Certification", issuer: "Mendix (Siemens)" },
       { name: "Machine Learning and Data Analytics", issuer: "Infosys Springboard (Skillsoft)" }
+    ],
+    achievements: [
+      { title: "LeetCode", desc: "Solved 40+ Data Structures & Algorithms problems, primarily Arrays and HashMaps." },
+      { title: "SAP Hackfest 2025", desc: "Participant — developed a business solution under time constraints at a national-level student hackathon." }
+    ],
+    activities: [
+      { title: "Content & Creative Lead — Phoenix'26 Technical Club", desc: "Led content planning and creative execution for the college technical fest; coordinated responsibilities and deadlines with team members." },
+      { title: "Cultural Coordinator — Eco Cultural Club", desc: "Coordinated activities involving multiple teams and participants, developing communication, organization, coordination, and deadline-management skills." }
     ],
     projects: [
       {
         title: "Customer Churn Prediction", category: "analytics", status: "Live",
-        desc: "Random Forest model trained on the Telco Customer Churn dataset, wrapped in an interactive Streamlit app for real-time prediction. Built end-to-end and deployed in a single afternoon.",
-        tags: "Python, scikit-learn, Pandas, Streamlit",
-        github: "https://github.com/techmajumder/customer-churn-prediction", live: "", image: ""
+        desc: "End-to-end customer churn prediction application covering data preparation, model development, evaluation, Streamlit application development, and deployment. Logistic Regression, Random Forest, and XGBoost were compared using 5-fold cross-validation; the best model achieved 84.8% ROC-AUC. Includes single-customer prediction, batch risk scoring, and SHAP-based explainability.",
+        tags: "Python, Pandas, scikit-learn, XGBoost, Streamlit, SHAP", github: "", live: "https://lnkd.in/dfEBWVFB", image: "assets/projects/churn-prediction.png"
       },
       {
-        title: "Plant Disease Segmentation", category: "research", status: "Final-year project",
-        desc: "Benchmarked U-Net, SegNet, FCN and DeepLabv3 against a proposed hybrid ResNet50 + ASPP + Attention U-Net with deep supervision, for potato leaf disease detection on the Plant Village and PLD datasets. Built with two teammates under faculty guidance.",
-        tags: "TensorFlow, Keras, Image Segmentation",
-        github: "", live: "", image: ""
+        title: "Task & Category Management REST API", category: "backend", status: "Completed",
+        desc: "Structured RESTful backend using Java, Spring Boot, Spring Data JPA, and MySQL. Implemented CRUD operations, OneToMany/ManyToOne relationships, layered architecture, dependency injection, centralized exception handling, and endpoint validation with Postman.",
+        tags: "Java, Spring Boot, Spring Data JPA, MySQL, REST API, Postman", github: "", live: "", image: "assets/projects/task-category-api.png"
       },
       {
-        title: "Task & Category Management API", category: "backend", status: "Completed",
-        desc: "A Spring Boot REST API with JPA entities, DTO validation, global exception handling, and both H2 and MySQL profiles, backed by JUnit and Mockito tests.",
-        tags: "Spring Boot, JPA, JUnit, Mockito",
-        github: "", live: "", image: ""
+        title: "Customer Shopping Behavior Analysis", category: "analytics", status: "Completed",
+        desc: "Analyzed transaction data with SQL to identify purchasing patterns, category trends, repeat behavior, and discount impact on revenue. Used Python/Pandas for preparation and built an interactive Power BI dashboard with KPIs, customer segmentation, and seasonal trends.",
+        tags: "SQL, MySQL, Python, Pandas, Power BI", github: "", live: "", image: "assets/projects/customer-shopping-behavior.png"
       },
       {
-        title: "Data Analytics Portfolio", category: "analytics", status: "Ongoing",
-        desc: "A set of SQL- and Power BI-driven analyses \u2014 retail sales, e-commerce performance, employment trends in India, and customer shopping behaviour \u2014 each exploring a different slice of business data.",
-        tags: "SQL, Power BI, Pandas",
-        github: "https://github.com/techmajumder", live: "", image: ""
-      },
-      {
-        title: "AI-Powered Outreach Platform", category: "backend", status: "In development",
-        desc: "A platform that turns a spreadsheet of contacts into individually personalised outreach messages, with a human always reviewing and approving before anything sends.",
-        tags: "Python, LangChain, OpenAI API, Streamlit",
-        github: "", live: "", image: ""
+        title: "Mendix Training Management Application", category: "backend", status: "Certified",
+        desc: "Training-management application covering courses, trainees, instructors, role-based access control, automated workflows, application logic, and validation rules for structured business processes.",
+        tags: "Mendix Studio Pro, Application Development, Business Workflows", github: "", live: "", image: "assets/projects/mendix-training.png"
       }
     ],
     contact: {
-      text: "I'm open to data analyst and backend engineering roles, in Kolkata or remote. Email is the fastest way to reach me.",
-      email: "add-your-email@example.com",
+      text: "I am open to entry-level AI, machine learning, and software development opportunities where I can learn, build, and contribute. Email is the fastest way to reach me.",
+      email: "work.sayanmj@gmail.com",
       github: "https://github.com/techmajumder",
       linkedin: "https://www.linkedin.com/in/sayan-majumder-353b05374/"
     }
@@ -428,6 +456,9 @@
     $("sideName").textContent = data.name;
     $("sideRole").textContent = data.role;
     $("sideLoc").textContent = data.location;
+    $("heroPhoto").innerHTML = data.photo
+      ? '<img src="' + esc(data.photo) + '" alt="' + esc(data.name) + '">'
+      : '<span class="ph">' + esc(initials(data.name)) + '</span>';
 
     $("heroHeadline").textContent = data.heroHeadline;
     $("heroSub").textContent = data.heroSub;
@@ -478,6 +509,13 @@
         '<div><div class="cert-name">' + esc(c.name) + '</div><div class="cert-issuer">' + esc(c.issuer) + '</div></div></div></div>';
     }).join("");
 
+    $("achievementList").innerHTML = data.achievements.map(function(a){
+      return '<div class="simple-row"><strong>' + esc(a.title) + '</strong>' + esc(a.desc) + '</div>';
+    }).join("");
+    $("activityList").innerHTML = data.activities.map(function(a){
+      return '<div class="simple-row"><strong>' + esc(a.title) + '</strong>' + esc(a.desc) + '</div>';
+    }).join("");
+
     $("contactText").textContent = data.contact.text;
     var rows = [];
     if(data.contact.email) rows.push(['Email', 'mailto:' + data.contact.email, data.contact.email]);
@@ -490,7 +528,7 @@
 
     $("footer").innerHTML = '\u00A9 ' + new Date().getFullYear() + ' ' + esc(data.name);
 
-    var navHTML = ['about','education','skills','projects','certifications','contact'].map(function(id){
+    var navHTML = ['about','education','skills','projects','certifications','achievements','activities','contact'].map(function(id){
       var label = id.charAt(0).toUpperCase() + id.slice(1);
       if(id === 'certifications') label = 'Certifications';
       return '<a href="#' + id + '">' + label + '</a>';
@@ -633,7 +671,7 @@
     b.push("<h3>Certifications</h3>");
     b.push('<div id="certAdminList"></div><button class="add-btn" id="addCert">+ Add certification</button>');
 
-    b.push("<h3>Projects</h3><div class='hint'>Separate tech tags with commas. Image should be a URL to an already-hosted picture.</div>");
+    b.push("<h3>Projects</h3><div class='hint'>Separate tech tags with commas. Image can be a relative path such as assets/projects/churn-prediction.png or a hosted image URL.</div>");
     b.push('<div id="projAdminList"></div><button class="add-btn" id="addProj">+ Add project</button>');
 
     b.push("<h3>Contact</h3>");
