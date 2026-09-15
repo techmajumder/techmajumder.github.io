@@ -6,1582 +6,1455 @@
 
 <title>Sayan Majumder — Aspiring AI Engineer</title>
 
-<meta
-  name="description"
-  content="Portfolio of Sayan Majumder — B.Tech Computer Science graduate and aspiring AI Engineer based in Kolkata, India."
->
+<meta name="description"
+content="Portfolio of Sayan Majumder — B.Tech Computer Science graduate and aspiring AI Engineer based in Kolkata, India.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-  rel="stylesheet"
->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+rel="stylesheet">
 
 <style>
 
-  /* =========================================================
-     ROOT / LIGHT THEME
-  ========================================================= */
+:root{
+  --paper:#F2F4F5;
+  --paper-raised:#FFFFFF;
+  --ink:#17212C;
+  --muted:#5B6B78;
+  --muted-2:#8B97A2;
+  --line:#D7DCDD;
 
-  :root{
-    --paper:#F2F4F5;
-    --paper-raised:#FFFFFF;
-    --ink:#17212C;
-    --muted:#5B6B78;
-    --muted-2:#8B97A2;
-    --line:#D7DCDD;
+  --accent:#C1791F;
+  --accent-dark:#8F5A14;
 
-    --accent:#C1791F;
-    --accent-dark:#8F5A14;
+  --teal:#2E6F63;
+  --violet:#6E5C94;
 
-    --teal:#2E6F63;
-    --violet:#6E5C94;
+  --radius:3px;
 
-    --danger:#B23A3A;
+  --serif:'Fraunces',serif;
+  --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
 
-    --radius:3px;
+  --sidebar-w:252px;
+}
 
-    --serif:'Fraunces',serif;
-    --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,sans-serif;
-    --mono:'IBM Plex Mono',ui-monospace,monospace;
+/* ================= DARK THEME ================= */
 
-    --sidebar-w:252px;
+body.dark{
+  --paper:#11161B;
+  --paper-raised:#192128;
+  --ink:#EDF2F5;
+  --muted:#AAB6BF;
+  --muted-2:#7F8B94;
+  --line:#303A42;
+
+  --accent:#D99A4B;
+  --accent-dark:#B97829;
+
+  --teal:#59A99A;
+  --violet:#9A87C6;
+}
+
+/* ================= GENERAL ================= */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior:auto;
   }
-
-
-  /* =========================================================
-     DARK THEME
-  ========================================================= */
-
-  body.dark{
-    --paper:#11161B;
-    --paper-raised:#192128;
-
-    --ink:#EDF2F4;
-    --muted:#AAB7C0;
-    --muted-2:#77858F;
-
-    --line:#303A42;
-
-    --accent:#D8943A;
-    --accent-dark:#B87522;
-
-    --teal:#58A695;
-    --violet:#9B87C8;
-
-    --danger:#E06A6A;
-  }
-
-
-  /* =========================================================
-     GLOBAL
-  ========================================================= */
 
   *{
-    box-sizing:border-box;
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+  }
+}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+
+  transition:
+    background-color .25s ease,
+    color .25s ease;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+a{
+  color:inherit;
+}
+
+h1,h2,h3{
+  font-family:var(--serif);
+  font-weight:600;
+  margin:0;
+}
+
+p{
+  margin:0;
+}
+
+button{
+  font-family:var(--sans);
+  cursor:pointer;
+}
+
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+}
+
+.hidden{
+  display:none !important;
+}
+
+.visually-hidden{
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+}
+
+/* ================= THEME BUTTON ================= */
+
+.theme-toggle{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:42px;
+  height:42px;
+
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+
+  background:var(--paper-raised);
+  color:var(--ink);
+
+  font-size:1.2rem;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease,
+    transform .15s ease;
+}
+
+.theme-toggle:hover{
+  transform:translateY(-1px);
+  border-color:var(--accent);
+}
+
+.theme-toggle .moon-icon{
+  display:none;
+}
+
+body.dark .theme-toggle .sun-icon{
+  display:none;
+}
+
+body.dark .theme-toggle .moon-icon{
+  display:inline;
+}
+
+/* ================= SIDEBAR ================= */
+
+#sidebar{
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+
+  width:var(--sidebar-w);
+
+  padding:40px 30px;
+
+  display:flex;
+  flex-direction:column;
+
+  border-right:1px solid var(--line);
+  background:var(--paper);
+
+  z-index:20;
+
+  transition:
+    background-color .25s ease,
+    border-color .25s ease;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+
+.brand-mark{
+  width:42px;
+  height:42px;
+
+  border-radius:var(--radius);
+
+  background:var(--ink);
+  color:var(--paper);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:1.05rem;
+
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.brand-mark img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+}
+
+.brand-name{
+  font-family:var(--serif);
+  font-size:1.02rem;
+  font-weight:600;
+  line-height:1.2;
+}
+
+.brand-role{
+  font-family:var(--mono);
+  font-size:0.7rem;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+#sideNav{
+  margin-top:52px;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:15px;
+}
+
+#sideNav a{
+  font-size:0.94rem;
+  color:var(--muted);
+
+  text-decoration:none;
+
+  padding-bottom:2px;
+
+  border-bottom:1px solid transparent;
+
+  width:fit-content;
+
+  transition:
+    color .15s,
+    border-color .15s;
+}
+
+#sideNav a:hover{
+  color:var(--ink);
+  border-bottom-color:var(--accent);
+}
+
+.side-bottom{
+  margin-top:auto;
+}
+
+.side-loc{
+  padding-top:24px;
+
+  font-family:var(--mono);
+  font-size:0.74rem;
+  color:var(--muted-2);
+
+  line-height:1.5;
+
+  border-top:1px solid var(--line);
+}
+
+.sidebar-theme{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:22px;
+}
+
+.theme-label{
+  font-family:var(--mono);
+  font-size:0.72rem;
+  color:var(--muted-2);
+}
+
+/* ================= MOBILE BAR ================= */
+
+#mobileBar{
+  display:none;
+}
+
+/* ================= MAIN ================= */
+
+#main{
+  margin-left:var(--sidebar-w);
+  padding:0 60px 40px;
+
+  transition:
+    background-color .25s ease,
+    color .25s ease;
+}
+
+.section{
+  padding-top:100px;
+  scroll-margin-top:28px;
+  max-width:780px;
+}
+
+.section-head{
+  margin-bottom:28px;
+}
+
+.section-head h2{
+  font-size:1.65rem;
+}
+
+.section p.lede{
+  max-width:64ch;
+  color:var(--ink);
+  font-size:1.02rem;
+}
+
+/* ================= HERO ================= */
+
+#hero{
+  padding-top:72px;
+}
+
+#hero h1{
+  font-size:clamp(2rem,4vw,2.9rem);
+  line-height:1.22;
+  font-weight:600;
+
+  max-width:16ch;
+
+  letter-spacing:-0.01em;
+}
+
+#hero .hero-sub{
+  margin-top:22px;
+  max-width:56ch;
+
+  color:var(--muted);
+  font-size:1.05rem;
+}
+
+.hero-layout{
+  display:grid;
+
+  grid-template-columns:minmax(0,1fr) 220px;
+
+  gap:42px;
+
+  align-items:start;
+}
+
+.hero-photo{
+  width:210px;
+  height:250px;
+
+  border:1px solid var(--line);
+
+  background:var(--paper-raised);
+
+  border-radius:var(--radius);
+
+  overflow:hidden;
+}
+
+.hero-photo img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+.hero-photo .ph{
+  height:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-family:var(--serif);
+  font-size:2.4rem;
+
+  color:var(--muted-2);
+}
+
+.hero-ctas{
+  display:flex;
+  gap:14px;
+
+  margin-top:32px;
+
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:11px 22px;
+
+  border-radius:var(--radius);
+
+  font-size:0.92rem;
+  font-weight:500;
+
+  text-decoration:none;
+
+  border:1px solid transparent;
+
+  transition:
+    transform .15s,
+    background .15s,
+    border-color .15s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:#fff;
+}
+
+.btn-primary:hover{
+  background:var(--accent-dark);
+}
+
+.btn-outline{
+  border-color:var(--line);
+  color:var(--ink);
+  background:transparent;
+}
+
+.btn-outline:hover{
+  border-color:var(--ink);
+}
+
+.ledger{
+  margin-top:44px;
+
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+
+  background:var(--paper-raised);
+
+  max-width:380px;
+
+  overflow:hidden;
+}
+
+.ledger-row{
+  display:flex;
+
+  align-items:baseline;
+  justify-content:space-between;
+
+  padding:13px 18px;
+
+  border-bottom:1px solid var(--line);
+}
+
+.ledger-row:last-child{
+  border-bottom:none;
+}
+
+.ledger-val{
+  font-family:var(--mono);
+  font-weight:600;
+
+  color:var(--accent);
+
+  font-size:1rem;
+}
+
+.ledger-label{
+  font-size:0.86rem;
+  color:var(--muted);
+}
+
+/* ================= ANIMATION ================= */
+
+.fade-in{
+  animation:fadeUp .7s ease both;
+}
+
+.fade-in.d1{
+  animation-delay:.08s;
+}
+
+.fade-in.d2{
+  animation-delay:.16s;
+}
+
+.fade-in.d3{
+  animation-delay:.24s;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(10px);
   }
 
-  html{
-    scroll-behavior:smooth;
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
+}
 
-  @media (prefers-reduced-motion: reduce){
+/* ================= ABOUT ================= */
 
-    html{
-      scroll-behavior:auto;
-    }
+#about p{
+  color:var(--muted);
+}
 
-    *{
-      animation-duration:0.01ms !important;
-      animation-iteration-count:1 !important;
-      transition-duration:0.01ms !important;
-    }
+/* ================= EDUCATION ================= */
 
-  }
+.edu-row{
+  display:flex;
 
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
+  gap:24px;
 
-    font-family:var(--sans);
-    line-height:1.6;
+  padding:18px 0;
 
-    -webkit-font-smoothing:antialiased;
+  border-bottom:1px solid var(--line);
+}
 
-    transition:
-      background-color .25s ease,
-      color .25s ease;
-  }
+.edu-row:last-child{
+  border-bottom:none;
+}
 
-  img{
-    max-width:100%;
-    display:block;
-  }
+.edu-period{
+  font-family:var(--mono);
 
-  a{
-    color:inherit;
-  }
+  font-size:0.82rem;
 
-  h1,
-  h2,
-  h3{
-    font-family:var(--serif);
-    font-weight:600;
-    margin:0;
-  }
+  color:var(--accent);
 
-  p{
-    margin:0;
-  }
+  width:110px;
 
-  button{
-    font-family:var(--sans);
-    cursor:pointer;
-  }
+  flex-shrink:0;
 
-  :focus-visible{
-    outline:2px solid var(--accent);
-    outline-offset:2px;
-  }
+  padding-top:3px;
+}
 
-  .hidden{
-    display:none !important;
-  }
+.edu-degree{
+  font-weight:600;
+  font-size:1rem;
+}
 
-  .visually-hidden{
-    position:absolute;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-    clip:rect(0,0,0,0);
-    white-space:nowrap;
-  }
+.edu-school{
+  color:var(--muted);
+  font-size:0.92rem;
+  margin-top:3px;
+}
 
+.edu-detail{
+  color:var(--muted-2);
 
-  /* =========================================================
-     THEME BUTTON
-  ========================================================= */
+  font-size:0.84rem;
 
-  .theme-toggle{
-    width:42px;
-    height:42px;
+  margin-top:5px;
 
-    border:1px solid var(--line);
-    border-radius:50%;
+  font-family:var(--mono);
+}
 
-    background:var(--paper-raised);
-    color:var(--ink);
+/* ================= SKILLS ================= */
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.skills-grid{
+  display:grid;
 
-    font-size:1.15rem;
+  grid-template-columns:repeat(2,1fr);
 
-    transition:
-      background .2s ease,
-      border-color .2s ease,
-      transform .2s ease,
-      color .2s ease;
-  }
+  gap:28px 32px;
+}
 
-  .theme-toggle:hover{
-    transform:translateY(-2px);
-    border-color:var(--accent);
-    color:var(--accent);
-  }
+.skill-group h3{
+  font-size:0.95rem;
+  font-weight:600;
 
-  .theme-toggle-wrap{
-    margin-top:26px;
+  margin-bottom:12px;
+}
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+.chip-row{
+  display:flex;
+  flex-wrap:wrap;
 
-    padding-bottom:22px;
+  gap:8px;
+}
 
-    border-bottom:1px solid var(--line);
-  }
+.chip{
+  border:1px solid var(--line);
 
-  .theme-label{
-    font-family:var(--mono);
-    font-size:.72rem;
-    color:var(--muted-2);
-  }
+  border-radius:var(--radius);
 
+  padding:5px 11px;
 
-  /* =========================================================
-     SIDEBAR
-  ========================================================= */
+  font-family:var(--mono);
+
+  font-size:0.78rem;
+
+  color:var(--ink);
+
+  background:var(--paper-raised);
+}
+
+/* ================= PROJECTS ================= */
+
+.project-grid{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:20px;
+}
+
+.project-card{
+  background:var(--paper-raised);
+
+  border:1px solid var(--line);
+
+  border-left:3px solid var(--cat-color,var(--accent));
+
+  border-radius:var(--radius);
+
+  padding:22px;
+
+  display:flex;
+  flex-direction:column;
+
+  transition:
+    box-shadow .15s,
+    transform .15s,
+    background-color .25s ease;
+}
+
+.project-card:hover{
+  box-shadow:0 6px 18px rgba(23,33,44,0.07);
+
+  transform:translateY(-2px);
+}
+
+body.dark .project-card:hover{
+  box-shadow:0 6px 18px rgba(0,0,0,0.25);
+}
+
+.project-thumb{
+  width:100%;
+
+  aspect-ratio:16/8;
+
+  border-radius:var(--radius);
+
+  margin-bottom:14px;
+
+  overflow:hidden;
+
+  background:var(--cat-color,var(--accent));
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.project-thumb img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+.project-thumb .ph{
+  font-family:var(--serif);
+
+  color:#fff;
+
+  font-size:1.4rem;
+
+  opacity:0.85;
+}
+
+.project-top{
+  display:flex;
+
+  justify-content:space-between;
+  align-items:flex-start;
+
+  gap:10px;
+}
+
+.project-title{
+  font-size:1.05rem;
+
+  font-weight:600;
+
+  font-family:var(--serif);
+}
+
+.project-status{
+  font-family:var(--mono);
+
+  font-size:0.68rem;
+
+  color:var(--cat-color,var(--accent));
+
+  border:1px solid var(--cat-color,var(--accent));
+
+  border-radius:var(--radius);
+
+  padding:2px 7px;
+
+  white-space:nowrap;
+
+  flex-shrink:0;
+
+  margin-top:2px;
+}
+
+.project-cat{
+  font-family:var(--mono);
+
+  font-size:0.74rem;
+
+  color:var(--cat-color,var(--accent));
+
+  margin-top:5px;
+}
+
+.project-desc{
+  color:var(--muted);
+
+  font-size:0.9rem;
+
+  margin-top:10px;
+
+  flex-grow:1;
+}
+
+.project-tags{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:6px;
+
+  margin-top:14px;
+}
+
+.project-tags .chip{
+  font-size:0.72rem;
+
+  padding:4px 9px;
+}
+
+.project-links{
+  display:flex;
+
+  gap:16px;
+
+  margin-top:14px;
+}
+
+.project-links a{
+  font-size:0.85rem;
+
+  font-weight:500;
+
+  text-decoration:none;
+
+  border-bottom:1px solid var(--line);
+}
+
+.project-links a:hover{
+  border-color:var(--ink);
+}
+
+/* ================= CERTIFICATIONS ================= */
+
+.cert-row{
+  display:flex;
+
+  justify-content:space-between;
+  align-items:baseline;
+
+  padding:16px 0;
+
+  border-bottom:1px solid var(--line);
+
+  gap:16px;
+}
+
+.cert-row:last-child{
+  border-bottom:none;
+}
+
+.cert-name{
+  font-weight:600;
+
+  font-size:0.98rem;
+}
+
+.cert-issuer{
+  color:var(--muted);
+
+  font-size:0.86rem;
+
+  margin-top:3px;
+}
+
+.cert-mark{
+  width:8px;
+  height:8px;
+
+  border-radius:2px;
+
+  background:var(--teal);
+
+  flex-shrink:0;
+
+  margin-right:14px;
+
+  align-self:center;
+}
+
+.cert-left{
+  display:flex;
+  align-items:center;
+}
+
+/* ================= ACHIEVEMENTS ================= */
+
+.simple-row{
+  padding:16px 0;
+
+  border-bottom:1px solid var(--line);
+
+  color:var(--muted);
+
+  font-size:0.92rem;
+}
+
+.simple-row:last-child{
+  border-bottom:none;
+}
+
+.simple-row strong{
+  display:block;
+
+  color:var(--ink);
+
+  font-size:0.98rem;
+
+  margin-bottom:3px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-links{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:2px;
+
+  margin-top:26px;
+
+  max-width:420px;
+}
+
+.contact-row{
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  padding:14px 0;
+
+  border-bottom:1px solid var(--line);
+
+  text-decoration:none;
+
+  color:var(--ink);
+}
+
+.contact-row:hover .contact-val{
+  color:var(--accent);
+}
+
+.contact-row:last-child{
+  border-bottom:none;
+}
+
+.contact-key{
+  font-family:var(--mono);
+
+  font-size:0.78rem;
+
+  color:var(--muted);
+}
+
+.contact-val{
+  font-size:0.95rem;
+
+  font-weight:500;
+
+  transition:color .15s;
+}
+
+footer{
+  margin-top:100px;
+
+  padding:26px 0 10px;
+
+  border-top:1px solid var(--line);
+
+  color:var(--muted-2);
+
+  font-size:0.8rem;
+
+  font-family:var(--mono);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width:900px){
 
   #sidebar{
-    position:fixed;
-
-    top:0;
-    left:0;
-    bottom:0;
-
-    width:var(--sidebar-w);
-
-    padding:40px 30px;
-
-    display:flex;
-    flex-direction:column;
-
-    border-right:1px solid var(--line);
-
-    background:var(--paper);
-
-    z-index:20;
-
-    transition:
-      background-color .25s ease,
-      border-color .25s ease;
-  }
-
-  .brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    text-decoration:none;
-  }
-
-  .brand-mark{
-    width:42px;
-    height:42px;
-
-    border-radius:var(--radius);
-
-    background:var(--ink);
-    color:var(--paper);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-family:var(--serif);
-    font-weight:600;
-    font-size:1.05rem;
-
-    overflow:hidden;
-    flex-shrink:0;
-  }
-
-  .brand-mark img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-
-  .brand-text{
-    display:flex;
-    flex-direction:column;
-  }
-
-  .brand-name{
-    font-family:var(--serif);
-    font-size:1.02rem;
-    font-weight:600;
-    line-height:1.2;
-  }
-
-  .brand-role{
-    font-family:var(--mono);
-    font-size:.7rem;
-
-    color:var(--muted);
-
-    margin-top:3px;
-  }
-
-  #sideNav{
-    margin-top:34px;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:15px;
-  }
-
-  #sideNav a{
-    font-size:.94rem;
-
-    color:var(--muted);
-
-    text-decoration:none;
-
-    padding-bottom:2px;
-
-    border-bottom:1px solid transparent;
-
-    width:fit-content;
-
-    transition:
-      color .15s,
-      border-color .15s;
-  }
-
-  #sideNav a:hover{
-    color:var(--ink);
-    border-bottom-color:var(--accent);
-  }
-
-  .side-loc{
-    margin-top:auto;
-
-    padding-top:24px;
-
-    font-family:var(--mono);
-    font-size:.74rem;
-
-    color:var(--muted-2);
-
-    line-height:1.5;
-
-    border-top:1px solid var(--line);
-  }
-
-
-  /* =========================================================
-     MOBILE BAR
-  ========================================================= */
-
-  #mobileBar{
     display:none;
   }
 
-  #mobileBar .mobile-actions{
+  #mobileBar{
     display:flex;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:20;
+
+    background:var(--paper);
+
+    border-bottom:1px solid var(--line);
+
+    padding:16px 20px;
+
     align-items:center;
+
+    justify-content:space-between;
+  }
+
+  #mobileBar .brand-mark{
+    width:34px;
+    height:34px;
+
+    font-size:0.9rem;
+  }
+
+  .mobile-actions{
+    display:flex;
+
+    align-items:center;
+
     gap:8px;
   }
 
-  #mobileBar .theme-toggle{
-    width:38px;
-    height:38px;
-    font-size:1rem;
+  #mobileNavToggle{
+    background:none;
+
+    border:1px solid var(--line);
+
+    border-radius:var(--radius);
+
+    padding:8px 14px;
+
+    font-size:0.85rem;
+
+    color:var(--ink);
   }
 
+  #mobileNavPanel{
+    position:sticky;
 
-  /* =========================================================
-     MAIN
-  ========================================================= */
+    top:65px;
+
+    z-index:19;
+
+    background:var(--paper-raised);
+
+    border-bottom:1px solid var(--line);
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:10px 20px 16px;
+  }
+
+  #mobileNavPanel a{
+    padding:10px 0;
+
+    color:var(--muted);
+
+    text-decoration:none;
+
+    border-bottom:1px solid var(--line);
+
+    font-size:0.95rem;
+  }
+
+  #mobileNavPanel a:last-child{
+    border-bottom:none;
+  }
 
   #main{
-    margin-left:var(--sidebar-w);
+    margin-left:0;
 
-    padding:0 60px 40px;
+    padding:0 22px 40px;
   }
 
   .section{
-    padding-top:100px;
+    padding-top:56px;
 
-    scroll-margin-top:28px;
-
-    max-width:780px;
+    max-width:100%;
   }
 
-  .section-head{
-    margin-bottom:28px;
-  }
-
-  .section-head h2{
-    font-size:1.65rem;
-  }
-
-  .section p.lede{
-    max-width:64ch;
-
-    color:var(--ink);
-
-    font-size:1.02rem;
-  }
-
-
-  /* =========================================================
-     HERO
-  ========================================================= */
-
-  #hero{
-    padding-top:72px;
-  }
-
-  #hero h1{
-    font-size:clamp(2rem,4vw,2.9rem);
-
-    line-height:1.22;
-
-    font-weight:600;
-
-    max-width:16ch;
-
-    letter-spacing:-0.01em;
-  }
-
-  #hero .hero-sub{
-    margin-top:22px;
-
-    max-width:56ch;
-
-    color:var(--muted);
-
-    font-size:1.05rem;
+  .project-grid{
+    grid-template-columns:1fr;
   }
 
   .hero-layout{
-    display:grid;
-
-    grid-template-columns:minmax(0,1fr) 220px;
-
-    gap:42px;
-
-    align-items:start;
+    grid-template-columns:1fr;
   }
 
   .hero-photo{
-    width:210px;
-    height:250px;
-
-    border:1px solid var(--line);
-
-    background:var(--paper-raised);
-
-    border-radius:var(--radius);
-
-    overflow:hidden;
+    width:150px;
+    height:180px;
   }
 
-  .hero-photo img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
+  .skills-grid{
+    grid-template-columns:1fr;
   }
-
-  .hero-photo .ph{
-    height:100%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-family:var(--serif);
-
-    font-size:2.4rem;
-
-    color:var(--muted-2);
-  }
-
-  .hero-ctas{
-    display:flex;
-
-    gap:14px;
-
-    margin-top:32px;
-
-    flex-wrap:wrap;
-  }
-
-  .btn{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:11px 22px;
-
-    border-radius:var(--radius);
-
-    font-size:.92rem;
-
-    font-weight:500;
-
-    text-decoration:none;
-
-    border:1px solid transparent;
-
-    transition:
-      transform .15s,
-      background .15s,
-      border-color .15s;
-  }
-
-  .btn:hover{
-    transform:translateY(-1px);
-  }
-
-  .btn-primary{
-    background:var(--accent);
-    color:#fff;
-  }
-
-  .btn-primary:hover{
-    background:var(--accent-dark);
-  }
-
-  .btn-outline{
-    border-color:var(--line);
-
-    color:var(--ink);
-
-    background:transparent;
-  }
-
-  .btn-outline:hover{
-    border-color:var(--ink);
-  }
-
-  .ledger{
-    margin-top:44px;
-
-    border:1px solid var(--line);
-
-    border-radius:var(--radius);
-
-    background:var(--paper-raised);
-
-    max-width:380px;
-
-    overflow:hidden;
-  }
-
-  .ledger-row{
-    display:flex;
-
-    align-items:baseline;
-
-    justify-content:space-between;
-
-    padding:13px 18px;
-
-    border-bottom:1px solid var(--line);
-  }
-
-  .ledger-row:last-child{
-    border-bottom:none;
-  }
-
-  .ledger-val{
-    font-family:var(--mono);
-
-    font-weight:600;
-
-    color:var(--accent);
-
-    font-size:1rem;
-  }
-
-  .ledger-label{
-    font-size:.86rem;
-
-    color:var(--muted);
-  }
-
-
-  /* =========================================================
-     ANIMATION
-  ========================================================= */
-
-  .fade-in{
-    animation:fadeUp .7s ease both;
-  }
-
-  .fade-in.d1{
-    animation-delay:.08s;
-  }
-
-  .fade-in.d2{
-    animation-delay:.16s;
-  }
-
-  .fade-in.d3{
-    animation-delay:.24s;
-  }
-
-  @keyframes fadeUp{
-
-    from{
-      opacity:0;
-      transform:translateY(10px);
-    }
-
-    to{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-  }
-
-
-  /* =========================================================
-     ABOUT
-  ========================================================= */
-
-  #about p{
-    color:var(--muted);
-  }
-
-
-  /* =========================================================
-     EDUCATION
-  ========================================================= */
 
   .edu-row{
-    display:flex;
+    flex-direction:column;
 
-    gap:24px;
-
-    padding:18px 0;
-
-    border-bottom:1px solid var(--line);
-  }
-
-  .edu-row:last-child{
-    border-bottom:none;
+    gap:6px;
   }
 
   .edu-period{
-    font-family:var(--mono);
-
-    font-size:.82rem;
-
-    color:var(--accent);
-
-    width:110px;
-
-    flex-shrink:0;
-
-    padding-top:3px;
+    width:auto;
   }
+}
 
-  .edu-degree{
-    font-weight:600;
+/* ================= ADMIN LOGIN ================= */
 
-    font-size:1rem;
+.overlay{
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(23,33,44,0.55);
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  z-index:100;
+
+  padding:20px;
+}
+
+.modal{
+  background:var(--paper-raised);
+
+  border-radius:var(--radius);
+
+  padding:32px;
+
+  width:100%;
+
+  max-width:360px;
+}
+
+.modal h2{
+  font-size:1.2rem;
+
+  margin-bottom:6px;
+}
+
+.modal p{
+  color:var(--muted);
+
+  font-size:0.88rem;
+
+  margin-bottom:18px;
+}
+
+.field{
+  margin-bottom:14px;
+}
+
+.field label{
+  display:block;
+
+  font-size:0.8rem;
+
+  color:var(--muted);
+
+  margin-bottom:6px;
+
+  font-family:var(--mono);
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+
+  padding:9px 11px;
+
+  border:1px solid var(--line);
+
+  border-radius:var(--radius);
+
+  font-family:var(--sans);
+
+  font-size:0.9rem;
+
+  background:var(--paper-raised);
+
+  color:var(--ink);
+}
+
+.field textarea{
+  resize:vertical;
+
+  min-height:60px;
+}
+
+.form-error{
+  color:#B23A3A;
+
+  font-size:0.82rem;
+
+  margin-top:8px;
+
+  min-height:18px;
+}
+
+.modal-actions{
+  display:flex;
+
+  gap:10px;
+
+  margin-top:18px;
+}
+
+/* ================= ADMIN BAR ================= */
+
+#adminBar{
+  position:fixed;
+
+  top:0;
+  left:0;
+  right:0;
+
+  background:var(--ink);
+
+  color:var(--paper);
+
+  z-index:90;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  padding:10px 22px;
+
+  font-size:0.85rem;
+}
+
+#adminBar .abar-tag{
+  font-family:var(--mono);
+
+  background:var(--accent);
+
+  color:#fff;
+
+  padding:3px 9px;
+
+  border-radius:var(--radius);
+
+  font-size:0.72rem;
+
+  margin-right:10px;
+}
+
+#adminBar .abar-actions{
+  display:flex;
+
+  gap:8px;
+
+  flex-wrap:wrap;
+}
+
+#adminBar button{
+  background:transparent;
+
+  border:1px solid rgba(255,255,255,0.3);
+
+  color:#fff;
+
+  padding:6px 12px;
+
+  border-radius:var(--radius);
+
+  font-size:0.8rem;
+}
+
+#adminBar button:hover{
+  background:rgba(255,255,255,0.12);
+}
+
+body.admin-on #main,
+body.admin-on #sidebar,
+body.admin-on #mobileBar{
+  margin-top:46px;
+}
+
+body.admin-on #sidebar{
+  top:46px;
+}
+
+/* ================= ADMIN PANEL ================= */
+
+#adminPanel{
+  position:fixed;
+
+  top:0;
+  right:0;
+  bottom:0;
+
+  width:min(480px,100%);
+
+  background:var(--paper-raised);
+
+  border-left:1px solid var(--line);
+
+  z-index:95;
+
+  overflow-y:auto;
+
+  padding:60px 28px 100px;
+
+  box-shadow:-8px 0 24px rgba(0,0,0,0.08);
+}
+
+#adminPanel h3{
+  font-size:1rem;
+
+  margin:30px 0 4px;
+
+  padding-top:20px;
+
+  border-top:1px solid var(--line);
+}
+
+#adminPanel h3:first-of-type{
+  border-top:none;
+
+  padding-top:0;
+
+  margin-top:0;
+}
+
+#adminPanel .hint{
+  color:var(--muted-2);
+
+  font-size:0.78rem;
+
+  margin-bottom:14px;
+}
+
+.arr-item{
+  border:1px solid var(--line);
+
+  border-radius:var(--radius);
+
+  padding:14px;
+
+  margin-bottom:12px;
+
+  position:relative;
+}
+
+.arr-remove{
+  position:absolute;
+
+  top:8px;
+  right:8px;
+
+  background:none;
+
+  border:none;
+
+  color:var(--muted);
+
+  font-size:1rem;
+
+  line-height:1;
+
+  padding:4px;
+}
+
+.arr-remove:hover{
+  color:#B23A3A;
+}
+
+.add-btn{
+  width:100%;
+
+  border:1px dashed var(--line);
+
+  background:none;
+
+  border-radius:var(--radius);
+
+  padding:10px;
+
+  color:var(--muted);
+
+  font-size:0.85rem;
+
+  margin-bottom:6px;
+}
+
+.add-btn:hover{
+  border-color:var(--accent);
+
+  color:var(--accent);
+}
+
+.panel-close{
+  position:absolute;
+
+  top:18px;
+  right:20px;
+
+  background:none;
+
+  border:none;
+
+  font-size:1.3rem;
+
+  color:var(--muted);
+}
+
+.save-row{
+  position:sticky;
+
+  bottom:-100px;
+
+  background:var(--paper-raised);
+
+  padding:14px 0 4px;
+
+  margin-top:24px;
+
+  border-top:1px solid var(--line);
+}
+
+.save-msg{
+  font-size:0.82rem;
+
+  color:var(--teal);
+
+  margin-top:8px;
+
+  min-height:16px;
+}
+
+.two-col{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:10px;
+}
+
+@media(max-width:600px){
+
+  .two-col{
+    grid-template-columns:1fr;
   }
-
-  .edu-school{
-    color:var(--muted);
-
-    font-size:.92rem;
-
-    margin-top:3px;
-  }
-
-  .edu-detail{
-    color:var(--muted-2);
-
-    font-size:.84rem;
-
-    margin-top:5px;
-
-    font-family:var(--mono);
-  }
-
-
-  /* =========================================================
-     SKILLS
-  ========================================================= */
-
-  .skills-grid{
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:28px 32px;
-  }
-
-  .skill-group h3{
-    font-size:.95rem;
-
-    font-weight:600;
-
-    margin-bottom:12px;
-  }
-
-  .chip-row{
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:8px;
-  }
-
-  .chip{
-    border:1px solid var(--line);
-
-    border-radius:var(--radius);
-
-    padding:5px 11px;
-
-    font-family:var(--mono);
-
-    font-size:.78rem;
-
-    color:var(--ink);
-
-    background:var(--paper-raised);
-  }
-
-
-  /* =========================================================
-     PROJECTS
-  ========================================================= */
-
-  .project-grid{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:20px;
-  }
-
-  .project-card{
-    background:var(--paper-raised);
-
-    border:1px solid var(--line);
-
-    border-left:3px solid var(--cat-color,var(--accent));
-
-    border-radius:var(--radius);
-
-    padding:22px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    transition:
-      box-shadow .15s,
-      transform .15s,
-      background-color .25s ease;
-  }
-
-  .project-card:hover{
-    box-shadow:0 6px 18px rgba(23,33,44,.07);
-
-    transform:translateY(-2px);
-  }
-
-  body.dark .project-card:hover{
-    box-shadow:0 6px 18px rgba(0,0,0,.25);
-  }
-
-  .project-thumb{
-    width:100%;
-
-    aspect-ratio:16/8;
-
-    border-radius:var(--radius);
-
-    margin-bottom:14px;
-
-    overflow:hidden;
-
-    background:var(--cat-color,var(--accent));
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-  }
-
-  .project-thumb img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-  }
-
-  .project-thumb .ph{
-    font-family:var(--serif);
-
-    color:#fff;
-
-    font-size:1.4rem;
-
-    opacity:.85;
-  }
-
-  .project-top{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-start;
-
-    gap:10px;
-  }
-
-  .project-title{
-    font-size:1.05rem;
-
-    font-weight:600;
-
-    font-family:var(--serif);
-  }
-
-  .project-status{
-    font-family:var(--mono);
-
-    font-size:.68rem;
-
-    color:var(--cat-color,var(--accent));
-
-    border:1px solid var(--cat-color,var(--accent));
-
-    border-radius:var(--radius);
-
-    padding:2px 7px;
-
-    white-space:nowrap;
-
-    flex-shrink:0;
-
-    margin-top:2px;
-  }
-
-  .project-cat{
-    font-family:var(--mono);
-
-    font-size:.74rem;
-
-    color:var(--cat-color,var(--accent));
-
-    margin-top:5px;
-  }
-
-  .project-desc{
-    color:var(--muted);
-
-    font-size:.9rem;
-
-    margin-top:10px;
-
-    flex-grow:1;
-  }
-
-  .project-tags{
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:6px;
-
-    margin-top:14px;
-  }
-
-  .project-tags .chip{
-    font-size:.72rem;
-
-    padding:4px 9px;
-  }
-
-  .project-links{
-    display:flex;
-
-    gap:16px;
-
-    margin-top:14px;
-  }
-
-  .project-links a{
-    font-size:.85rem;
-
-    font-weight:500;
-
-    text-decoration:none;
-
-    border-bottom:1px solid var(--line);
-  }
-
-  .project-links a:hover{
-    border-color:var(--ink);
-  }
-
-
-  /* =========================================================
-     CERTIFICATIONS
-  ========================================================= */
-
-  .cert-row{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:baseline;
-
-    padding:16px 0;
-
-    border-bottom:1px solid var(--line);
-
-    gap:16px;
-  }
-
-  .cert-row:last-child{
-    border-bottom:none;
-  }
-
-  .cert-name{
-    font-weight:600;
-
-    font-size:.98rem;
-  }
-
-  .cert-issuer{
-    color:var(--muted);
-
-    font-size:.86rem;
-
-    margin-top:3px;
-  }
-
-  .cert-mark{
-    width:8px;
-    height:8px;
-
-    border-radius:2px;
-
-    background:var(--teal);
-
-    flex-shrink:0;
-
-    margin-right:14px;
-
-    align-self:center;
-  }
-
-  .cert-left{
-    display:flex;
-
-    align-items:center;
-  }
-
-
-  /* =========================================================
-     ACHIEVEMENTS / ACTIVITIES
-  ========================================================= */
-
-  .simple-row{
-    padding:16px 0;
-
-    border-bottom:1px solid var(--line);
-
-    color:var(--muted);
-
-    font-size:.92rem;
-  }
-
-  .simple-row:last-child{
-    border-bottom:none;
-  }
-
-  .simple-row strong{
-    display:block;
-
-    color:var(--ink);
-
-    font-size:.98rem;
-
-    margin-bottom:3px;
-  }
-
-
-  /* =========================================================
-     CONTACT
-  ========================================================= */
-
-  .contact-links{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:2px;
-
-    margin-top:26px;
-
-    max-width:420px;
-  }
-
-  .contact-row{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:14px 0;
-
-    border-bottom:1px solid var(--line);
-
-    text-decoration:none;
-
-    color:var(--ink);
-
-    gap:20px;
-  }
-
-  .contact-row:hover .contact-val{
-    color:var(--accent);
-  }
-
-  .contact-row:last-child{
-    border-bottom:none;
-  }
-
-  .contact-key{
-    font-family:var(--mono);
-
-    font-size:.78rem;
-
-    color:var(--muted);
-  }
-
-  .contact-val{
-    font-size:.95rem;
-
-    font-weight:500;
-
-    transition:color .15s;
-
-    text-align:right;
-  }
-
-
-  /* =========================================================
-     FOOTER
-  ========================================================= */
-
-  footer{
-    margin-top:100px;
-
-    padding:26px 0 10px;
-
-    border-top:1px solid var(--line);
-
-    color:var(--muted-2);
-
-    font-size:.8rem;
-
-    font-family:var(--mono);
-  }
-
-
-  /* =========================================================
-     RESPONSIVE
-  ========================================================= */
-
-  @media (max-width:900px){
-
-    #sidebar{
-      display:none;
-    }
-
-    #mobileBar{
-      display:flex;
-
-      position:sticky;
-
-      top:0;
-
-      z-index:20;
-
-      background:var(--paper);
-
-      border-bottom:1px solid var(--line);
-
-      padding:16px 20px;
-
-      align-items:center;
-
-      justify-content:space-between;
-    }
-
-    #mobileBar .brand-mark{
-      width:34px;
-      height:34px;
-
-      font-size:.9rem;
-    }
-
-    #mobileNavToggle{
-      background:none;
-
-      border:1px solid var(--line);
-
-      border-radius:var(--radius);
-
-      padding:8px 14px;
-
-      font-size:.85rem;
-
-      color:var(--ink);
-    }
-
-    #mobileNavPanel{
-      position:sticky;
-
-      top:65px;
-
-      z-index:19;
-
-      background:var(--paper-raised);
-
-      border-bottom:1px solid var(--line);
-
-      display:flex;
-
-      flex-direction:column;
-
-      padding:10px 20px 16px;
-    }
-
-    #mobileNavPanel a{
-      padding:10px 0;
-
-      color:var(--muted);
-
-      text-decoration:none;
-
-      border-bottom:1px solid var(--line);
-
-      font-size:.95rem;
-    }
-
-    #mobileNavPanel a:last-child{
-      border-bottom:none;
-    }
-
-    #main{
-      margin-left:0;
-
-      padding:0 22px 40px;
-    }
-
-    .section{
-      padding-top:56px;
-
-      max-width:100%;
-    }
-
-    .project-grid{
-      grid-template-columns:1fr;
-    }
-
-    .hero-layout{
-      grid-template-columns:1fr;
-    }
-
-    .hero-photo{
-      width:150px;
-      height:180px;
-    }
-
-    .skills-grid{
-      grid-template-columns:1fr;
-    }
-
-    .edu-row{
-      flex-direction:column;
-
-      gap:6px;
-    }
-
-    .edu-period{
-      width:auto;
-    }
-
-  }
-
-
-  /* =========================================================
-     ADMIN LOGIN
-  ========================================================= */
-
-  .overlay{
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(23,33,44,.55);
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    z-index:100;
-
-    padding:20px;
-  }
-
-  .modal{
-    background:var(--paper-raised);
-
-    border-radius:var(--radius);
-
-    padding:32px;
-
-    width:100%;
-
-    max-width:360px;
-  }
-
-  .modal h2{
-    font-size:1.2rem;
-
-    margin-bottom:6px;
-  }
-
-  .modal p{
-    color:var(--muted);
-
-    font-size:.88rem;
-
-    margin-bottom:18px;
-  }
-
-  .field{
-    margin-bottom:14px;
-  }
-
-  .field label{
-    display:block;
-
-    font-size:.8rem;
-
-    color:var(--muted);
-
-    margin-bottom:6px;
-
-    font-family:var(--mono);
-  }
-
-  .field input,
-  .field textarea,
-  .field select{
-
-    width:100%;
-
-    padding:9px 11px;
-
-    border:1px solid var(--line);
-
-    border-radius:var(--radius);
-
-    font-family:var(--sans);
-
-    font-size:.9rem;
-
-    background:var(--paper-raised);
-
-    color:var(--ink);
-  }
-
-  .field textarea{
-    resize:vertical;
-
-    min-height:60px;
-  }
-
-  .form-error{
-    color:var(--danger);
-
-    font-size:.82rem;
-
-    margin-top:8px;
-
-    min-height:18px;
-  }
-
-  .modal-actions{
-    display:flex;
-
-    gap:10px;
-
-    margin-top:18px;
-  }
-
-
-  /* =========================================================
-     ADMIN BAR
-  ========================================================= */
 
   #adminBar{
-    position:fixed;
+    align-items:flex-start;
 
-    top:0;
-    left:0;
-    right:0;
+    flex-direction:column;
 
-    background:var(--ink);
-
-    color:var(--paper);
-
-    z-index:90;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:10px 22px;
-
-    font-size:.85rem;
-
-    gap:15px;
-  }
-
-  #adminBar .abar-tag{
-    font-family:var(--mono);
-
-    background:var(--accent);
-
-    color:#fff;
-
-    padding:3px 9px;
-
-    border-radius:var(--radius);
-
-    font-size:.72rem;
-
-    margin-right:10px;
+    gap:8px;
   }
 
   #adminBar .abar-actions{
-    display:flex;
-
-    gap:8px;
-
-    flex-wrap:wrap;
+    width:100%;
   }
 
   #adminBar button{
-    background:transparent;
+    font-size:0.72rem;
 
-    border:1px solid rgba(255,255,255,.3);
-
-    color:#fff;
-
-    padding:6px 12px;
-
-    border-radius:var(--radius);
-
-    font-size:.8rem;
+    padding:5px 8px;
   }
 
-  #adminBar button:hover{
-    background:rgba(255,255,255,.12);
-  }
+}
 
-  body.admin-on #main,
-  body.admin-on #sidebar,
-  body.admin-on #mobileBar{
-    margin-top:46px;
-  }
-
-  body.admin-on #sidebar{
-    top:46px;
-  }
-
-
-  /* =========================================================
-     ADMIN PANEL
-  ========================================================= */
-
-  #adminPanel{
-    position:fixed;
-
-    top:0;
-    right:0;
-    bottom:0;
-
-    width:min(480px,100%);
-
-    background:var(--paper-raised);
-
-    border-left:1px solid var(--line);
-
-    z-index:95;
-
-    overflow-y:auto;
-
-    padding:60px 28px 100px;
-
-    box-shadow:-8px 0 24px rgba(0,0,0,.08);
-  }
-
-  #adminPanel h3{
-    font-size:1rem;
-
-    margin:30px 0 4px;
-
-    padding-top:20px;
-
-    border-top:1px solid var(--line);
-  }
-
-  #adminPanel h3:first-of-type{
-    border-top:none;
-
-    padding-top:0;
-
-    margin-top:0;
-  }
-
-  #adminPanel .hint{
-    color:var(--muted-2);
-
-    font-size:.78rem;
-
-    margin-bottom:14px;
-  }
-
-  .arr-item{
-    border:1px solid var(--line);
-
-    border-radius:var(--radius);
-
-    padding:14px;
-
-    margin-bottom:12px;
-
-    position:relative;
-  }
-
-  .arr-remove{
-    position:absolute;
-
-    top:8px;
-    right:8px;
-
-    background:none;
-
-    border:none;
-
-    color:var(--muted);
-
-    font-size:1rem;
-
-    line-height:1;
-
-    padding:4px;
-  }
-
-  .arr-remove:hover{
-    color:var(--danger);
-  }
-
-  .add-btn{
-    width:100%;
-
-    border:1px dashed var(--line);
-
-    background:none;
-
-    border-radius:var(--radius);
-
-    padding:10px;
-
-    color:var(--muted);
-
-    font-size:.85rem;
-
-    margin-bottom:6px;
-  }
-
-  .add-btn:hover{
-    border-color:var(--accent);
-
-    color:var(--accent);
-  }
-
-  .panel-close{
-    position:absolute;
-
-    top:18px;
-    right:20px;
-
-    background:none;
-
-    border:none;
-
-    font-size:1.3rem;
-
-    color:var(--muted);
-  }
-
-  .save-row{
-    position:sticky;
-
-    bottom:-100px;
-
-    background:var(--paper-raised);
-
-    padding:14px 0 4px;
-
-    margin-top:24px;
-
-    border-top:1px solid var(--line);
-  }
-
-  .save-msg{
-    font-size:.82rem;
-
-    color:var(--teal);
-
-    margin-top:8px;
-
-    min-height:16px;
-  }
-
-  .two-col{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:10px;
-  }
-
-
-  /* =========================================================
-     ADMIN RESPONSIVE
-  ========================================================= */
-
-  @media(max-width:600px){
-
-    #adminBar{
-      padding:8px 12px;
-
-      flex-direction:column;
-
-      align-items:flex-start;
-    }
-
-    #adminBar .abar-actions{
-      width:100%;
-    }
-
-    #adminBar button{
-      flex:1;
-    }
-
-    body.admin-on #main,
-    body.admin-on #mobileBar{
-      margin-top:95px;
-    }
-
-    .two-col{
-      grid-template-columns:1fr;
-    }
-
-  }
+/* ================= END CSS ================= */
 
 </style>
 </head>
@@ -1589,906 +1462,944 @@
 
 <body>
 
-  <!-- =======================================================
-       MOBILE TOP BAR
-  ======================================================== -->
+<!-- ========================================================= -->
+<!-- MOBILE TOP BAR -->
+<!-- ========================================================= -->
 
-  <div id="mobileBar">
+<div id="mobileBar">
 
-    <a href="#hero" class="brand">
+  <a href="#hero" class="brand" style="text-decoration:none;">
+    <span class="brand-mark" id="brandMarkMobile"></span>
+  </a>
 
-      <span
-        class="brand-mark"
-        id="brandMarkMobile"
-      ></span>
+  <div class="mobile-actions">
 
-    </a>
+    <button
+      class="theme-toggle"
+      id="themeToggleMobile"
+      aria-label="Switch theme"
+      title="Switch theme">
 
-    <div class="mobile-actions">
+      <span class="sun-icon">☀️</span>
+      <span class="moon-icon">🌙</span>
 
-      <button
-        class="theme-toggle"
-        id="themeToggleMobile"
-        type="button"
-        aria-label="Toggle dark mode"
-        title="Toggle theme"
-      >
-        ☀
-      </button>
+    </button>
 
-      <button
-        id="mobileNavToggle"
-        aria-expanded="false"
-        aria-controls="mobileNavPanel"
-      >
-        Menu
-      </button>
+    <button
+      id="mobileNavToggle"
+      aria-expanded="false"
+      aria-controls="mobileNavPanel">
 
-    </div>
+      Menu
+
+    </button>
 
   </div>
 
-
-  <nav
-    id="mobileNavPanel"
-    class="hidden"
-    aria-label="Section navigation"
-  ></nav>
+</div>
 
 
-  <!-- =======================================================
-       DESKTOP SIDEBAR
-  ======================================================== -->
-
-  <aside id="sidebar">
-
-    <a href="#hero" class="brand">
-
-      <span
-        class="brand-mark"
-        id="brandMarkDesktop"
-      ></span>
-
-      <span class="brand-text">
-
-        <span
-          class="brand-name"
-          id="sideName"
-        ></span>
-
-        <span
-          class="brand-role"
-          id="sideRole"
-        ></span>
-
-      </span>
-
-    </a>
+<nav
+  id="mobileNavPanel"
+  class="hidden"
+  aria-label="Section navigation">
+</nav>
 
 
-    <!-- THEME SWITCH -->
+<!-- ========================================================= -->
+<!-- DESKTOP SIDEBAR -->
+<!-- ========================================================= -->
 
-    <div class="theme-toggle-wrap">
+<aside id="sidebar">
 
-      <span class="theme-label" id="themeLabel">
-        LIGHT MODE
+  <a href="#hero" class="brand">
+
+    <span class="brand-mark" id="brandMarkDesktop"></span>
+
+    <span class="brand-text">
+
+      <span class="brand-name" id="sideName"></span>
+
+      <span class="brand-role" id="sideRole"></span>
+
+    </span>
+
+  </a>
+
+
+  <nav id="sideNav" aria-label="Section navigation">
+
+    <a href="#about">About</a>
+
+    <a href="#education">Education</a>
+
+    <a href="#skills">Skills</a>
+
+    <a href="#projects">Projects</a>
+
+    <a href="#certifications">Certifications</a>
+
+    <a href="#achievements">Achievements</a>
+
+    <a href="#activities">Activities</a>
+
+    <a href="#contact">Contact</a>
+
+  </nav>
+
+
+  <div class="side-bottom">
+
+    <div class="sidebar-theme">
+
+      <span class="theme-label">
+        APPEARANCE
       </span>
 
       <button
         class="theme-toggle"
         id="themeToggleDesktop"
-        type="button"
-        aria-label="Toggle dark mode"
-        title="Toggle theme"
-      >
-        ☀
+        aria-label="Switch theme"
+        title="Switch theme">
+
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+
       </button>
 
     </div>
-
-
-    <!-- NAVIGATION -->
-
-    <nav
-      id="sideNav"
-      aria-label="Section navigation"
-    >
-
-      <a href="#about">About</a>
-
-      <a href="#education">Education</a>
-
-      <a href="#skills">Skills</a>
-
-      <a href="#projects">Projects</a>
-
-      <a href="#certifications">
-        Certifications
-      </a>
-
-      <a href="#achievements">
-        Achievements
-      </a>
-
-      <a href="#activities">
-        Activities
-      </a>
-
-      <a href="#contact">
-        Contact
-      </a>
-
-    </nav>
 
 
     <div
       class="side-loc"
-      id="sideLoc"
-    ></div>
-
-  </aside>
-
-
-  <!-- =======================================================
-       MAIN
-  ======================================================== -->
-
-  <main id="main">
-
-
-    <!-- HERO -->
-
-    <section
-      id="hero"
-      class="section"
-    >
-
-      <div class="hero-layout">
-
-        <div>
-
-          <h1
-            class="fade-in"
-            id="heroHeadline"
-          ></h1>
-
-          <p
-            class="hero-sub fade-in d1"
-            id="heroSub"
-          ></p>
-
-
-          <div class="hero-ctas fade-in d1">
-
-            <a
-              href="#projects"
-              class="btn btn-primary"
-            >
-              View projects
-            </a>
-
-            <a
-              href="#contact"
-              class="btn btn-outline"
-            >
-              Get in touch
-            </a>
-
-          </div>
-
-
-          <div
-            class="ledger fade-in d2"
-            id="statsLedger"
-          ></div>
-
-        </div>
-
-
-        <div
-          class="hero-photo fade-in d2"
-          id="heroPhoto"
-          aria-label="Sayan Majumder photo"
-        ></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section
-      id="about"
-      class="section"
-    >
-
-      <div class="section-head">
-
-        <h2>About</h2>
-
-      </div>
-
-      <p
-        class="lede"
-        id="aboutText"
-      ></p>
-
-    </section>
-
-
-    <!-- EDUCATION -->
-
-    <section
-      id="education"
-      class="section"
-    >
-
-      <div class="section-head">
-
-        <h2>Education</h2>
-
-      </div>
-
-      <div id="eduList"></div>
-
-    </section>
-
-
-    <!-- SKILLS -->
-
-    <section
-      id="skills"
-      class="section"
-    >
-
-      <div class="section-head">
-
-        <h2>Skills</h2>
-
-      </div>
-
-      <div
-        class="skills-grid"
-        id="skillsGrid"
-      ></div>
-
-    </section>
-
-
-    <!-- PROJECTS -->
-
-    <section
-      id="projects"
-      class="section"
-    >
-
-      <div class="section-head">
-
-        <h2>Projects</h2>
-
-      </div>
-
-      <div
-        class="project-grid"
-        id="projectGrid"
-      ></div>
-
-    </section>
-
-
-    <!-- CERTIFICATIONS -->
-
-    <section
-      id="certifications"
-      class="section"
-    >
-
-      <div class="section-head">
-
-        <h2>Certifications</h2>
-
-      </div>
-
-      <div id="certList"></div>
-
-    </section>
-
-
-    <!-- ACHIEVEMENTS -->
-
-    <section
-      id="achievements"
-      class="section"
-    >
-
-      <div class="section-head">
-
-        <h2>Achievements</h2>
-
-      </div>
-
-      <div id="achievementList"></div>
-
-    </section>
-
-
-    <!-- ACTIVITIES -->
-
-    <section
-      id="activities"
-      class="section"
-    >
-
-      <div class="section-head">
-
-        <h2>Leadership &amp; Activities</h2>
-
-      </div>
-
-      <div id="activityList"></div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section
-      id="contact"
-      class="section"
-    >
-
-      <div class="section-head">
-
-        <h2>Let's connect</h2>
-
-      </div>
-
-      <p
-        class="lede"
-        id="contactText"
-      ></p>
-
-      <div
-        class="contact-links"
-        id="contactLinks"
-      ></div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer id="footer"></footer>
-
-  </main>
-
-
-  <!-- =======================================================
-       ADMIN LOGIN
-  ======================================================== -->
-
-  <div
-    id="adminLogin"
-    class="overlay hidden"
-  >
-
-    <div class="modal">
-
-      <h2>Admin sign-in</h2>
-
-      <p>
-        Enter the password to edit this portfolio.
-      </p>
-
-      <div class="field">
-
-        <label for="pwInput">
-          Password
-        </label>
-
-        <input
-          type="password"
-          id="pwInput"
-          autocomplete="off"
-        >
-
-      </div>
-
-      <div
-        class="form-error"
-        id="pwError"
-      ></div>
-
-      <div class="modal-actions">
-
-        <button
-          class="btn btn-primary"
-          id="pwSubmit"
-          style="border:none;"
-        >
-          Sign in
-        </button>
-
-        <button
-          class="btn btn-outline"
-          id="pwCancel"
-        >
-          Cancel
-        </button>
-
-      </div>
-
+      id="sideLoc">
     </div>
 
   </div>
 
+</aside>
 
-  <!-- =======================================================
-       ADMIN BAR
-  ======================================================== -->
 
-  <div
-    id="adminBar"
-    class="hidden"
-  >
+<!-- ========================================================= -->
+<!-- MAIN -->
+<!-- ========================================================= -->
+
+<main id="main">
+
+
+<!-- HERO -->
+
+<section id="hero" class="section">
+
+  <div class="hero-layout">
 
     <div>
 
-      <span class="abar-tag">
-        Edit mode
-      </span>
+      <h1
+        class="fade-in"
+        id="heroHeadline">
+      </h1>
 
-      only you can see this bar
+
+      <p
+        class="hero-sub fade-in d1"
+        id="heroSub">
+      </p>
+
+
+      <div class="hero-ctas fade-in d1">
+
+        <a
+          href="#projects"
+          class="btn btn-primary">
+
+          View projects
+
+        </a>
+
+
+        <a
+          href="#contact"
+          class="btn btn-outline">
+
+          Get in touch
+
+        </a>
+
+      </div>
+
+
+      <div
+        class="ledger fade-in d2"
+        id="statsLedger">
+      </div>
 
     </div>
 
 
-    <div class="abar-actions">
-
-      <button id="openPanelBtn">
-        Edit content
-      </button>
-
-      <button id="exportBtn">
-        Export JSON
-      </button>
-
-      <button id="importBtn">
-        Import JSON
-      </button>
-
-      <button id="resetBtn">
-        Reset to default
-      </button>
-
-      <button id="exitAdminBtn">
-        Exit admin
-      </button>
-
+    <div
+      class="hero-photo fade-in d2"
+      id="heroPhoto"
+      aria-label="Sayan Majumder photo">
     </div>
 
   </div>
 
+</section>
 
-  <!-- =======================================================
-       ADMIN EDIT PANEL
-  ======================================================== -->
+
+<!-- ABOUT -->
+
+<section id="about" class="section">
+
+  <div class="section-head">
+
+    <h2>About</h2>
+
+  </div>
+
+  <p
+    class="lede"
+    id="aboutText">
+  </p>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education" class="section">
+
+  <div class="section-head">
+
+    <h2>Education</h2>
+
+  </div>
+
+  <div id="eduList"></div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills" class="section">
+
+  <div class="section-head">
+
+    <h2>Skills</h2>
+
+  </div>
 
   <div
-    id="adminPanel"
-    class="hidden"
-    aria-label="Edit portfolio content"
-  >
+    class="skills-grid"
+    id="skillsGrid">
+  </div>
 
-    <button
-      class="panel-close"
-      id="panelCloseBtn"
-      aria-label="Close panel"
-    >
-      &times;
-    </button>
+</section>
 
-    <div id="panelBody"></div>
+
+<!-- PROJECTS -->
+
+<section id="projects" class="section">
+
+  <div class="section-head">
+
+    <h2>Projects</h2>
 
   </div>
 
+  <div
+    class="project-grid"
+    id="projectGrid">
+  </div>
+
+</section>
+
+
+<!-- CERTIFICATIONS -->
+
+<section id="certifications" class="section">
+
+  <div class="section-head">
+
+    <h2>Certifications</h2>
+
+  </div>
+
+  <div id="certList"></div>
+
+</section>
+
+
+<!-- ACHIEVEMENTS -->
+
+<section id="achievements" class="section">
+
+  <div class="section-head">
+
+    <h2>Achievements</h2>
+
+  </div>
+
+  <div id="achievementList"></div>
+
+</section>
+
+
+<!-- ACTIVITIES -->
+
+<section id="activities" class="section">
+
+  <div class="section-head">
+
+    <h2>Leadership &amp; Activities</h2>
+
+  </div>
+
+  <div id="activityList"></div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="section">
+
+  <div class="section-head">
+
+    <h2>Let's connect</h2>
+
+  </div>
+
+  <p
+    class="lede"
+    id="contactText">
+  </p>
+
+  <div
+    class="contact-links"
+    id="contactLinks">
+  </div>
+
+</section>
+
+
+<footer id="footer"></footer>
+
+</main>
+
+
+<!-- ========================================================= -->
+<!-- ADMIN LOGIN -->
+<!-- ========================================================= -->
+
+<div
+  id="adminLogin"
+  class="overlay hidden">
+
+  <div class="modal">
+
+    <h2>Admin sign-in</h2>
+
+    <p>
+      Enter the password to edit this portfolio.
+    </p>
+
+
+    <div class="field">
+
+      <label for="pwInput">
+        Password
+      </label>
+
+      <input
+        type="password"
+        id="pwInput"
+        autocomplete="off">
+
+    </div>
+
+
+    <div
+      class="form-error"
+      id="pwError">
+    </div>
+
+
+    <div class="modal-actions">
+
+      <button
+        class="btn btn-primary"
+        id="pwSubmit"
+        style="border:none;">
+
+        Sign in
+
+      </button>
+
+
+      <button
+        class="btn btn-outline"
+        id="pwCancel">
+
+        Cancel
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- ADMIN BAR -->
+<!-- ========================================================= -->
+
+<div
+  id="adminBar"
+  class="hidden">
+
+  <div>
+
+    <span class="abar-tag">
+      Edit mode
+    </span>
+
+    only you can see this bar
+
+  </div>
+
+
+  <div class="abar-actions">
+
+    <button id="openPanelBtn">
+      Edit content
+    </button>
+
+    <button id="exportBtn">
+      Export JSON
+    </button>
+
+    <button id="importBtn">
+      Import JSON
+    </button>
+
+    <button id="resetBtn">
+      Reset to default
+    </button>
+
+    <button id="exitAdminBtn">
+      Exit admin
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- ADMIN PANEL -->
+<!-- ========================================================= -->
+
+<div
+  id="adminPanel"
+  class="hidden"
+  aria-label="Edit portfolio content">
+
+  <button
+    class="panel-close"
+    id="panelCloseBtn"
+    aria-label="Close panel">
+
+    &times;
+
+  </button>
+
+
+  <div id="panelBody"></div>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
 
 <script>
 
 (function(){
 
-  "use strict";
+"use strict";
 
 
-  /* =========================================================
-     CONFIG
-  ========================================================= */
+/* =========================================================
+   CONFIGURATION
+   ========================================================= */
 
-  /*
-    IMPORTANT:
-    Replace CHANGE_THIS_PASSWORD with your own password.
+/*
+   IMPORTANT:
+   Replace CHANGE_THIS_PASSWORD with your own password.
 
-    Do not use an important real account password here because
-    JavaScript passwords are NOT secure on a public website.
-  */
+   NOTE:
+   This is only a simple client-side portfolio editor.
+   It is NOT secure authentication.
+*/
 
-  var ADMIN_PASSWORD = "CHANGE_THIS_PASSWORD";
+var ADMIN_PASSWORD = "S@y@n";
 
-  var STORAGE_KEY = "portfolioData";
+var STORAGE_KEY = "portfolioData";
 
-  var THEME_KEY = "portfolioTheme";
+var THEME_KEY = "portfolioTheme";
 
 
-  /* =========================================================
-     DEFAULT CONTENT
-  ========================================================= */
+/* =========================================================
+   DEFAULT CONTENT
+   ========================================================= */
 
-  var DEFAULT_DATA = {
+var DEFAULT_DATA = {
 
-    name: "Sayan Majumder",
+  name: "Sayan Majumder",
 
-    role: "Aspiring AI Engineer",
+  role: "Aspiring AI Engineer",
 
-    location: "Kolkata, West Bengal, India",
+  location: "Kolkata, West Bengal, India",
 
-    photo: "assets/sayan.jpeg",
+  photo: "assets/sayan.jpeg",
 
+  heroHeadline:
+    "Building practical AI solutions with Python, machine learning, and GenAI.",
 
-    heroHeadline:
-      "Building practical AI solutions with Python, machine learning, and GenAI.",
+  heroSub:
+    "B.Tech Computer Science & Business Systems graduate from Netaji Subhash Engineering College (MAKAUT). I am pursuing a career in AI Engineering, developing practical solutions across Machine Learning, Generative AI, data, and intelligent applications while strengthening my Computer Science fundamentals through GATE CSE preparation.",
 
 
-    heroSub:
-      "B.Tech Computer Science & Business Systems graduate from Netaji Subhash Engineering College (MAKAUT). I am pursuing a career in AI Engineering, developing practical solutions across Machine Learning, Generative AI, data, and intelligent applications while strengthening my Computer Science fundamentals through GATE CSE preparation.",
+  stats: [
 
+    {
+      label: "DSA problems solved",
+      value: "40+"
+    },
 
-    stats: [
+    {
+      label: "Data & AI/ML projects",
+      value: "5+"
+    },
 
-      {
-        label: "DSA problems solved",
-        value: "40+"
-      },
+    {
+      label: "Certifications",
+      value: "2"
+    }
 
-      {
-        label: "Data & AI/ML projects",
-        value: "5+"
-      },
+  ],
 
-      {
-        label: "Certifications",
-        value: "2"
-      }
 
-    ],
+  about:
+    "I am a Computer Science graduate and aspiring AI Engineer focused on building practical solutions with Python, Machine Learning, Data Analytics, and Generative AI. I enjoy transforming real-world problems into working applications by combining programming, data, machine learning, and modern AI technologies. My hands-on project experience includes developing machine learning applications with Python and Streamlit, performing data-driven analysis using Python, Pandas, NumPy, SQL, and visualization tools, and building a Training Management application using Mendix. I am currently expanding my expertise in Generative AI and agentic AI systems, with a focus on LangChain, LangGraph, RAG, vector databases, prompt engineering, and AI-powered applications. I am passionate about building practical AI solutions that can turn ideas into useful, real-world applications.",
 
 
-    about:
-      "I am a Computer Science graduate and aspiring AI Engineer focused on building practical solutions with Python, Machine Learning, Data Analytics, and Generative AI. I enjoy transforming real-world problems into working applications by combining programming, data, machine learning, and modern AI technologies. My hands-on project experience includes developing machine learning applications with Python and Streamlit, performing data-driven analysis using Python, Pandas, NumPy, SQL, and visualization tools, and building a Training Management application using Mendix. I am currently expanding my expertise in Generative AI and agentic AI systems, with a focus on LangChain, LangGraph, RAG, vector databases, prompt engineering, and AI-powered applications. I am passionate about building practical AI solutions that can turn ideas into useful, real-world applications.",
+  education: [
 
+    {
+      degree:
+        "B.Tech in Computer Science & Business Systems",
 
-    education: [
+      school:
+        "Netaji Subhash Engineering College (MAKAUT)",
 
-      {
-        degree:
-          "B.Tech in Computer Science & Business Systems",
+      period:
+        "2022–2026",
 
-        school:
-          "Netaji Subhash Engineering College (MAKAUT)",
+      detail:
+        "Graduated August 2026"
+    },
 
-        period:
-          "2022–2026",
+    {
+      degree:
+        "Class XII",
 
-        detail:
-          "Graduated August 2026"
-      },
+      school:
+        "Dakshin Barasat Sibdas Acharaya High School",
 
-      {
-        degree:
-          "Class XII",
+      period:
+        "2021",
 
-        school:
-          "Dakshin Barasat Sibdas Acharaya High School",
+      detail:
+        "84.8%"
+    },
 
-        period:
-          "2021",
+    {
+      degree:
+        "Class X",
 
-        detail:
-          "84.8%"
-      },
+      school:
+        "Dakshin Barasat Sibdas Acharaya High School",
 
-      {
-        degree:
-          "Class X",
+      period:
+        "2019",
 
-        school:
-          "Dakshin Barasat Sibdas Acharaya High School",
+      detail:
+        "83.71%"
+    }
 
-        period:
-          "2019",
+  ],
 
-        detail:
-          "83.71%"
-      }
 
-    ],
+  skills: [
 
+    {
+      group: "Programming",
 
-    skills: [
+      items:
+        "Python, Java, SQL"
+    },
 
-      {
-        group: "Programming",
+    {
+      group: "AI / Machine Learning",
 
-        items:
-          "Python, Java, SQL"
-      },
+      items:
+        "scikit-learn, Pandas, NumPy, Matplotlib, Model Evaluation"
+    },
 
-      {
-        group: "AI / Machine Learning",
+    {
+      group: "Backend Development",
 
-        items:
-          "scikit-learn, Pandas, NumPy, Matplotlib, Model Evaluation"
-      },
+      items:
+        "Spring Boot, Spring Data JPA, REST APIs, CRUD, Dependency Injection, Exception Handling"
+    },
 
-      {
-        group: "Backend Development",
+    {
+      group: "Data & BI",
 
-        items:
-          "Spring Boot, Spring Data JPA, REST APIs, CRUD, Dependency Injection, Exception Handling"
-      },
+      items:
+        "MySQL, Power BI, Excel, EDA"
+    },
 
-      {
-        group: "Data & BI",
+    {
+      group: "Tools",
 
-        items:
-          "MySQL, Power BI, Excel, EDA"
-      },
+      items:
+        "Git, GitHub, Postman, VS Code, Jupyter Notebook, Streamlit"
+    },
 
-      {
-        group: "Tools",
+    {
+      group: "Core CS",
 
-        items:
-          "Git, GitHub, Postman, VS Code, Jupyter Notebook, Streamlit"
-      },
+      items:
+        "OOP, DSA, DBMS, Operating Systems, Computer Networks"
+    }
 
-      {
-        group: "Core CS",
+  ],
 
-        items:
-          "OOP, DSA, DBMS, Operating Systems, Computer Networks"
-      }
 
-    ],
+  certifications: [
 
+    {
+      name:
+        "Mendix Rapid Developer Certification",
 
-    certifications: [
+      issuer:
+        "Mendix (Siemens)"
+    },
 
-      {
-        name:
-          "Mendix Rapid Developer Certification",
+    {
+      name:
+        "Machine Learning and Data Analytics",
 
-        issuer:
-          "Mendix (Siemens)"
-      },
+      issuer:
+        "Infosys Springboard (Skillsoft)"
+    }
 
-      {
-        name:
-          "Machine Learning and Data Analytics",
+  ],
 
-        issuer:
-          "Infosys Springboard (Skillsoft)"
-      }
 
-    ],
+  achievements: [
 
+    {
+      title:
+        "LeetCode",
 
-    achievements: [
+      desc:
+        "Solved 40+ Data Structures & Algorithms problems, primarily Arrays and HashMaps."
+    },
 
-      {
-        title:
-          "LeetCode",
+    {
+      title:
+        "SAP Hackfest 2025",
 
-        desc:
-          "Solved 40+ Data Structures & Algorithms problems, primarily Arrays and HashMaps."
-      },
+      desc:
+        "Participant — developed a business solution under time constraints at a national-level student hackathon."
+    }
 
-      {
-        title:
-          "SAP Hackfest 2025",
+  ],
 
-        desc:
-          "Participant — developed a business solution under time constraints at a national-level student hackathon."
-      }
 
-    ],
+  activities: [
 
+    {
+      title:
+        "Content & Creative Lead — Phoenix'26 Technical Club",
 
-    activities: [
+      desc:
+        "Led content planning and creative execution for the college technical fest; coordinated responsibilities and deadlines with team members."
+    },
 
-      {
-        title:
-          "Content & Creative Lead — Phoenix'26 Technical Club",
+    {
+      title:
+        "Cultural Coordinator — Eco Cultural Club",
 
-        desc:
-          "Led content planning and creative execution for the college technical fest; coordinated responsibilities and deadlines with team members."
-      },
+      desc:
+        "Coordinated activities involving multiple teams and participants, developing communication, organization, coordination, and deadline-management skills."
+    }
 
-      {
-        title:
-          "Cultural Coordinator — Eco Cultural Club",
+  ],
 
-        desc:
-          "Coordinated activities involving multiple teams and participants, developing communication, organization, coordination, and deadline-management skills."
-      }
 
-    ],
+  projects: [
 
+    {
 
-    projects: [
+      title:
+        "Customer Churn Prediction",
 
-      {
+      category:
+        "analytics",
 
-        title:
-          "Customer Churn Prediction",
+      status:
+        "Live",
 
-        category:
-          "analytics",
+      desc:
+        "End-to-end customer churn prediction application covering data preparation, model development, evaluation, Streamlit application development, and deployment. Logistic Regression, Random Forest, and XGBoost were compared using 5-fold cross-validation; the best model achieved 84.8% ROC-AUC. Includes single-customer prediction, batch risk scoring, and SHAP-based explainability.",
 
-        status:
-          "Live",
-
-        desc:
-          "End-to-end customer churn prediction application covering data preparation, model development, evaluation, Streamlit application development, and deployment. Logistic Regression, Random Forest, and XGBoost were compared using 5-fold cross-validation; the best model achieved 84.8% ROC-AUC. Includes single-customer prediction, batch risk scoring, and SHAP-based explainability.",
-
-        tags:
-          "Python, Pandas, scikit-learn, XGBoost, Streamlit, SHAP",
-
-        github:
-          "",
-
-        live:
-          "https://customer-churn-prediction-sc6uf4jrevrvrmqdhvpbyw.streamlit.app/",
-
-        image:
-          "assets/churn-prediction.png"
-
-      },
-
-
-      {
-
-        title:
-          "Customer Shopping Behavior Analysis",
-
-        category:
-          "analytics",
-
-        status:
-          "Completed",
-
-        desc:
-          "Analyzed transaction data with SQL to identify purchasing patterns, category trends, repeat behavior, and discount impact on revenue. Used Python/Pandas for preparation and built an interactive Power BI dashboard with KPIs, customer segmentation, and seasonal trends.",
-
-        tags:
-          "SQL, MySQL, Python, Pandas, Power BI",
-
-        github:
-          "",
-
-        live:
-          "https://github.com/techmajumder/customer-shopping-behavior-analysis.git",
-
-        image:
-          "assets/customer-shopping-behavior.png"
-
-      },
-
-
-      {
-
-        title:
-          "Mendix Training Management Application",
-
-        category:
-          "backend",
-
-        status:
-          "Certified",
-
-        desc:
-          "Training-management application covering courses, trainees, instructors, role-based access control, automated workflows, application logic, and validation rules for structured business processes.",
-
-        tags:
-          "Mendix Studio Pro, Application Development, Business Workflows",
-
-        github:
-          "",
-
-        live:
-          "",
-
-        image:
-          "assets/mendix-training.png"
-
-      }
-
-    ],
-
-
-    contact: {
-
-      text:
-        "I am open to entry-level AI, machine learning, and software development opportunities where I can learn, build, and contribute. Email is the fastest way to reach me.",
-
-      email:
-        "work.sayanmj@gmail.com",
+      tags:
+        "Python, Pandas, scikit-learn, XGBoost, Streamlit, SHAP",
 
       github:
-        "https://github.com/techmajumder",
+        "",
 
-      linkedin:
-        "https://www.linkedin.com/in/sayan-majumder-353b05374/"
+      live:
+        "https://customer-churn-prediction-sc6uf4jrevrvrmqdhvpbyw.streamlit.app/",
+
+      image:
+        "assets/churn-prediction.png"
+
+    },
+
+
+    {
+
+      title:
+        "Customer Shopping Behavior Analysis",
+
+      category:
+        "analytics",
+
+      status:
+        "Completed",
+
+      desc:
+        "Analyzed transaction data with SQL to identify purchasing patterns, category trends, repeat behavior, and discount impact on revenue. Used Python/Pandas for preparation and built an interactive Power BI dashboard with KPIs, customer segmentation, and seasonal trends.",
+
+      tags:
+        "SQL, MySQL, Python, Pandas, Power BI",
+
+      github:
+        "",
+
+      live:
+        "https://github.com/techmajumder/customer-shopping-behavior-analysis",
+
+      image:
+        "assets/customer-shopping-behavior.png"
+
+    },
+
+
+    {
+
+      title:
+        "Mendix Training Management Application",
+
+      category:
+        "backend",
+
+      status:
+        "Certified",
+
+      desc:
+        "Training-management application covering courses, trainees, instructors, role-based access control, automated workflows, application logic, and validation rules for structured business processes.",
+
+      tags:
+        "Mendix Studio Pro, Application Development, Business Workflows",
+
+      github:
+        "",
+
+      live:
+        "",
+
+      image:
+        "assets/mendix-training.png"
 
     }
 
-  };
+  ],
 
 
-  /* =========================================================
-     CATEGORY DATA
-  ========================================================= */
+  contact: {
 
-  var CATEGORY_META = {
+    text:
+      "I am open to entry-level AI, machine learning, and software development opportunities where I can learn, build, and contribute. Email is the fastest way to reach me.",
 
-    analytics:{
-      label:"Data Analytics",
-      color:"var(--teal)"
-    },
+    email:
+      "work.sayanmj@gmail.com",
 
-    backend:{
-      label:"Backend",
-      color:"var(--accent)"
-    },
+    github:
+      "https://github.com/techmajumder",
 
-    research:{
-      label:"Research",
-      color:"var(--violet)"
-    }
+    linkedin:
+      "https://www.linkedin.com/in/sayan-majumder-353b05374/"
 
-  };
+  }
+
+};
 
 
-  /* =========================================================
-     STATE
-  ========================================================= */
+/* =========================================================
+   CATEGORY META
+   ========================================================= */
 
-  var data = loadData();
+var CATEGORY_META = {
 
-  var isAdmin = false;
+  analytics: {
+    label:"Data Analytics",
+    color:"var(--teal)"
+  },
+
+  backend: {
+    label:"Backend",
+    color:"var(--accent)"
+  },
+
+  research: {
+    label:"Research",
+    color:"var(--violet)"
+  }
+
+};
 
 
-  /* =========================================================
-     LOCAL STORAGE
-  ========================================================= */
+/* =========================================================
+   THEME
+   ========================================================= */
 
-  function loadData(){
+function applyTheme(theme){
 
-    try{
+  if(theme === "dark"){
 
-      var raw =
-        localStorage.getItem(STORAGE_KEY);
+    document.body.classList.add("dark");
 
-      if(!raw){
+  }else{
 
-        return JSON.parse(
-          JSON.stringify(DEFAULT_DATA)
-        );
+    document.body.classList.remove("dark");
 
-      }
+  }
 
-      return JSON.parse(raw);
+}
 
-    }catch(e){
+
+function getSavedTheme(){
+
+  try{
+
+    return localStorage.getItem(THEME_KEY);
+
+  }catch(e){
+
+    return null;
+
+  }
+
+}
+
+
+function detectTheme(){
+
+  var saved = getSavedTheme();
+
+  if(saved === "dark" || saved === "light"){
+
+    return saved;
+
+  }
+
+  if(
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ){
+
+    return "dark";
+
+  }
+
+  return "light";
+
+}
+
+
+function setTheme(theme){
+
+  applyTheme(theme);
+
+  try{
+
+    localStorage.setItem(THEME_KEY,theme);
+
+  }catch(e){}
+
+}
+
+
+function toggleTheme(){
+
+  var isDark =
+    document.body.classList.contains("dark");
+
+  setTheme(isDark ? "light" : "dark");
+
+}
+
+
+applyTheme(detectTheme());
+
+
+document
+  .getElementById("themeToggleDesktop")
+  .addEventListener("click",toggleTheme);
+
+
+document
+  .getElementById("themeToggleMobile")
+  .addEventListener("click",toggleTheme);
+
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+var data = loadData();
+
+
+function loadData(){
+
+  try{
+
+    var raw =
+      localStorage.getItem(STORAGE_KEY);
+
+    if(!raw){
 
       return JSON.parse(
         JSON.stringify(DEFAULT_DATA)
@@ -2496,977 +2407,731 @@
 
     }
 
+    var parsed =
+      JSON.parse(raw);
+
+    return parsed;
+
+  }catch(e){
+
+    return JSON.parse(
+      JSON.stringify(DEFAULT_DATA)
+    );
+
   }
 
+}
 
-  function persist(){
+
+function persist(){
+
+  try{
 
     localStorage.setItem(
       STORAGE_KEY,
       JSON.stringify(data)
     );
 
-  }
+  }catch(e){}
+
+}
 
 
-  /* =========================================================
-     THEME
-  ========================================================= */
+/* =========================================================
+   HELPERS
+   ========================================================= */
 
-  function getSavedTheme(){
+function esc(s){
 
-    try{
+  return String(
+    s === undefined || s === null ? "" : s
+  ).replace(
+    /[&<>"']/g,
+    function(c){
 
-      return localStorage.getItem(
-        THEME_KEY
-      );
-
-    }catch(e){
-
-      return null;
-
-    }
-
-  }
-
-
-  function applyTheme(theme){
-
-    if(theme === "dark"){
-
-      document.body.classList.add("dark");
-
-    }else{
-
-      document.body.classList.remove("dark");
+      return {
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#39;"
+      }[c];
 
     }
+  );
+
+}
 
 
-    var isDark =
-      document.body.classList.contains("dark");
+function initials(name){
 
+  var parts =
+    String(name || "")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
 
-    var desktop =
-      document.getElementById(
-        "themeToggleDesktop"
-      );
+  if(!parts.length){
 
-    var mobile =
-      document.getElementById(
-        "themeToggleMobile"
-      );
-
-    var label =
-      document.getElementById(
-        "themeLabel"
-      );
-
-
-    if(desktop){
-
-      desktop.textContent =
-        isDark ? "☾" : "☀";
-
-      desktop.setAttribute(
-        "aria-label",
-        isDark
-          ? "Switch to light mode"
-          : "Switch to dark mode"
-      );
-
-      desktop.setAttribute(
-        "title",
-        isDark
-          ? "Switch to light mode"
-          : "Switch to dark mode"
-      );
-
-    }
-
-
-    if(mobile){
-
-      mobile.textContent =
-        isDark ? "☾" : "☀";
-
-      mobile.setAttribute(
-        "aria-label",
-        isDark
-          ? "Switch to light mode"
-          : "Switch to dark mode"
-      );
-
-      mobile.setAttribute(
-        "title",
-        isDark
-          ? "Switch to light mode"
-          : "Switch to dark mode"
-      );
-
-    }
-
-
-    if(label){
-
-      label.textContent =
-        isDark
-          ? "DARK MODE"
-          : "LIGHT MODE";
-
-    }
+    return "?";
 
   }
 
+  if(parts.length === 1){
 
-  function toggleTheme(){
+    return parts[0]
+      .charAt(0)
+      .toUpperCase();
 
-    var isDark =
-      document.body.classList.contains("dark");
+  }
 
-    var newTheme =
-      isDark ? "light" : "dark";
+  return (
+    parts[0].charAt(0) +
+    parts[parts.length-1].charAt(0)
+  ).toUpperCase();
+
+}
 
 
-    applyTheme(newTheme);
+function $(id){
+
+  return document.getElementById(id);
+
+}
 
 
-    try{
+/* =========================================================
+   PUBLIC RENDER
+   ========================================================= */
 
-      localStorage.setItem(
-        THEME_KEY,
-        newTheme
+function render(){
+
+  document.title =
+    data.name + " — " + data.role;
+
+
+  /* BRAND */
+
+  var mark = data.photo
+
+    ? '<img src="' +
+      esc(data.photo) +
+      '" alt="">'
+
+    : esc(initials(data.name));
+
+
+  $("brandMarkDesktop").innerHTML =
+    mark;
+
+  $("brandMarkMobile").innerHTML =
+    mark;
+
+
+  $("sideName").textContent =
+    data.name;
+
+  $("sideRole").textContent =
+    data.role;
+
+  $("sideLoc").textContent =
+    data.location;
+
+
+  /* HERO PHOTO */
+
+  $("heroPhoto").innerHTML =
+
+    data.photo
+
+      ? '<img src="' +
+        esc(data.photo) +
+        '" alt="' +
+        esc(data.name) +
+        '">'
+
+      : '<span class="ph">' +
+        esc(initials(data.name)) +
+        '</span>';
+
+
+  /* HERO TEXT */
+
+  $("heroHeadline").textContent =
+    data.heroHeadline;
+
+  $("heroSub").textContent =
+    data.heroSub;
+
+
+  /* STATS */
+
+  $("statsLedger").innerHTML =
+    data.stats.map(function(s){
+
+      return (
+
+        '<div class="ledger-row">' +
+
+        '<span class="ledger-val">' +
+        esc(s.value) +
+        '</span>' +
+
+        '<span class="ledger-label">' +
+        esc(s.label) +
+        '</span>' +
+
+        '</div>'
+
       );
 
-    }catch(e){}
-
-  }
+    }).join("");
 
 
-  /* =========================================================
-     UTILITIES
-  ========================================================= */
+  /* ABOUT */
 
-  function esc(s){
-
-    return String(
-      s === undefined || s === null
-        ? ""
-        : s
-    ).replace(
-      /[&<>"']/g,
-      function(c){
-
-        return {
-
-          "&":"&amp;",
-          "<":"&lt;",
-          ">":"&gt;",
-          '"':"&quot;",
-          "'":"&#39;"
-
-        }[c];
-
-      }
-    );
-
-  }
+  $("aboutText").textContent =
+    data.about;
 
 
-  function initials(name){
+  /* EDUCATION */
 
-    var parts =
-      String(name || "")
-        .trim()
-        .split(/\s+/)
+  $("eduList").innerHTML =
+    data.education.map(function(e){
+
+      return (
+
+        '<div class="edu-row">' +
+
+        '<div class="edu-period">' +
+        esc(e.period) +
+        '</div>' +
+
+        '<div>' +
+
+        '<div class="edu-degree">' +
+        esc(e.degree) +
+        '</div>' +
+
+        '<div class="edu-school">' +
+        esc(e.school) +
+        '</div>' +
+
+        (
+          e.detail
+
+          ? '<div class="edu-detail">' +
+            esc(e.detail) +
+            '</div>'
+
+          : ''
+        ) +
+
+        '</div>' +
+
+        '</div>'
+
+      );
+
+    }).join("");
+
+
+  /* SKILLS */
+
+  $("skillsGrid").innerHTML =
+    data.skills.map(function(g){
+
+      var items =
+        String(g.items || "")
+        .split(",")
+        .map(function(s){
+          return s.trim();
+        })
         .filter(Boolean);
 
 
-    if(!parts.length){
+      return (
 
-      return "?";
+        '<div class="skill-group">' +
 
-    }
+        '<h3>' +
+        esc(g.group) +
+        '</h3>' +
 
+        '<div class="chip-row">' +
 
-    if(parts.length === 1){
+        items.map(function(it){
 
-      return parts[0]
-        .charAt(0)
-        .toUpperCase();
-
-    }
-
-
-    return (
-
-      parts[0].charAt(0) +
-
-      parts[
-        parts.length - 1
-      ].charAt(0)
-
-    ).toUpperCase();
-
-  }
-
-
-  function $(id){
-
-    return document.getElementById(id);
-
-  }
-
-
-  /* =========================================================
-     PUBLIC RENDER
-  ========================================================= */
-
-  function render(){
-
-    document.title =
-      data.name +
-      " — " +
-      data.role;
-
-
-    /* BRAND */
-
-    var mark =
-      data.photo
-
-        ? '<img src="' +
-          esc(data.photo) +
-          '" alt="">'
-
-        : esc(
-            initials(data.name)
+          return (
+            '<span class="chip">' +
+            esc(it) +
+            '</span>'
           );
 
+        }).join("") +
 
-    $("brandMarkDesktop").innerHTML =
-      mark;
+        '</div>' +
 
-    $("brandMarkMobile").innerHTML =
-      mark;
+        '</div>'
 
+      );
 
-    $("sideName").textContent =
-      data.name;
-
-
-    $("sideRole").textContent =
-      data.role;
+    }).join("");
 
 
-    $("sideLoc").textContent =
-      data.location;
+  /* PROJECTS */
+
+  $("projectGrid").innerHTML =
+    data.projects.map(function(p){
+
+      var meta =
+        CATEGORY_META[p.category] ||
+        CATEGORY_META.backend;
 
 
-    /* HERO PHOTO */
+      var tags =
+        String(p.tags || "")
+        .split(",")
+        .map(function(s){
+          return s.trim();
+        })
+        .filter(Boolean);
 
-    $("heroPhoto").innerHTML =
 
-      data.photo
+      var thumb = p.image
 
         ? '<img src="' +
-          esc(data.photo) +
-          '" alt="' +
-          esc(data.name) +
-          '">'
+          esc(p.image) +
+          '" alt="">'
 
         : '<span class="ph">' +
-          esc(
-            initials(data.name)
-          ) +
+          esc(initials(p.title)) +
           '</span>';
 
 
-    /* HERO */
+      var links = "";
 
-    $("heroHeadline").textContent =
-      data.heroHeadline;
 
+      if(p.github){
 
-    $("heroSub").textContent =
-      data.heroSub;
+        links +=
 
+          '<a href="' +
+          esc(p.github) +
+          '" target="_blank" rel="noopener">' +
 
-    /* STATS */
+          'GitHub' +
 
-    $("statsLedger").innerHTML =
-      data.stats.map(
-        function(s){
-
-          return (
-
-            '<div class="ledger-row">' +
-
-            '<span class="ledger-val">' +
-            esc(s.value) +
-            '</span>' +
-
-            '<span class="ledger-label">' +
-            esc(s.label) +
-            '</span>' +
-
-            '</div>'
-
-          );
-
-        }
-      ).join("");
-
-
-    /* ABOUT */
-
-    $("aboutText").textContent =
-      data.about;
-
-
-    /* EDUCATION */
-
-    $("eduList").innerHTML =
-      data.education.map(
-        function(e){
-
-          return (
-
-            '<div class="edu-row">' +
-
-              '<div class="edu-period">' +
-                esc(e.period) +
-              '</div>' +
-
-              '<div>' +
-
-                '<div class="edu-degree">' +
-                  esc(e.degree) +
-                '</div>' +
-
-                '<div class="edu-school">' +
-                  esc(e.school) +
-                '</div>' +
-
-                (
-                  e.detail
-
-                    ? '<div class="edu-detail">' +
-                      esc(e.detail) +
-                      '</div>'
-
-                    : ''
-                ) +
-
-              '</div>' +
-
-            '</div>'
-
-          );
-
-        }
-      ).join("");
-
-
-    /* SKILLS */
-
-    $("skillsGrid").innerHTML =
-      data.skills.map(
-        function(g){
-
-          var items =
-            String(g.items || "")
-              .split(",")
-              .map(
-                function(s){
-                  return s.trim();
-                }
-              )
-              .filter(Boolean);
-
-
-          return (
-
-            '<div class="skill-group">' +
-
-              '<h3>' +
-                esc(g.group) +
-              '</h3>' +
-
-              '<div class="chip-row">' +
-
-                items.map(
-                  function(it){
-
-                    return (
-                      '<span class="chip">' +
-                        esc(it) +
-                      '</span>'
-                    );
-
-                  }
-                ).join("") +
-
-              '</div>' +
-
-            '</div>'
-
-          );
-
-        }
-      ).join("");
-
-
-    /* PROJECTS */
-
-    $("projectGrid").innerHTML =
-      data.projects.map(
-        function(p){
-
-          var meta =
-            CATEGORY_META[p.category] ||
-            CATEGORY_META.backend;
-
-
-          var tags =
-            String(p.tags || "")
-              .split(",")
-              .map(
-                function(s){
-                  return s.trim();
-                }
-              )
-              .filter(Boolean);
-
-
-          var thumb =
-
-            p.image
-
-              ? '<img src="' +
-                esc(p.image) +
-                '" alt="">'
-
-              : '<span class="ph">' +
-                esc(
-                  initials(p.title)
-                ) +
-                '</span>';
-
-
-          var links = "";
-
-
-          if(p.github){
-
-            links +=
-
-              '<a href="' +
-              esc(p.github) +
-              '" target="_blank" rel="noopener">' +
-              'GitHub' +
-              '</a>';
-
-          }
-
-
-          if(p.live){
-
-            links +=
-
-              '<a href="' +
-              esc(p.live) +
-              '" target="_blank" rel="noopener">' +
-              'Live demo' +
-              '</a>';
-
-          }
-
-
-          return (
-
-            '<div class="project-card" style="--cat-color:' +
-              meta.color +
-            '">' +
-
-              '<div class="project-thumb">' +
-                thumb +
-              '</div>' +
-
-              '<div class="project-top">' +
-
-                '<div class="project-title">' +
-                  esc(p.title) +
-                '</div>' +
-
-                (
-                  p.status
-
-                    ? '<span class="project-status">' +
-                      esc(p.status) +
-                      '</span>'
-
-                    : ''
-                ) +
-
-              '</div>' +
-
-              '<div class="project-cat">' +
-                esc(meta.label) +
-              '</div>' +
-
-              '<div class="project-desc">' +
-                esc(p.desc) +
-              '</div>' +
-
-              '<div class="project-tags">' +
-
-                tags.map(
-                  function(t){
-
-                    return (
-                      '<span class="chip">' +
-                        esc(t) +
-                      '</span>'
-                    );
-
-                  }
-                ).join("") +
-
-              '</div>' +
-
-              (
-                links
-
-                  ? '<div class="project-links">' +
-                    links +
-                    '</div>'
-
-                  : ''
-              ) +
-
-            '</div>'
-
-          );
-
-        }
-      ).join("");
-
-
-    /* CERTIFICATIONS */
-
-    $("certList").innerHTML =
-      data.certifications.map(
-        function(c){
-
-          return (
-
-            '<div class="cert-row">' +
-
-              '<div class="cert-left">' +
-
-                '<span class="cert-mark"></span>' +
-
-                '<div>' +
-
-                  '<div class="cert-name">' +
-                    esc(c.name) +
-                  '</div>' +
-
-                  '<div class="cert-issuer">' +
-                    esc(c.issuer) +
-                  '</div>' +
-
-                '</div>' +
-
-              '</div>' +
-
-            '</div>'
-
-          );
-
-        }
-      ).join("");
-
-
-    /* ACHIEVEMENTS */
-
-    $("achievementList").innerHTML =
-      data.achievements.map(
-        function(a){
-
-          return (
-
-            '<div class="simple-row">' +
-
-              '<strong>' +
-                esc(a.title) +
-              '</strong>' +
-
-              esc(a.desc) +
-
-            '</div>'
-
-          );
-
-        }
-      ).join("");
-
-
-    /* ACTIVITIES */
-
-    $("activityList").innerHTML =
-      data.activities.map(
-        function(a){
-
-          return (
-
-            '<div class="simple-row">' +
-
-              '<strong>' +
-                esc(a.title) +
-              '</strong>' +
-
-              esc(a.desc) +
-
-            '</div>'
-
-          );
-
-        }
-      ).join("");
-
-
-    /* CONTACT */
-
-    $("contactText").textContent =
-      data.contact.text;
-
-
-    var rows = [];
-
-
-    if(data.contact.email){
-
-      rows.push([
-        "Email",
-        "mailto:" +
-          data.contact.email,
-        data.contact.email
-      ]);
-
-    }
-
-
-    if(data.contact.github){
-
-      rows.push([
-        "GitHub",
-        data.contact.github,
-        data.contact.github.replace(
-          /^https?:\/\//,
-          ""
-        )
-      ]);
-
-    }
-
-
-    if(data.contact.linkedin){
-
-      rows.push([
-        "LinkedIn",
-        data.contact.linkedin,
-        data.contact.linkedin.replace(
-          /^https?:\/\//,
-          ""
-        )
-      ]);
-
-    }
-
-
-    $("contactLinks").innerHTML =
-      rows.map(
-        function(r){
-
-          return (
-
-            '<a class="contact-row" href="' +
-              esc(r[1]) +
-              '" target="_blank" rel="noopener">' +
-
-              '<span class="contact-key">' +
-                esc(r[0]) +
-              '</span>' +
-
-              '<span class="contact-val">' +
-                esc(r[2]) +
-              '</span>' +
-
-            '</a>'
-
-          );
-
-        }
-      ).join("");
-
-
-    /* FOOTER */
-
-    $("footer").innerHTML =
-      "© " +
-      new Date().getFullYear() +
-      " " +
-      esc(data.name);
-
-
-    /* MOBILE NAV */
-
-    var navHTML =
-      [
-        "about",
-        "education",
-        "skills",
-        "projects",
-        "certifications",
-        "achievements",
-        "activities",
-        "contact"
-      ]
-
-      .map(
-        function(id){
-
-          var label =
-            id.charAt(0).toUpperCase() +
-            id.slice(1);
-
-
-          return (
-
-            '<a href="#' +
-            id +
-            '">' +
-            label +
-            '</a>'
-
-          );
-
-        }
-      )
-      .join("");
-
-
-    $("mobileNavPanel").innerHTML =
-      navHTML;
-
-  }
-
-
-  /* =========================================================
-     MOBILE NAVIGATION
-  ========================================================= */
-
-  $("mobileNavToggle")
-    .addEventListener(
-      "click",
-      function(){
-
-        var panel =
-          $("mobileNavPanel");
-
-
-        var open =
-          panel.classList.contains(
-            "hidden"
-          );
-
-
-        panel.classList.toggle(
-          "hidden",
-          !open
-        );
-
-
-        this.setAttribute(
-          "aria-expanded",
-          String(open)
-        );
+          '</a>';
 
       }
-    );
 
 
-  $("mobileNavPanel")
-    .addEventListener(
-      "click",
-      function(e){
+      if(p.live){
 
-        if(
-          e.target.tagName === "A"
-        ){
+        links +=
 
-          $("mobileNavPanel")
-            .classList.add(
-              "hidden"
-            );
+          '<a href="' +
+          esc(p.live) +
+          '" target="_blank" rel="noopener">' +
 
+          'Live demo' +
 
-          $("mobileNavToggle")
-            .setAttribute(
-              "aria-expanded",
-              "false"
-            );
-
-        }
+          '</a>';
 
       }
-    );
 
 
-  /* =========================================================
-     THEME BUTTON EVENTS
-  ========================================================= */
+      return (
 
-  $("themeToggleDesktop")
-    .addEventListener(
-      "click",
-      toggleTheme
-    );
+        '<div class="project-card" style="--cat-color:' +
+        meta.color +
+        '">' +
 
+        '<div class="project-thumb">' +
 
-  $("themeToggleMobile")
-    .addEventListener(
-      "click",
-      toggleTheme
-    );
+        thumb +
+
+        '</div>' +
 
 
-  /* =========================================================
-     ADMIN MODE
-  ========================================================= */
+        '<div class="project-top">' +
 
-  function checkHash(){
+        '<div class="project-title">' +
+        esc(p.title) +
+        '</div>' +
 
-    if(
-      window.location.hash === "#admin" &&
-      !isAdmin
-    ){
+        (
+          p.status
 
-      $("adminLogin")
-        .classList
-        .remove("hidden");
+          ? '<span class="project-status">' +
+            esc(p.status) +
+            '</span>'
 
+          : ''
+        ) +
 
-      $("pwInput").value = "";
-
-      $("pwError").textContent = "";
+        '</div>' +
 
 
-      setTimeout(
-        function(){
+        '<div class="project-cat">' +
+        esc(meta.label) +
+        '</div>' +
 
-          $("pwInput").focus();
 
-        },
-        30
+        '<div class="project-desc">' +
+        esc(p.desc) +
+        '</div>' +
+
+
+        '<div class="project-tags">' +
+
+        tags.map(function(t){
+
+          return (
+            '<span class="chip">' +
+            esc(t) +
+            '</span>'
+          );
+
+        }).join("") +
+
+        '</div>' +
+
+
+        (
+          links
+
+          ? '<div class="project-links">' +
+            links +
+            '</div>'
+
+          : ''
+        ) +
+
+
+        '</div>'
+
       );
 
-    }
+    }).join("");
+
+
+  /* CERTIFICATIONS */
+
+  $("certList").innerHTML =
+    data.certifications.map(function(c){
+
+      return (
+
+        '<div class="cert-row">' +
+
+        '<div class="cert-left">' +
+
+        '<span class="cert-mark"></span>' +
+
+        '<div>' +
+
+        '<div class="cert-name">' +
+        esc(c.name) +
+        '</div>' +
+
+        '<div class="cert-issuer">' +
+        esc(c.issuer) +
+        '</div>' +
+
+        '</div>' +
+
+        '</div>' +
+
+        '</div>'
+
+      );
+
+    }).join("");
+
+
+  /* ACHIEVEMENTS */
+
+  $("achievementList").innerHTML =
+    data.achievements.map(function(a){
+
+      return (
+
+        '<div class="simple-row">' +
+
+        '<strong>' +
+        esc(a.title) +
+        '</strong>' +
+
+        esc(a.desc) +
+
+        '</div>'
+
+      );
+
+    }).join("");
+
+
+  /* ACTIVITIES */
+
+  $("activityList").innerHTML =
+    data.activities.map(function(a){
+
+      return (
+
+        '<div class="simple-row">' +
+
+        '<strong>' +
+        esc(a.title) +
+        '</strong>' +
+
+        esc(a.desc) +
+
+        '</div>'
+
+      );
+
+    }).join("");
+
+
+  /* CONTACT */
+
+  $("contactText").textContent =
+    data.contact.text;
+
+
+  var rows = [];
+
+
+  if(data.contact.email){
+
+    rows.push([
+      "Email",
+      "mailto:" + data.contact.email,
+      data.contact.email
+    ]);
 
   }
 
 
-  window.addEventListener(
-    "hashchange",
-    checkHash
-  );
+  if(data.contact.github){
+
+    rows.push([
+      "GitHub",
+      data.contact.github,
+      data.contact.github.replace(
+        /^https?:\/\//,
+        ""
+      )
+    ]);
+
+  }
 
 
-  /* =========================================================
-     LOGIN
-  ========================================================= */
+  if(data.contact.linkedin){
 
-  function tryLogin(){
+    rows.push([
+      "LinkedIn",
+      data.contact.linkedin,
+      data.contact.linkedin.replace(
+        /^https?:\/\//,
+        ""
+      )
+    ]);
 
-    if(
-      $("pwInput").value ===
-      ADMIN_PASSWORD
-    ){
-
-      isAdmin = true;
+  }
 
 
-      $("adminLogin")
+  $("contactLinks").innerHTML =
+    rows.map(function(r){
+
+      return (
+
+        '<a class="contact-row" href="' +
+        esc(r[1]) +
+        '" target="_blank" rel="noopener">' +
+
+        '<span class="contact-key">' +
+        esc(r[0]) +
+        '</span>' +
+
+        '<span class="contact-val">' +
+        esc(r[2]) +
+        '</span>' +
+
+        '</a>'
+
+      );
+
+    }).join("");
+
+
+  /* FOOTER */
+
+  $("footer").innerHTML =
+    "© " +
+    new Date().getFullYear() +
+    " " +
+    esc(data.name);
+
+
+  /* MOBILE NAV */
+
+  var navHTML = [
+
+    "about",
+    "education",
+    "skills",
+    "projects",
+    "certifications",
+    "achievements",
+    "activities",
+    "contact"
+
+  ].map(function(id){
+
+    var label =
+      id.charAt(0).toUpperCase() +
+      id.slice(1);
+
+
+    return (
+      '<a href="#' +
+      id +
+      '">' +
+      label +
+      '</a>'
+    );
+
+  }).join("");
+
+
+  $("mobileNavPanel").innerHTML =
+    navHTML;
+
+}
+
+
+/* =========================================================
+   MOBILE NAV
+   ========================================================= */
+
+$("mobileNavToggle").addEventListener(
+  "click",
+  function(){
+
+    var panel =
+      $("mobileNavPanel");
+
+    var open =
+      panel.classList.contains("hidden");
+
+
+    panel.classList.toggle(
+      "hidden",
+      !open
+    );
+
+
+    this.setAttribute(
+      "aria-expanded",
+      String(open)
+    );
+
+  }
+);
+
+
+$("mobileNavPanel").addEventListener(
+  "click",
+  function(e){
+
+    if(e.target.tagName === "A"){
+
+      $("mobileNavPanel")
         .classList
         .add("hidden");
 
 
-      $("adminBar")
-        .classList
-        .remove("hidden");
-
-
-      document.body
-        .classList
-        .add("admin-on");
-
-
-      history.replaceState(
-        null,
-        "",
-        window.location.pathname +
-        window.location.search
-      );
-
-    }else{
-
-      $("pwError").textContent =
-        "Incorrect password.";
+      $("mobileNavToggle")
+        .setAttribute(
+          "aria-expanded",
+          "false"
+        );
 
     }
 
   }
+);
 
 
-  $("pwSubmit")
-    .addEventListener(
-      "click",
-      tryLogin
-    );
+/* =========================================================
+   ADMIN MODE
+   ========================================================= */
+
+var isAdmin = false;
 
 
-  $("pwInput")
-    .addEventListener(
-      "keydown",
-      function(e){
+function checkHash(){
 
-        if(
-          e.key === "Enter"
-        ){
+  if(
+    window.location.hash === "#admin" &&
+    !isAdmin
+  ){
 
-          tryLogin();
-
-        }
-
-        if(
-          e.key === "Escape"
-        ){
-
-          closeLogin();
-
-        }
-
-      }
-    );
+    $("adminLogin")
+      .classList
+      .remove("hidden");
 
 
-  function closeLogin(){
+    $("pwInput").value = "";
+
+    $("pwError").textContent = "";
+
+
+    setTimeout(function(){
+
+      $("pwInput").focus();
+
+    },30);
+
+  }
+
+}
+
+
+window.addEventListener(
+  "hashchange",
+  checkHash
+);
+
+
+/* LOGIN */
+
+function tryLogin(){
+
+  if(
+    $("pwInput").value ===
+    ADMIN_PASSWORD
+  ){
+
+    isAdmin = true;
+
 
     $("adminLogin")
       .classList
       .add("hidden");
+
+
+    $("adminBar")
+      .classList
+      .remove("hidden");
+
+
+    document.body
+      .classList
+      .add("admin-on");
 
 
     history.replaceState(
@@ -3476,1739 +3141,1638 @@
       window.location.search
     );
 
+
+  }else{
+
+    $("pwError").textContent =
+      "Incorrect password.";
+
   }
 
+}
 
-  $("pwCancel")
-    .addEventListener(
-      "click",
-      closeLogin
+
+$("pwSubmit").addEventListener(
+  "click",
+  tryLogin
+);
+
+
+$("pwInput").addEventListener(
+  "keydown",
+  function(e){
+
+    if(e.key === "Enter"){
+
+      tryLogin();
+
+    }
+
+    if(e.key === "Escape"){
+
+      closeLogin();
+
+    }
+
+  }
+);
+
+
+function closeLogin(){
+
+  $("adminLogin")
+    .classList
+    .add("hidden");
+
+
+  history.replaceState(
+    null,
+    "",
+    window.location.pathname +
+    window.location.search
+  );
+
+}
+
+
+$("pwCancel").addEventListener(
+  "click",
+  closeLogin
+);
+
+
+/* EXIT ADMIN */
+
+$("exitAdminBtn").addEventListener(
+  "click",
+  function(){
+
+    isAdmin = false;
+
+
+    $("adminBar")
+      .classList
+      .add("hidden");
+
+
+    $("adminPanel")
+      .classList
+      .add("hidden");
+
+
+    document.body
+      .classList
+      .remove("admin-on");
+
+  }
+);
+
+
+/* RESET */
+
+$("resetBtn").addEventListener(
+  "click",
+  function(){
+
+    if(
+      !confirm(
+        "Reset all content back to the built-in defaults? This clears your saved edits on this browser."
+      )
+    ){
+
+      return;
+
+    }
+
+
+    localStorage.removeItem(
+      STORAGE_KEY
     );
 
 
-  /* =========================================================
-     EXIT ADMIN
-  ========================================================= */
-
-  $("exitAdminBtn")
-    .addEventListener(
-      "click",
-      function(){
-
-        isAdmin = false;
+    data = loadData();
 
 
-        $("adminBar")
-          .classList
-          .add("hidden");
+    render();
 
 
-        $("adminPanel")
-          .classList
-          .add("hidden");
+    if(
+      !$("adminPanel")
+        .classList
+        .contains("hidden")
+    ){
+
+      openPanel();
+
+    }
+
+  }
+);
 
 
-        document.body
-          .classList
-          .remove("admin-on");
+/* EXPORT */
 
-      }
-    );
+$("exportBtn").addEventListener(
+  "click",
+  function(){
 
-
-  /* =========================================================
-     RESET
-  ========================================================= */
-
-  $("resetBtn")
-    .addEventListener(
-      "click",
-      function(){
-
-        if(
-          !confirm(
-            "Reset all content back to the built-in defaults? This clears your saved edits on this browser."
+    var blob =
+      new Blob(
+        [
+          JSON.stringify(
+            data,
+            null,
+            2
           )
-        ){
+        ],
+        {
+          type:
+            "application/json"
+        }
+      );
+
+
+    var url =
+      URL.createObjectURL(blob);
+
+
+    var a =
+      document.createElement("a");
+
+
+    a.href = url;
+
+    a.download =
+      "portfolio-data.json";
+
+
+    document.body.appendChild(a);
+
+    a.click();
+
+    document.body.removeChild(a);
+
+
+    URL.revokeObjectURL(url);
+
+  }
+);
+
+
+/* IMPORT */
+
+$("importBtn").addEventListener(
+  "click",
+  function(){
+
+    var input =
+      document.createElement("input");
+
+
+    input.type = "file";
+
+    input.accept =
+      "application/json";
+
+
+    input.addEventListener(
+      "change",
+      function(){
+
+        var file =
+          input.files[0];
+
+
+        if(!file){
 
           return;
 
         }
 
 
-        localStorage.removeItem(
-          STORAGE_KEY
-        );
+        var reader =
+          new FileReader();
 
 
-        data = loadData();
-
-
-        render();
-
-
-        if(
-          !$("adminPanel")
-            .classList
-            .contains("hidden")
-        ){
-
-          openPanel();
-
-        }
-
-      }
-    );
-
-
-  /* =========================================================
-     EXPORT JSON
-  ========================================================= */
-
-  $("exportBtn")
-    .addEventListener(
-      "click",
-      function(){
-
-        var blob =
-          new Blob(
-            [
-              JSON.stringify(
-                data,
-                null,
-                2
-              )
-            ],
-            {
-              type:
-                "application/json"
-            }
-          );
-
-
-        var url =
-          URL.createObjectURL(
-            blob
-          );
-
-
-        var a =
-          document.createElement(
-            "a"
-          );
-
-
-        a.href = url;
-
-        a.download =
-          "portfolio-data.json";
-
-
-        document.body.appendChild(a);
-
-        a.click();
-
-        document.body.removeChild(a);
-
-
-        URL.revokeObjectURL(
-          url
-        );
-
-      }
-    );
-
-
-  /* =========================================================
-     IMPORT JSON
-  ========================================================= */
-
-  $("importBtn")
-    .addEventListener(
-      "click",
-      function(){
-
-        var input =
-          document.createElement(
-            "input"
-          );
-
-
-        input.type = "file";
-
-        input.accept =
-          "application/json";
-
-
-        input.addEventListener(
-          "change",
+        reader.onload =
           function(){
 
-            var file =
-              input.files[0];
+            try{
+
+              var parsed =
+                JSON.parse(
+                  reader.result
+                );
 
 
-            if(!file){
+              data = parsed;
 
-              return;
+
+              persist();
+
+
+              render();
+
+
+              alert(
+                "Imported successfully."
+              );
+
+
+              if(
+                !$("adminPanel")
+                  .classList
+                  .contains("hidden")
+              ){
+
+                openPanel();
+
+              }
+
+
+            }catch(e){
+
+              alert(
+                "That file isn't valid JSON."
+              );
 
             }
 
-
-            var reader =
-              new FileReader();
+          };
 
 
-            reader.onload =
-              function(){
+        reader.readAsText(file);
 
-                try{
-
-                  var parsed =
-                    JSON.parse(
-                      reader.result
-                    );
+      }
+    );
 
 
-                  data = parsed;
+    input.click();
+
+  }
+);
 
 
-                  persist();
+/* =========================================================
+   EDIT PANEL
+   ========================================================= */
+
+$("openPanelBtn").addEventListener(
+  "click",
+  openPanel
+);
 
 
-                  render();
+$("panelCloseBtn").addEventListener(
+  "click",
+  function(){
+
+    $("adminPanel")
+      .classList
+      .add("hidden");
+
+  }
+);
 
 
-                  alert(
-                    "Imported successfully."
-                  );
+/* FIELD */
+
+function field(
+  label,
+  value,
+  onInput,
+  type
+){
+
+  var id =
+    "f_" +
+    Math.random()
+      .toString(36)
+      .slice(2,9);
 
 
-                  if(
-                    !$("adminPanel")
-                      .classList
-                      .contains("hidden")
-                  ){
-
-                    openPanel();
-
-                  }
-
-                }catch(e){
-
-                  alert(
-                    "That file isn't valid JSON."
-                  );
-
-                }
-
-              };
+  var tag =
+    type === "textarea"
+      ? "textarea"
+      : "input";
 
 
-            reader.readAsText(
-              file
+  var html =
+    '<div class="field">' +
+
+    '<label for="' +
+    id +
+    '">' +
+
+    esc(label) +
+
+    '</label>' +
+
+    '<' +
+    tag +
+    ' id="' +
+    id +
+    '">' +
+
+    (
+      type === "textarea"
+        ? esc(value)
+        : ""
+    ) +
+
+    '</' +
+    tag +
+    '>' +
+
+    '</div>';
+
+
+  return {
+    html:html,
+    id:id,
+    value:value,
+    type:type
+  };
+
+}
+
+
+/* BIND FIELD */
+
+function bindField(
+  f,
+  onInput
+){
+
+  var el =
+    $(f.id);
+
+
+  if(f.type !== "textarea"){
+
+    el.value =
+      f.value === undefined
+        ? ""
+        : f.value;
+
+  }
+
+
+  el.addEventListener(
+    "input",
+    function(){
+
+      onInput(
+        el.value
+      );
+
+    }
+  );
+
+}
+
+
+/* OPEN PANEL */
+
+function openPanel(){
+
+  var b = [];
+
+
+  b.push(
+    "<h3>Basics</h3>"
+  );
+
+  b.push(
+    '<div id="basics"></div>'
+  );
+
+
+  b.push(
+    "<h3>Stats</h3>" +
+    "<div class='hint'>" +
+    "Shown in the small panel on your hero section." +
+    "</div>"
+  );
+
+  b.push(
+    '<div id="statsList"></div>' +
+    '<button class="add-btn" id="addStat">' +
+    "+ Add stat" +
+    "</button>"
+  );
+
+
+  b.push(
+    "<h3>About</h3>"
+  );
+
+  b.push(
+    '<div id="aboutField"></div>'
+  );
+
+
+  b.push(
+    "<h3>Education</h3>"
+  );
+
+  b.push(
+    '<div id="eduAdminList"></div>' +
+    '<button class="add-btn" id="addEdu">' +
+    "+ Add education entry" +
+    "</button>"
+  );
+
+
+  b.push(
+    "<h3>Skills</h3>" +
+    "<div class='hint'>" +
+    "Separate items in a group with commas." +
+    "</div>"
+  );
+
+  b.push(
+    '<div id="skillsAdminList"></div>' +
+    '<button class="add-btn" id="addSkillGroup">' +
+    "+ Add skill group" +
+    "</button>"
+  );
+
+
+  b.push(
+    "<h3>Certifications</h3>"
+  );
+
+  b.push(
+    '<div id="certAdminList"></div>' +
+    '<button class="add-btn" id="addCert">' +
+    "+ Add certification" +
+    "</button>"
+  );
+
+
+  b.push(
+    "<h3>Projects</h3>" +
+    "<div class='hint'>" +
+    "Use image paths such as assets/churn-prediction.png." +
+    "</div>"
+  );
+
+  b.push(
+    '<div id="projAdminList"></div>' +
+    '<button class="add-btn" id="addProj">' +
+    "+ Add project" +
+    "</button>"
+  );
+
+
+  b.push(
+    "<h3>Contact</h3>"
+  );
+
+  b.push(
+    '<div id="contactAdmin"></div>'
+  );
+
+
+  b.push(
+    '<div class="save-row">' +
+
+    '<button ' +
+    'class="btn btn-primary" ' +
+    'id="saveBtn" ' +
+    'style="border:none;width:100%;justify-content:center;">' +
+
+    "Save changes" +
+
+    "</button>" +
+
+    '<div class="save-msg" id="saveMsg"></div>' +
+
+    "</div>"
+  );
+
+
+  $("panelBody").innerHTML =
+    b.join("");
+
+
+  $("adminPanel")
+    .classList
+    .remove("hidden");
+
+
+  renderBasics();
+
+  renderStatsAdmin();
+
+  renderAboutAdmin();
+
+  renderEduAdmin();
+
+  renderSkillsAdmin();
+
+  renderCertAdmin();
+
+  renderProjAdmin();
+
+  renderContactAdmin();
+
+
+  $("addStat").addEventListener(
+    "click",
+    function(){
+
+      data.stats.push({
+        label:"",
+        value:""
+      });
+
+      renderStatsAdmin();
+
+    }
+  );
+
+
+  $("addEdu").addEventListener(
+    "click",
+    function(){
+
+      data.education.push({
+        degree:"",
+        school:"",
+        period:"",
+        detail:""
+      });
+
+      renderEduAdmin();
+
+    }
+  );
+
+
+  $("addSkillGroup").addEventListener(
+    "click",
+    function(){
+
+      data.skills.push({
+        group:"",
+        items:""
+      });
+
+      renderSkillsAdmin();
+
+    }
+  );
+
+
+  $("addCert").addEventListener(
+    "click",
+    function(){
+
+      data.certifications.push({
+        name:"",
+        issuer:""
+      });
+
+      renderCertAdmin();
+
+    }
+  );
+
+
+  $("addProj").addEventListener(
+    "click",
+    function(){
+
+      data.projects.push({
+
+        title:"",
+
+        category:"backend",
+
+        status:"",
+
+        desc:"",
+
+        tags:"",
+
+        github:"",
+
+        live:"",
+
+        image:""
+
+      });
+
+      renderProjAdmin();
+
+    }
+  );
+
+
+  $("saveBtn").addEventListener(
+    "click",
+    function(){
+
+      persist();
+
+      render();
+
+
+      $("saveMsg").textContent =
+        "Saved — visible now on this browser.";
+
+
+      setTimeout(
+        function(){
+
+          $("saveMsg").textContent = "";
+
+        },
+        3000
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   ADMIN BASICS
+   ========================================================= */
+
+function renderBasics(){
+
+  var wrap =
+    $("basics");
+
+
+  var f1 =
+    field(
+      "Name",
+      data.name
+    );
+
+
+  var f2 =
+    field(
+      "Role / title",
+      data.role
+    );
+
+
+  var f3 =
+    field(
+      "Location",
+      data.location
+    );
+
+
+  var f4 =
+    field(
+      "Photo URL",
+      data.photo
+    );
+
+
+  var f5 =
+    field(
+      "Hero headline",
+      data.heroHeadline,
+      null,
+      "textarea"
+    );
+
+
+  var f6 =
+    field(
+      "Hero subtext",
+      data.heroSub,
+      null,
+      "textarea"
+    );
+
+
+  wrap.innerHTML =
+    f1.html +
+    f2.html +
+    f3.html +
+    f4.html +
+    f5.html +
+    f6.html;
+
+
+  bindField(
+    f1,
+    function(v){
+      data.name = v;
+    }
+  );
+
+
+  bindField(
+    f2,
+    function(v){
+      data.role = v;
+    }
+  );
+
+
+  bindField(
+    f3,
+    function(v){
+      data.location = v;
+    }
+  );
+
+
+  bindField(
+    f4,
+    function(v){
+      data.photo = v;
+    }
+  );
+
+
+  $(f5.id).value =
+    data.heroHeadline;
+
+
+  $(f5.id).addEventListener(
+    "input",
+    function(){
+
+      data.heroHeadline =
+        this.value;
+
+    }
+  );
+
+
+  $(f6.id).value =
+    data.heroSub;
+
+
+  $(f6.id).addEventListener(
+    "input",
+    function(){
+
+      data.heroSub =
+        this.value;
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   ABOUT ADMIN
+   ========================================================= */
+
+function renderAboutAdmin(){
+
+  var wrap =
+    $("aboutField");
+
+
+  var f =
+    field(
+      "About paragraph",
+      data.about,
+      null,
+      "textarea"
+    );
+
+
+  wrap.innerHTML =
+    f.html;
+
+
+  var el =
+    $(f.id);
+
+
+  el.value =
+    data.about;
+
+
+  el.style.minHeight =
+    "140px";
+
+
+  el.addEventListener(
+    "input",
+    function(){
+
+      data.about =
+        this.value;
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   STATS ADMIN
+   ========================================================= */
+
+function renderStatsAdmin(){
+
+  var wrap =
+    $("statsList");
+
+
+  wrap.innerHTML =
+    data.stats.map(
+      function(s,i){
+
+        return (
+
+          '<div class="arr-item">' +
+
+          '<button class="arr-remove" ' +
+          'data-idx="' +
+          i +
+          '" aria-label="Remove">' +
+
+          "&times;" +
+
+          "</button>" +
+
+          '<div class="two-col">' +
+
+          '<div class="field">' +
+
+          "<label>Value</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="value" value="' +
+          esc(s.value) +
+          '">' +
+
+          "</div>" +
+
+          '<div class="field">' +
+
+          "<label>Label</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="label" value="' +
+          esc(s.label) +
+          '">' +
+
+          "</div>" +
+
+          "</div>" +
+
+          "</div>"
+
+        );
+
+      }
+    ).join("");
+
+
+  wrap
+    .querySelectorAll("input")
+    .forEach(
+      function(el){
+
+        el.addEventListener(
+          "input",
+          function(){
+
+            data.stats[
+              this.dataset.i
+            ][
+              this.dataset.k
+            ] = this.value;
+
+          }
+        );
+
+      }
+    );
+
+
+  wrap
+    .querySelectorAll(".arr-remove")
+    .forEach(
+      function(btn){
+
+        btn.addEventListener(
+          "click",
+          function(){
+
+            data.stats.splice(
+              this.dataset.idx,
+              1
             );
+
+            renderStatsAdmin();
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   EDUCATION ADMIN
+   ========================================================= */
+
+function renderEduAdmin(){
+
+  var wrap =
+    $("eduAdminList");
+
+
+  wrap.innerHTML =
+    data.education.map(
+      function(e,i){
+
+        return (
+
+          '<div class="arr-item">' +
+
+          '<button class="arr-remove" data-idx="' +
+          i +
+          '" aria-label="Remove">&times;</button>' +
+
+          '<div class="field">' +
+
+          "<label>Degree / class</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="degree" value="' +
+          esc(e.degree) +
+          '">' +
+
+          "</div>" +
+
+          '<div class="field">' +
+
+          "<label>School / institute</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="school" value="' +
+          esc(e.school) +
+          '">' +
+
+          "</div>" +
+
+          '<div class="two-col">' +
+
+          '<div class="field">' +
+
+          "<label>Period</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="period" value="' +
+          esc(e.period) +
+          '">' +
+
+          "</div>" +
+
+          '<div class="field">' +
+
+          "<label>Detail</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="detail" value="' +
+          esc(e.detail) +
+          '">' +
+
+          "</div>" +
+
+          "</div>" +
+
+          "</div>"
+
+        );
+
+      }
+    ).join("");
+
+
+  wrap
+    .querySelectorAll("input")
+    .forEach(
+      function(el){
+
+        el.addEventListener(
+          "input",
+          function(){
+
+            data.education[
+              this.dataset.i
+            ][
+              this.dataset.k
+            ] = this.value;
+
+          }
+        );
+
+      }
+    );
+
+
+  wrap
+    .querySelectorAll(".arr-remove")
+    .forEach(
+      function(btn){
+
+        btn.addEventListener(
+          "click",
+          function(){
+
+            data.education.splice(
+              this.dataset.idx,
+              1
+            );
+
+            renderEduAdmin();
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   SKILLS ADMIN
+   ========================================================= */
+
+function renderSkillsAdmin(){
+
+  var wrap =
+    $("skillsAdminList");
+
+
+  wrap.innerHTML =
+    data.skills.map(
+      function(g,i){
+
+        return (
+
+          '<div class="arr-item">' +
+
+          '<button class="arr-remove" data-idx="' +
+          i +
+          '" aria-label="Remove">&times;</button>' +
+
+          '<div class="field">' +
+
+          "<label>Group name</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="group" value="' +
+          esc(g.group) +
+          '">' +
+
+          "</div>" +
+
+          '<div class="field">' +
+
+          "<label>Items (comma-separated)</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="items" value="' +
+          esc(g.items) +
+          '">' +
+
+          "</div>" +
+
+          "</div>"
+
+        );
+
+      }
+    ).join("");
+
+
+  wrap
+    .querySelectorAll("input")
+    .forEach(
+      function(el){
+
+        el.addEventListener(
+          "input",
+          function(){
+
+            data.skills[
+              this.dataset.i
+            ][
+              this.dataset.k
+            ] = this.value;
+
+          }
+        );
+
+      }
+    );
+
+
+  wrap
+    .querySelectorAll(".arr-remove")
+    .forEach(
+      function(btn){
+
+        btn.addEventListener(
+          "click",
+          function(){
+
+            data.skills.splice(
+              this.dataset.idx,
+              1
+            );
+
+            renderSkillsAdmin();
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   CERTIFICATION ADMIN
+   ========================================================= */
+
+function renderCertAdmin(){
+
+  var wrap =
+    $("certAdminList");
+
+
+  wrap.innerHTML =
+    data.certifications.map(
+      function(c,i){
+
+        return (
+
+          '<div class="arr-item">' +
+
+          '<button class="arr-remove" data-idx="' +
+          i +
+          '" aria-label="Remove">&times;</button>' +
+
+          '<div class="field">' +
+
+          "<label>Certification name</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="name" value="' +
+          esc(c.name) +
+          '">' +
+
+          "</div>" +
+
+          '<div class="field">' +
+
+          "<label>Issuer</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="issuer" value="' +
+          esc(c.issuer) +
+          '">' +
+
+          "</div>" +
+
+          "</div>"
+
+        );
+
+      }
+    ).join("");
+
+
+  wrap
+    .querySelectorAll("input")
+    .forEach(
+      function(el){
+
+        el.addEventListener(
+          "input",
+          function(){
+
+            data.certifications[
+              this.dataset.i
+            ][
+              this.dataset.k
+            ] = this.value;
+
+          }
+        );
+
+      }
+    );
+
+
+  wrap
+    .querySelectorAll(".arr-remove")
+    .forEach(
+      function(btn){
+
+        btn.addEventListener(
+          "click",
+          function(){
+
+            data.certifications.splice(
+              this.dataset.idx,
+              1
+            );
+
+            renderCertAdmin();
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   PROJECT ADMIN
+   ========================================================= */
+
+function renderProjAdmin(){
+
+  var wrap =
+    $("projAdminList");
+
+
+  wrap.innerHTML =
+    data.projects.map(
+      function(p,i){
+
+        return (
+
+          '<div class="arr-item">' +
+
+          '<button class="arr-remove" data-idx="' +
+          i +
+          '" aria-label="Remove">&times;</button>' +
+
+
+          '<div class="field">' +
+
+          "<label>Title</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="title" value="' +
+          esc(p.title) +
+          '">' +
+
+          "</div>" +
+
+
+          '<div class="two-col">' +
+
+          '<div class="field">' +
+
+          "<label>Category</label>" +
+
+          '<select data-i="' +
+          i +
+          '" data-k="category">' +
+
+          [
+            "analytics",
+            "backend",
+            "research"
+          ].map(
+            function(c){
+
+              return (
+
+                '<option value="' +
+                c +
+                '"' +
+
+                (
+                  p.category === c
+                    ? " selected"
+                    : ""
+                ) +
+
+                ">" +
+
+                CATEGORY_META[c].label +
+
+                "</option>"
+
+              );
+
+            }
+          ).join("") +
+
+          "</select>" +
+
+          "</div>" +
+
+
+          '<div class="field">' +
+
+          "<label>Status</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="status" value="' +
+          esc(p.status) +
+          '">' +
+
+          "</div>" +
+
+          "</div>" +
+
+
+          '<div class="field">' +
+
+          "<label>Description</label>" +
+
+          '<textarea data-i="' +
+          i +
+          '" data-k="desc">' +
+
+          esc(p.desc) +
+
+          "</textarea>" +
+
+          "</div>" +
+
+
+          '<div class="field">' +
+
+          "<label>Tech tags (comma-separated)</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="tags" value="' +
+          esc(p.tags) +
+          '">' +
+
+          "</div>" +
+
+
+          '<div class="field">' +
+
+          "<label>Image path</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="image" value="' +
+          esc(p.image) +
+          '">' +
+
+          "</div>" +
+
+
+          '<div class="two-col">' +
+
+          '<div class="field">' +
+
+          "<label>GitHub URL</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="github" value="' +
+          esc(p.github) +
+          '">' +
+
+          "</div>" +
+
+
+          '<div class="field">' +
+
+          "<label>Live demo URL</label>" +
+
+          '<input data-i="' +
+          i +
+          '" data-k="live" value="' +
+          esc(p.live) +
+          '">' +
+
+          "</div>" +
+
+          "</div>" +
+
+
+          "</div>"
+
+        );
+
+      }
+    ).join("");
+
+
+  wrap
+    .querySelectorAll(
+      "input, textarea, select"
+    )
+    .forEach(
+      function(el){
+
+        el.addEventListener(
+          "input",
+          function(){
+
+            data.projects[
+              this.dataset.i
+            ][
+              this.dataset.k
+            ] = this.value;
 
           }
         );
 
 
-        input.click();
+        el.addEventListener(
+          "change",
+          function(){
 
-      }
-    );
+            data.projects[
+              this.dataset.i
+            ][
+              this.dataset.k
+            ] = this.value;
 
-
-  /* =========================================================
-     ADMIN PANEL
-  ========================================================= */
-
-  $("openPanelBtn")
-    .addEventListener(
-      "click",
-      openPanel
-    );
-
-
-  $("panelCloseBtn")
-    .addEventListener(
-      "click",
-      function(){
-
-        $("adminPanel")
-          .classList
-          .add("hidden");
-
-      }
-    );
-
-
-  function field(
-    label,
-    value,
-    onInput,
-    type
-  ){
-
-    var id =
-      "f_" +
-      Math.random()
-        .toString(36)
-        .slice(2,9);
-
-
-    var tag =
-      type === "textarea"
-        ? "textarea"
-        : "input";
-
-
-    var html =
-
-      '<div class="field">' +
-
-        '<label for="' +
-          id +
-        '">' +
-
-          esc(label) +
-
-        '</label>' +
-
-        '<' +
-          tag +
-          ' id="' +
-          id +
-          '">' +
-
-          (
-            type === "textarea"
-              ? esc(value)
-              : ""
-          ) +
-
-        '</' +
-          tag +
-        '>' +
-
-      '</div>';
-
-
-    return {
-
-      html:html,
-
-      id:id,
-
-      value:value,
-
-      type:type
-
-    };
-
-  }
-
-
-  function bindField(
-    f,
-    onInput
-  ){
-
-    var el =
-      $(f.id);
-
-
-    if(
-      f.type !== "textarea"
-    ){
-
-      el.value =
-        f.value === undefined
-          ? ""
-          : f.value;
-
-    }
-
-
-    el.addEventListener(
-      "input",
-      function(){
-
-        onInput(
-          el.value
+          }
         );
 
       }
     );
 
-  }
 
+  wrap
+    .querySelectorAll(".arr-remove")
+    .forEach(
+      function(btn){
 
-  /* =========================================================
-     OPEN ADMIN PANEL
-  ========================================================= */
+        btn.addEventListener(
+          "click",
+          function(){
 
-  function openPanel(){
+            data.projects.splice(
+              this.dataset.idx,
+              1
+            );
 
-    var b = [];
+            renderProjAdmin();
 
-
-    b.push(
-      "<h3>Basics</h3>"
-    );
-
-    b.push(
-      '<div id="basics"></div>'
-    );
-
-
-    b.push(
-      "<h3>Stats</h3>" +
-      "<div class='hint'>" +
-      "Shown in the small panel on your hero section." +
-      "</div>"
-    );
-
-    b.push(
-      '<div id="statsList"></div>' +
-      '<button class="add-btn" id="addStat">' +
-      "+ Add stat" +
-      "</button>"
-    );
-
-
-    b.push(
-      "<h3>About</h3>"
-    );
-
-    b.push(
-      '<div id="aboutField"></div>'
-    );
-
-
-    b.push(
-      "<h3>Education</h3>"
-    );
-
-    b.push(
-      '<div id="eduAdminList"></div>' +
-      '<button class="add-btn" id="addEdu">' +
-      "+ Add education entry" +
-      "</button>"
-    );
-
-
-    b.push(
-      "<h3>Skills</h3>" +
-      "<div class='hint'>" +
-      "Separate items in a group with commas." +
-      "</div>"
-    );
-
-    b.push(
-      '<div id="skillsAdminList"></div>' +
-      '<button class="add-btn" id="addSkillGroup">' +
-      "+ Add skill group" +
-      "</button>"
-    );
-
-
-    b.push(
-      "<h3>Certifications</h3>"
-    );
-
-    b.push(
-      '<div id="certAdminList"></div>' +
-      '<button class="add-btn" id="addCert">' +
-      "+ Add certification" +
-      "</button>"
-    );
-
-
-    b.push(
-      "<h3>Projects</h3>" +
-      "<div class='hint'>" +
-      "Image can be a relative path such as assets/churn-prediction.png or a hosted image URL." +
-      "</div>"
-    );
-
-    b.push(
-      '<div id="projAdminList"></div>' +
-      '<button class="add-btn" id="addProj">' +
-      "+ Add project" +
-      "</button>"
-    );
-
-
-    b.push(
-      "<h3>Contact</h3>"
-    );
-
-    b.push(
-      '<div id="contactAdmin"></div>'
-    );
-
-
-    b.push(
-
-      '<div class="save-row">' +
-
-        '<button ' +
-          'class="btn btn-primary" ' +
-          'id="saveBtn" ' +
-          'style="border:none;width:100%;justify-content:center;">' +
-
-          "Save changes" +
-
-        "</button>" +
-
-        '<div class="save-msg" id="saveMsg"></div>' +
-
-      "</div>"
-
-    );
-
-
-    $("panelBody").innerHTML =
-      b.join("");
-
-
-    $("adminPanel")
-      .classList
-      .remove("hidden");
-
-
-    renderBasics();
-
-    renderStatsAdmin();
-
-    renderAboutAdmin();
-
-    renderEduAdmin();
-
-    renderSkillsAdmin();
-
-    renderCertAdmin();
-
-    renderProjAdmin();
-
-    renderContactAdmin();
-
-
-    $("addStat")
-      .addEventListener(
-        "click",
-        function(){
-
-          data.stats.push({
-            label:"",
-            value:""
-          });
-
-          renderStatsAdmin();
-
-        }
-      );
-
-
-    $("addEdu")
-      .addEventListener(
-        "click",
-        function(){
-
-          data.education.push({
-            degree:"",
-            school:"",
-            period:"",
-            detail:""
-          });
-
-          renderEduAdmin();
-
-        }
-      );
-
-
-    $("addSkillGroup")
-      .addEventListener(
-        "click",
-        function(){
-
-          data.skills.push({
-            group:"",
-            items:""
-          });
-
-          renderSkillsAdmin();
-
-        }
-      );
-
-
-    $("addCert")
-      .addEventListener(
-        "click",
-        function(){
-
-          data.certifications.push({
-            name:"",
-            issuer:""
-          });
-
-          renderCertAdmin();
-
-        }
-      );
-
-
-    $("addProj")
-      .addEventListener(
-        "click",
-        function(){
-
-          data.projects.push({
-
-            title:"",
-
-            category:"backend",
-
-            status:"",
-
-            desc:"",
-
-            tags:"",
-
-            github:"",
-
-            live:"",
-
-            image:""
-
-          });
-
-          renderProjAdmin();
-
-        }
-      );
-
-
-    $("saveBtn")
-      .addEventListener(
-        "click",
-        function(){
-
-          persist();
-
-          render();
-
-
-          $("saveMsg").textContent =
-            "Saved — visible now on this browser.";
-
-
-          setTimeout(
-            function(){
-
-              $("saveMsg").textContent =
-                "";
-
-            },
-            3000
-          );
-
-        }
-      );
-
-  }
-
-
-  /* =========================================================
-     ADMIN BASICS
-  ========================================================= */
-
-  function renderBasics(){
-
-    var wrap =
-      $("basics");
-
-
-    var f1 =
-      field(
-        "Name",
-        data.name
-      );
-
-
-    var f2 =
-      field(
-        "Role / title",
-        data.role
-      );
-
-
-    var f3 =
-      field(
-        "Location",
-        data.location
-      );
-
-
-    var f4 =
-      field(
-        "Photo URL",
-        data.photo
-      );
-
-
-    var f5 =
-      field(
-        "Hero headline",
-        data.heroHeadline,
-        null,
-        "textarea"
-      );
-
-
-    var f6 =
-      field(
-        "Hero subtext",
-        data.heroSub,
-        null,
-        "textarea"
-      );
-
-
-    wrap.innerHTML =
-
-      f1.html +
-      f2.html +
-      f3.html +
-      f4.html +
-      f5.html +
-      f6.html;
-
-
-    bindField(
-      f1,
-      function(v){
-
-        data.name = v;
+          }
+        );
 
       }
     );
 
+}
 
-    bindField(
-      f2,
-      function(v){
 
-        data.role = v;
+/* =========================================================
+   CONTACT ADMIN
+   ========================================================= */
 
-      }
-    );
+function renderContactAdmin(){
 
+  var wrap =
+    $("contactAdmin");
 
-    bindField(
-      f3,
-      function(v){
 
-        data.location = v;
+  wrap.innerHTML =
 
-      }
-    );
+    '<div class="field">' +
 
+    "<label>Intro line</label>" +
 
-    bindField(
-      f4,
-      function(v){
+    '<textarea id="c_text">' +
 
-        data.photo = v;
+    esc(data.contact.text) +
 
-      }
-    );
+    "</textarea>" +
 
+    "</div>" +
 
-    $(f5.id).value =
-      data.heroHeadline;
 
+    '<div class="field">' +
 
-    $(f5.id)
-      .addEventListener(
-        "input",
-        function(){
+    "<label>Email</label>" +
 
-          data.heroHeadline =
-            this.value;
+    '<input id="c_email" value="' +
 
-        }
-      );
+    esc(data.contact.email) +
 
+    '">' +
 
-    $(f6.id).value =
-      data.heroSub;
+    "</div>" +
 
 
-    $(f6.id)
-      .addEventListener(
-        "input",
-        function(){
+    '<div class="field">' +
 
-          data.heroSub =
-            this.value;
+    "<label>GitHub URL</label>" +
 
-        }
-      );
+    '<input id="c_github" value="' +
 
-  }
+    esc(data.contact.github) +
 
+    '">' +
 
-  /* =========================================================
-     ADMIN ABOUT
-  ========================================================= */
+    "</div>" +
 
-  function renderAboutAdmin(){
 
-    var wrap =
-      $("aboutField");
+    '<div class="field">' +
 
+    "<label>LinkedIn URL</label>" +
 
-    var f =
-      field(
-        "About paragraph",
-        data.about,
-        null,
-        "textarea"
-      );
+    '<input id="c_linkedin" value="' +
 
+    esc(data.contact.linkedin) +
 
-    wrap.innerHTML =
-      f.html;
+    '">' +
 
+    "</div>";
 
-    var el =
-      $(f.id);
 
+  $("c_text").addEventListener(
+    "input",
+    function(){
 
-    el.value =
-      data.about;
+      data.contact.text =
+        this.value;
 
+    }
+  );
 
-    el.style.minHeight =
-      "140px";
 
+  $("c_email").addEventListener(
+    "input",
+    function(){
 
-    el.addEventListener(
-      "input",
-      function(){
+      data.contact.email =
+        this.value;
 
-        data.about =
-          this.value;
+    }
+  );
 
-      }
-    );
 
-  }
+  $("c_github").addEventListener(
+    "input",
+    function(){
 
+      data.contact.github =
+        this.value;
 
-  /* =========================================================
-     ADMIN STATS
-  ========================================================= */
+    }
+  );
 
-  function renderStatsAdmin(){
 
-    var wrap =
-      $("statsList");
+  $("c_linkedin").addEventListener(
+    "input",
+    function(){
 
+      data.contact.linkedin =
+        this.value;
 
-    wrap.innerHTML =
-      data.stats.map(
-        function(s,i){
+    }
+  );
 
-          return (
+}
 
-            '<div class="arr-item">' +
 
-              '<button ' +
-                'class="arr-remove" ' +
-                'data-idx="' +
-                i +
-                '" ' +
-                'aria-label="Remove">' +
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
 
-                "&times;" +
+render();
 
-              "</button>" +
+checkHash();
 
-              '<div class="two-col">' +
-
-                '<div class="field">' +
-
-                  '<label>Value</label>' +
-
-                  '<input ' +
-                    'data-i="' +
-                    i +
-                    '" ' +
-                    'data-k="value" ' +
-                    'value="' +
-                    esc(s.value) +
-                    '">' +
-
-                "</div>" +
-
-                '<div class="field">' +
-
-                  '<label>Label</label>' +
-
-                  '<input ' +
-                    'data-i="' +
-                    i +
-                    '" ' +
-                    'data-k="label" ' +
-                    'value="' +
-                    esc(s.label) +
-                    '">' +
-
-                "</div>" +
-
-              "</div>" +
-
-            "</div>"
-
-          );
-
-        }
-      ).join("");
-
-
-    wrap
-      .querySelectorAll("input")
-      .forEach(
-        function(el){
-
-          el.addEventListener(
-            "input",
-            function(){
-
-              data.stats[
-                this.dataset.i
-              ][
-                this.dataset.k
-              ] = this.value;
-
-            }
-          );
-
-        }
-      );
-
-
-    wrap
-      .querySelectorAll(".arr-remove")
-      .forEach(
-        function(btn){
-
-          btn.addEventListener(
-            "click",
-            function(){
-
-              data.stats.splice(
-                this.dataset.idx,
-                1
-              );
-
-              renderStatsAdmin();
-
-            }
-          );
-
-        }
-      );
-
-  }
-
-
-  /* =========================================================
-     ADMIN EDUCATION
-  ========================================================= */
-
-  function renderEduAdmin(){
-
-    var wrap =
-      $("eduAdminList");
-
-
-    wrap.innerHTML =
-      data.education.map(
-        function(e,i){
-
-          return (
-
-            '<div class="arr-item">' +
-
-              '<button class="arr-remove" data-idx="' +
-                i +
-                '" aria-label="Remove">' +
-
-                "&times;" +
-
-              "</button>" +
-
-
-              '<div class="field">' +
-
-                '<label>Degree / class</label>' +
-
-                '<input ' +
-                  'data-i="' +
-                  i +
-                  '" ' +
-                  'data-k="degree" ' +
-                  'value="' +
-                  esc(e.degree) +
-                  '">' +
-
-              "</div>" +
-
-
-              '<div class="field">' +
-
-                '<label>School / institute</label>' +
-
-                '<input ' +
-                  'data-i="' +
-                  i +
-                  '" ' +
-                  'data-k="school" ' +
-                  'value="' +
-                  esc(e.school) +
-                  '">' +
-
-              "</div>" +
-
-
-              '<div class="two-col">' +
-
-                '<div class="field">' +
-
-                  '<label>Period</label>' +
-
-                  '<input ' +
-                    'data-i="' +
-                    i +
-                    '" ' +
-                    'data-k="period" ' +
-                    'value="' +
-                    esc(e.period) +
-                    '">' +
-
-                "</div>" +
-
-
-                '<div class="field">' +
-
-                  '<label>Detail</label>' +
-
-                  '<input ' +
-                    'data-i="' +
-                    i +
-                    '" ' +
-                    'data-k="detail" ' +
-                    'value="' +
-                    esc(e.detail) +
-                    '">' +
-
-                "</div>" +
-
-              "</div>" +
-
-            "</div>"
-
-          );
-
-        }
-      ).join("");
-
-
-    wrap
-      .querySelectorAll("input")
-      .forEach(
-        function(el){
-
-          el.addEventListener(
-            "input",
-            function(){
-
-              data.education[
-                this.dataset.i
-              ][
-                this.dataset.k
-              ] = this.value;
-
-            }
-          );
-
-        }
-      );
-
-
-    wrap
-      .querySelectorAll(".arr-remove")
-      .forEach(
-        function(btn){
-
-          btn.addEventListener(
-            "click",
-            function(){
-
-              data.education.splice(
-                this.dataset.idx,
-                1
-              );
-
-              renderEduAdmin();
-
-            }
-          );
-
-        }
-      );
-
-  }
-
-
-  /* =========================================================
-     ADMIN SKILLS
-  ========================================================= */
-
-  function renderSkillsAdmin(){
-
-    var wrap =
-      $("skillsAdminList");
-
-
-    wrap.innerHTML =
-      data.skills.map(
-        function(g,i){
-
-          return (
-
-            '<div class="arr-item">' +
-
-              '<button class="arr-remove" data-idx="' +
-                i +
-                '" aria-label="Remove">' +
-
-                "&times;" +
-
-              "</button>" +
-
-
-              '<div class="field">' +
-
-                '<label>Group name</label>' +
-
-                '<input ' +
-                  'data-i="' +
-                  i +
-                  '" ' +
-                  'data-k="group" ' +
-                  'value="' +
-                  esc(g.group) +
-                  '">' +
-
-              "</div>" +
-
-
-              '<div class="field">' +
-
-                '<label>Items (comma-separated)</label>' +
-
-                '<input ' +
-                  'data-i="' +
-                  i +
-                  '" ' +
-                  'data-k="items" ' +
-                  'value="' +
-                  esc(g.items) +
-                  '">' +
-
-              "</div>" +
-
-            "</div>"
-
-          );
-
-        }
-      ).join("");
-
-
-    wrap
-      .querySelectorAll("input")
-      .forEach(
-        function(el){
-
-          el.addEventListener(
-            "input",
-            function(){
-
-              data.skills[
-                this.dataset.i
-              ][
-                this.dataset.k
-              ] = this.value;
-
-            }
-          );
-
-        }
-      );
-
-
-    wrap
-      .querySelectorAll(".arr-remove")
-      .forEach(
-        function(btn){
-
-          btn.addEventListener(
-            "click",
-            function(){
-
-              data.skills.splice(
-                this.dataset.idx,
-                1
-              );
-
-              renderSkillsAdmin();
-
-            }
-          );
-
-        }
-      );
-
-  }
-
-
-  /* =========================================================
-     ADMIN CERTIFICATIONS
-  ========================================================= */
-
-  function renderCertAdmin(){
-
-    var wrap =
-      $("certAdminList");
-
-
-    wrap.innerHTML =
-      data.certifications.map(
-        function(c,i){
-
-          return (
-
-            '<div class="arr-item">' +
-
-              '<button class="arr-remove" data-idx="' +
-                i +
-                '" aria-label="Remove">' +
-
-                "&times;" +
-
-              "</button>" +
-
-
-              '<div class="field">' +
-
-                '<label>Certification name</label>' +
-
-                '<input ' +
-                  'data-i="' +
-                  i +
-                  '" ' +
-                  'data-k="name" ' +
-                  'value="' +
-                  esc(c.name) +
-                  '">' +
-
-              "</div>" +
-
-
-              '<div class="field">' +
-
-                '<label>Issuer</label>' +
-
-                '<input ' +
-                  'data-i="' +
-                  i +
-                  '" ' +
-                  'data-k="issuer" ' +
-                  'value="' +
-                  esc(c.issuer) +
-                  '">' +
-
-              "</div>" +
-
-            "</div>"
-
-          );
-
-        }
-      ).join("");
-
-
-    wrap
-      .querySelectorAll("input")
-      .forEach(
-        function(el){
-
-          el.addEventListener(
-            "input",
-            function(){
-
-              data.certifications[
-                this.dataset.i
-              ][
-                this.dataset.k
-              ] = this.value;
-
-            }
-          );
-
-        }
-      );
-
-
-    wrap
-      .querySelectorAll(".arr-remove")
-      .forEach(
-        function(btn){
-
-          btn.addEventListener(
-            "click",
-            function(){
-
-              data.certifications.splice(
-                this.dataset.idx,
-                1
-              );
-
-              renderCertAdmin();
-
-            }
-          );
-
-        }
-      );
-
-  }
-
-
-  /* =========================================================
-     ADMIN PROJECTS
-  ========================================================= */
-
-  function renderProjAdmin(){
-
-    var wrap =
-      $("projAdminList");
-
-
-    wrap.innerHTML =
-      data.projects.map(
-        function(p,i){
-
-          return (
-
-            '<div class="arr-item">' +
-
-
-              '<button class="arr-remove" data-idx="' +
-                i +
-                '" aria-label="Remove">' +
-
-                "&times;" +
-
-              "</button>" +
-
-
-              '<div class="field">' +
-
-                '<label>Title</label>' +
-
-                '<input ' +
-                  'data-i="' +
-                  i +
-                  '" ' +
-                  'data-k="title" ' +
-                  'value="' +
-                  esc(p.title) +
-                  '">' +
-
-              "</div>" +
-
-
-              '<div class="two-col">' +
-
-                '<div class="field">' +
-
-                  '<label>Category</label>' +
-
-                  '<select ' +
-                    'data-i="' +
-                    i +
-                    '" ' +
-                    'data-k="category">' +
-
-                    [
-                      "analytics",
-                      "backend",
-                      "research"
-                    ]
-
-                    .map(
-                      function(c){
-
-                        return (
-
-                          '<option value="' +
-                            c +
-                            '"' +
-
-                            (
-                              p.category === c
-                                ? " selected"
-                                : ""
-                            ) +
-
-                          ">" +
-
-                            CATEGORY_META[c].label +
-
-                          "</option>"
-
-                        );
-
-                      }
-                    )
-                    .join("") +
-
-                  "</select>" +
-
-                "</div>" +
-
-
-                '<div class="field">' +
-
-                  '<label>Status</label>' +
-
-                  '<input ' +
-                    'data-i="' +
-                    i +
-                    '" ' +
-                    'data-k="status" ' +
-                    'value="' +
-                    esc(p.status) +
-                    '">' +
-
-                "</div>" +
-
-              "</div>" +
-
-
-              '<div class="field">' +
-
-                '<label>Description</label>' +
-
-                '<textarea ' +
-                  'data-i="' +
-                  i +
-                  '" ' +
-                  'data-k="desc">' +
-
-                  esc(p.desc) +
-
-                "</textarea>" +
-
-              "</div>" +
-
-
-              '<div class="field">' +
-
-                '<label>Tech tags (comma-separated)</label>' +
-
-                '<input ' +
-                  'data-i="' +
-                  i +
-                  '" ' +
-                  'data-k="tags" ' +
-                  'value="' +
-                  esc(p.tags) +
-                  '">' +
-
-              "</div>" +
-
-
-              '<div class="field">' +
-
-                '<label>Image path</label>' +
-
-                '<input ' +
-                  'data-i="' +
-                  i +
-                  '" ' +
-                  'data-k="image" ' +
-                  'value="' +
-                  esc(p.image) +
-                  '">' +
-
-              "</div>" +
-
-
-              '<div class="two-col">' +
-
-                '<div class="field">' +
-
-                  '<label>GitHub URL</label>' +
-
-                  '<input ' +
-                    'data-i="' +
-                    i +
-                    '" ' +
-                    'data-k="github" ' +
-                    'value="' +
-                    esc(p.github) +
-                    '">' +
-
-                "</div>" +
-
-
-                '<div class="field">' +
-
-                  '<label>Live demo URL</label>' +
-
-                  '<input ' +
-                    'data-i="' +
-                    i +
-                    '" ' +
-                    'data-k="live" ' +
-                    'value="' +
-                    esc(p.live) +
-                    '">' +
-
-                "</div>" +
-
-              "</div>" +
-
-
-            "</div>"
-
-          );
-
-        }
-      ).join("");
-
-
-    wrap
-      .querySelectorAll(
-        "input, textarea, select"
-      )
-      .forEach(
-        function(el){
-
-          el.addEventListener(
-            "input",
-            function(){
-
-              data.projects[
-                this.dataset.i
-              ][
-                this.dataset.k
-              ] = this.value;
-
-            }
-          );
-
-
-          el.addEventListener(
-            "change",
-            function(){
-
-              data.projects[
-                this.dataset.i
-              ][
-                this.dataset.k
-              ] = this.value;
-
-            }
-          );
-
-        }
-      );
-
-
-    wrap
-      .querySelectorAll(".arr-remove")
-      .forEach(
-        function(btn){
-
-          btn.addEventListener(
-            "click",
-            function(){
-
-              data.projects.splice(
-                this.dataset.idx,
-                1
-              );
-
-              renderProjAdmin();
-
-            }
-          );
-
-        }
-      );
-
-  }
-
-
-  /* =========================================================
-     ADMIN CONTACT
-  ========================================================= */
-
-  function renderContactAdmin(){
-
-    var wrap =
-      $("contactAdmin");
-
-
-    wrap.innerHTML =
-
-      '<div class="field">' +
-
-        '<label>Intro line</label>' +
-
-        '<textarea id="c_text">' +
-
-          esc(data.contact.text) +
-
-        "</textarea>" +
-
-      "</div>" +
-
-
-      '<div class="field">' +
-
-        '<label>Email</label>' +
-
-        '<input id="c_email" value="' +
-
-          esc(data.contact.email) +
-
-        '">' +
-
-      "</div>" +
-
-
-      '<div class="field">' +
-
-        '<label>GitHub URL</label>' +
-
-        '<input id="c_github" value="' +
-
-          esc(data.contact.github) +
-
-        '">' +
-
-      "</div>" +
-
-
-      '<div class="field">' +
-
-        '<label>LinkedIn URL</label>' +
-
-        '<input id="c_linkedin" value="' +
-
-          esc(data.contact.linkedin) +
-
-        '">' +
-
-      "</div>";
-
-
-    $("c_text")
-      .addEventListener(
-        "input",
-        function(){
-
-          data.contact.text =
-            this.value;
-
-        }
-      );
-
-
-    $("c_email")
-      .addEventListener(
-        "input",
-        function(){
-
-          data.contact.email =
-            this.value;
-
-        }
-      );
-
-
-    $("c_github")
-      .addEventListener(
-        "input",
-        function(){
-
-          data.contact.github =
-            this.value;
-
-        }
-      );
-
-
-    $("c_linkedin")
-      .addEventListener(
-        "input",
-        function(){
-
-          data.contact.linkedin =
-            this.value;
-
-        }
-      );
-
-  }
-
-
-  /* =========================================================
-     INITIALIZATION
-  ========================================================= */
-
-  var savedTheme =
-    getSavedTheme();
-
-
-  if(
-    savedTheme === "dark"
-  ){
-
-    applyTheme("dark");
-
-  }else{
-
-    applyTheme("light");
-
-  }
-
-
-  render();
-
-  checkHash();
 
 })();
 
