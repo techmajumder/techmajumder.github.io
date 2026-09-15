@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayan Majumder — Data Analyst &amp; Backend Developer</title>
+<meta name="description" content="Portfolio of Sayan Majumder — data analyst and backend developer based in Kolkata, India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2F4F5;
+    --paper-raised:#FFFFFF;
+    --ink:#17212C;
+    --muted:#5B6B78;
+    --muted-2:#8B97A2;
+    --line:#D7DCDD;
+    --accent:#C1791F;
+    --accent-dark:#8F5A14;
+    --teal:#2E6F63;
+    --violet:#6E5C94;
+    --radius:3px;
+    --serif:'Fraunces',serif;
+    --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --sidebar-w:252px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;} }
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;}
+  p{margin:0;}
+  button{font-family:var(--sans);cursor:pointer;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .hidden{display:none !important;}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+
+  /* ---------- Sidebar / nav ---------- */
+  #sidebar{position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);padding:40px 30px;display:flex;flex-direction:column;border-right:1px solid var(--line);background:var(--paper);z-index:20;}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .brand-mark{width:42px;height:42px;border-radius:var(--radius);background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:1.05rem;overflow:hidden;flex-shrink:0;}
+  .brand-mark img{width:100%;height:100%;object-fit:cover;}
+  .brand-text{display:flex;flex-direction:column;}
+  .brand-name{font-family:var(--serif);font-size:1.02rem;font-weight:600;line-height:1.2;}
+  .brand-role{font-family:var(--mono);font-size:0.7rem;color:var(--muted);margin-top:3px;}
+  #sideNav{margin-top:52px;display:flex;flex-direction:column;gap:15px;}
+  #sideNav a{font-size:0.94rem;color:var(--muted);text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent;width:fit-content;transition:color .15s, border-color .15s;}
+  #sideNav a:hover{color:var(--ink);border-bottom-color:var(--accent);}
+  .side-loc{margin-top:auto;padding-top:24px;font-family:var(--mono);font-size:0.74rem;color:var(--muted-2);line-height:1.5;border-top:1px solid var(--line);}
+
+  #mobileBar{display:none;}
+
+  /* ---------- Main ---------- */
+  #main{margin-left:var(--sidebar-w);padding:0 60px 40px;}
+  .section{padding-top:100px;scroll-margin-top:28px;max-width:780px;}
+  .section-head{margin-bottom:28px;}
+  .section-head h2{font-size:1.65rem;}
+  .section p.lede{max-width:64ch;color:var(--ink);font-size:1.02rem;}
+
+  /* ---------- Hero ---------- */
+  #hero{padding-top:72px;}
+  #hero h1{font-size:clamp(2rem,4vw,2.9rem);line-height:1.22;font-weight:600;max-width:16ch;letter-spacing:-0.01em;}
+  #hero .hero-sub{margin-top:22px;max-width:56ch;color:var(--muted);font-size:1.05rem;}
+  .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;padding:11px 22px;border-radius:var(--radius);font-size:0.92rem;font-weight:500;text-decoration:none;border:1px solid transparent;transition:transform .15s, background .15s, border-color .15s;}
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:var(--accent-dark);}
+  .btn-outline{border-color:var(--line);color:var(--ink);background:transparent;}
+  .btn-outline:hover{border-color:var(--ink);}
+
+  .ledger{margin-top:44px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper-raised);max-width:380px;overflow:hidden;}
+  .ledger-row{display:flex;align-items:baseline;justify-content:space-between;padding:13px 18px;border-bottom:1px solid var(--line);}
+  .ledger-row:last-child{border-bottom:none;}
+  .ledger-val{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:1rem;}
+  .ledger-label{font-size:0.86rem;color:var(--muted);}
+
+  .fade-in{animation:fadeUp .7s ease both;}
+  .fade-in.d1{animation-delay:.08s;}
+  .fade-in.d2{animation-delay:.16s;}
+  .fade-in.d3{animation-delay:.24s;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ---------- About ---------- */
+  #about p{color:var(--muted);}
+
+  /* ---------- Education ---------- */
+  .edu-row{display:flex;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);}
+  .edu-row:last-child{border-bottom:none;}
+  .edu-period{font-family:var(--mono);font-size:0.82rem;color:var(--accent);width:110px;flex-shrink:0;padding-top:3px;}
+  .edu-degree{font-weight:600;font-size:1rem;}
+  .edu-school{color:var(--muted);font-size:0.92rem;margin-top:3px;}
+  .edu-detail{color:var(--muted-2);font-size:0.84rem;margin-top:5px;font-family:var(--mono);}
+
+  /* ---------- Skills ---------- */
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 32px;}
+  .skill-group h3{font-size:0.95rem;font-weight:600;margin-bottom:12px;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{border:1px solid var(--line);border-radius:var(--radius);padding:5px 11px;font-family:var(--mono);font-size:0.78rem;color:var(--ink);background:var(--paper-raised);}
+
+  /* ---------- Projects ---------- */
+  .project-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .project-card{background:var(--paper-raised);border:1px solid var(--line);border-left:3px solid var(--cat-color,var(--accent));border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;transition:box-shadow .15s, transform .15s;}
+  .project-card:hover{box-shadow:0 6px 18px rgba(23,33,44,0.07);transform:translateY(-2px);}
+  .project-thumb{width:100%;aspect-ratio:16/8;border-radius:var(--radius);margin-bottom:14px;overflow:hidden;background:var(--cat-color,var(--accent));display:flex;align-items:center;justify-content:center;}
+  .project-thumb img{width:100%;height:100%;object-fit:cover;}
+  .project-thumb .ph{font-family:var(--serif);color:#fff;font-size:1.4rem;opacity:0.85;}
+  .project-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .project-title{font-size:1.05rem;font-weight:600;font-family:var(--serif);}
+  .project-status{font-family:var(--mono);font-size:0.68rem;color:var(--cat-color,var(--accent));border:1px solid var(--cat-color,var(--accent));border-radius:var(--radius);padding:2px 7px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+  .project-cat{font-family:var(--mono);font-size:0.74rem;color:var(--cat-color,var(--accent));margin-top:5px;}
+  .project-desc{color:var(--muted);font-size:0.9rem;margin-top:10px;flex-grow:1;}
+  .project-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+  .project-tags .chip{font-size:0.72rem;padding:4px 9px;}
+  .project-links{display:flex;gap:16px;margin-top:14px;}
+  .project-links a{font-size:0.85rem;font-weight:500;text-decoration:none;border-bottom:1px solid var(--line);}
+  .project-links a:hover{border-color:var(--ink);}
+
+  /* ---------- Certifications ---------- */
+  .cert-row{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);gap:16px;}
+  .cert-row:last-child{border-bottom:none;}
+  .cert-name{font-weight:600;font-size:0.98rem;}
+  .cert-issuer{color:var(--muted);font-size:0.86rem;margin-top:3px;}
+  .cert-mark{width:8px;height:8px;border-radius:2px;background:var(--teal);flex-shrink:0;margin-right:14px;align-self:center;}
+  .cert-left{display:flex;align-items:center;}
+
+  /* ---------- Contact ---------- */
+  .contact-links{display:flex;flex-direction:column;gap:2px;margin-top:26px;max-width:420px;}
+  .contact-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);}
+  .contact-row:hover .contact-val{color:var(--accent);}
+  .contact-row:last-child{border-bottom:none;}
+  .contact-key{font-family:var(--mono);font-size:0.78rem;color:var(--muted);}
+  .contact-val{font-size:0.95rem;font-weight:500;transition:color .15s;}
+
+  footer{margin-top:100px;padding:26px 0 10px;border-top:1px solid var(--line);color:var(--muted-2);font-size:0.8rem;font-family:var(--mono);}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px){
+    #sidebar{display:none;}
+    #mobileBar{display:flex;position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);padding:16px 20px;align-items:center;justify-content:space-between;}
+    #mobileBar .brand-mark{width:34px;height:34px;font-size:0.9rem;}
+    #mobileNavToggle{background:none;border:1px solid var(--line);border-radius:var(--radius);padding:8px 14px;font-size:0.85rem;color:var(--ink);}
+    #mobileNavPanel{position:sticky;top:65px;z-index:19;background:var(--paper-raised);border-bottom:1px solid var(--line);display:flex;flex-direction:column;padding:10px 20px 16px;}
+    #mobileNavPanel a{padding:10px 0;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);font-size:0.95rem;}
+    #mobileNavPanel a:last-child{border-bottom:none;}
+    #main{margin-left:0;padding:0 22px 40px;}
+    .section{padding-top:56px;max-width:100%;}
+    .project-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    .edu-row{flex-direction:column;gap:6px;}
+    .edu-period{width:auto;}
+  }
+
+  /* ---------- Admin: login overlay ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(23,33,44,0.55);display:flex;align-items:center;justify-content:center;z-index:100;padding:20px;}
+  .modal{background:var(--paper-raised);border-radius:var(--radius);padding:32px;width:100%;max-width:360px;}
+  .modal h2{font-size:1.2rem;margin-bottom:6px;}
+  .modal p{color:var(--muted);font-size:0.88rem;margin-bottom:18px;}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:0.8rem;color:var(--muted);margin-bottom:6px;font-family:var(--mono);}
+  .field input, .field textarea{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:var(--radius);font-family:var(--sans);font-size:0.9rem;background:#fff;color:var(--ink);}
+  .field textarea{resize:vertical;min-height:60px;}
+  .form-error{color:#B23A3A;font-size:0.82rem;margin-top:8px;min-height:18px;}
+  .modal-actions{display:flex;gap:10px;margin-top:18px;}
+
+  /* ---------- Admin bar / panel ---------- */
+  #adminBar{position:fixed;top:0;left:0;right:0;background:var(--ink);color:#fff;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:10px 22px;font-size:0.85rem;}
+  #adminBar .abar-tag{font-family:var(--mono);background:var(--accent);color:#fff;padding:3px 9px;border-radius:var(--radius);font-size:0.72rem;margin-right:10px;}
+  #adminBar .abar-actions{display:flex;gap:8px;flex-wrap:wrap;}
+  #adminBar button{background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;padding:6px 12px;border-radius:var(--radius);font-size:0.8rem;}
+  #adminBar button:hover{background:rgba(255,255,255,0.12);}
+  body.admin-on #main, body.admin-on #sidebar, body.admin-on #mobileBar{margin-top:46px;}
+  body.admin-on #sidebar{top:46px;}
+
+  #adminPanel{position:fixed;top:0;right:0;bottom:0;width:min(480px,100%);background:var(--paper-raised);border-left:1px solid var(--line);z-index:95;overflow-y:auto;padding:60px 28px 100px;box-shadow:-8px 0 24px rgba(0,0,0,0.08);}
+  #adminPanel h3{font-size:1rem;margin:30px 0 4px;padding-top:20px;border-top:1px solid var(--line);}
+  #adminPanel h3:first-of-type{border-top:none;padding-top:0;margin-top:0;}
+  #adminPanel .hint{color:var(--muted-2);font-size:0.78rem;margin-bottom:14px;}
+  .arr-item{border:1px solid var(--line);border-radius:var(--radius);padding:14px;margin-bottom:12px;position:relative;}
+  .arr-remove{position:absolute;top:8px;right:8px;background:none;border:none;color:var(--muted);font-size:1rem;line-height:1;padding:4px;}
+  .arr-remove:hover{color:#B23A3A;}
+  .add-btn{width:100%;border:1px dashed var(--line);background:none;border-radius:var(--radius);padding:10px;color:var(--muted);font-size:0.85rem;margin-bottom:6px;}
+  .add-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .panel-close{position:absolute;top:18px;right:20px;background:none;border:none;font-size:1.3rem;color:var(--muted);}
+  .save-row{position:sticky;bottom:-100px;background:var(--paper-raised);padding:14px 0 4px;margin-top:24px;border-top:1px solid var(--line);}
+  .save-msg{font-size:0.82rem;color:var(--teal);margin-top:8px;min-height:16px;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+</style>
+</head>
+<body>
+
+  <!-- Mobile top bar -->
+  <div id="mobileBar">
+    <a href="#hero" class="brand" style="text-decoration:none;">
+      <span class="brand-mark" id="brandMarkMobile"></span>
+    </a>
+    <button id="mobileNavToggle" aria-expanded="false" aria-controls="mobileNavPanel">Menu</button>
+  </div>
+  <nav id="mobileNavPanel" class="hidden" aria-label="Section navigation"></nav>
+
+  <!-- Desktop sidebar -->
+  <aside id="sidebar">
+    <a href="#hero" class="brand">
+      <span class="brand-mark" id="brandMarkDesktop"></span>
+      <span class="brand-text">
+        <span class="brand-name" id="sideName"></span>
+        <span class="brand-role" id="sideRole"></span>
+      </span>
+    </a>
+    <nav id="sideNav" aria-label="Section navigation">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="side-loc" id="sideLoc"></div>
+  </aside>
+
+  <main id="main">
+    <section id="hero" class="section">
+      <h1 class="fade-in" id="heroHeadline"></h1>
+      <p class="hero-sub fade-in d1" id="heroSub"></p>
+      <div class="hero-ctas fade-in d1">
+        <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+      </div>
+      <div class="ledger fade-in d2" id="statsLedger"></div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-head"><h2>About</h2></div>
+      <p class="lede" id="aboutText"></p>
+    </section>
+
+    <section id="education" class="section">
+      <div class="section-head"><h2>Education</h2></div>
+      <div id="eduList"></div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="section-head"><h2>Skills</h2></div>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-head"><h2>Projects</h2></div>
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+
+    <section id="certifications" class="section">
+      <div class="section-head"><h2>Certifications</h2></div>
+      <div id="certList"></div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-head"><h2>Let's connect</h2></div>
+      <p class="lede" id="contactText"></p>
+      <div class="contact-links" id="contactLinks"></div>
+    </section>
+
+    <footer id="footer"></footer>
+  </main>
+
+  <!-- Admin: login overlay -->
+  <div id="adminLogin" class="overlay hidden">
+    <div class="modal">
+      <h2>Admin sign-in</h2>
+      <p>Enter the password to edit this portfolio.</p>
+      <div class="field">
+        <label for="pwInput">Password</label>
+        <input type="password" id="pwInput" autocomplete="off">
+      </div>
+      <div class="form-error" id="pwError"></div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="pwSubmit" style="border:none;">Sign in</button>
+        <button class="btn btn-outline" id="pwCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin bar -->
+  <div id="adminBar" class="hidden">
+    <div><span class="abar-tag">Edit mode</span>only you can see this bar</div>
+    <div class="abar-actions">
+      <button id="openPanelBtn">Edit content</button>
+      <button id="exportBtn">Export JSON</button>
+      <button id="importBtn">Import JSON</button>
+      <button id="resetBtn">Reset to default</button>
+      <button id="exitAdminBtn">Exit admin</button>
+    </div>
+  </div>
+
+  <!-- Admin edit panel -->
+  <div id="adminPanel" class="hidden" aria-label="Edit portfolio content">
+    <button class="panel-close" id="panelCloseBtn" aria-label="Close panel">&times;</button>
+    <div id="panelBody"></div>
+  </div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============ CONFIG ============ */
+  // Change this before you publish the site.
+  var ADMIN_PASSWORD = "sayan2026";
+  var STORAGE_KEY = "portfolioData";
+
+  /* ============ DEFAULT CONTENT ============ */
+  var DEFAULT_DATA = {
+    name: "Sayan Majumder",
+    role: "Data Analyst & Backend Developer",
+    location: "Kolkata, West Bengal, India",
+    photo: "",
+    heroHeadline: "I build things that turn raw data into decisions \u2014 and the software that carries them there.",
+    heroSub: "B.Tech in Computer Science & Business Systems from Netaji Subhash Engineering College (MAKAUT). I split my time between pulling insight out of data and building the backend systems that put it to use, currently deepening that with Spring Boot. Based in Kolkata, and open to data analyst roles.",
+    stats: [
+      { label: "DSA problems solved", value: "40+" },
+      { label: "Projects shipped", value: "5" },
+      { label: "Certifications earned", value: "2" }
+    ],
+    about: "I'm finishing a B.Tech in Computer Science & Business Systems at Netaji Subhash Engineering College, affiliated to MAKAUT, in August 2026. My final-year project compared segmentation architectures for AI-based plant disease detection \u2014 the point where applied machine learning started to genuinely interest me. Since then I've worked across two things I enjoy in roughly equal measure: pulling insight out of messy datasets, and building the backend systems, mostly with Spring Boot, that carry those insights to the people who need to act on them. I'm based in Kolkata and currently looking for data analyst roles at startups here.",
+    education: [
+      { degree: "B.Tech in Computer Science & Business Systems", school: "Netaji Subhash Engineering College (MAKAUT)", period: "2022\u20132026", detail: "CGPA 6.96" },
+      { degree: "Class XII", school: "Dakshin Barasat Sibdas Acharaya High School", period: "2021", detail: "84.8%" },
+      { degree: "Class X", school: "Dakshin Barasat Sibdas Acharaya High School", period: "2019", detail: "83.71%" }
+    ],
+    skills: [
+      { group: "Languages", items: "Python, Java, SQL (MySQL)" },
+      { group: "Data & Analytics", items: "Pandas, Power BI, NumPy" },
+      { group: "Backend", items: "Spring Boot, JPA / Hibernate, REST APIs" },
+      { group: "Tools", items: "Git & GitHub, Postman, Streamlit" }
+    ],
+    certifications: [
+      { name: "Mendix Rapid Developer Certification", issuer: "Mendix" },
+      { name: "Machine Learning and Data Analytics", issuer: "Infosys Springboard (Skillsoft)" }
+    ],
+    projects: [
+      {
+        title: "Customer Churn Prediction", category: "analytics", status: "Live",
+        desc: "Random Forest model trained on the Telco Customer Churn dataset, wrapped in an interactive Streamlit app for real-time prediction. Built end-to-end and deployed in a single afternoon.",
+        tags: "Python, scikit-learn, Pandas, Streamlit",
+        github: "https://github.com/techmajumder/customer-churn-prediction", live: "", image: ""
+      },
+      {
+        title: "Plant Disease Segmentation", category: "research", status: "Final-year project",
+        desc: "Benchmarked U-Net, SegNet, FCN and DeepLabv3 against a proposed hybrid ResNet50 + ASPP + Attention U-Net with deep supervision, for potato leaf disease detection on the Plant Village and PLD datasets. Built with two teammates under faculty guidance.",
+        tags: "TensorFlow, Keras, Image Segmentation",
+        github: "", live: "", image: ""
+      },
+      {
+        title: "Task & Category Management API", category: "backend", status: "Completed",
+        desc: "A Spring Boot REST API with JPA entities, DTO validation, global exception handling, and both H2 and MySQL profiles, backed by JUnit and Mockito tests.",
+        tags: "Spring Boot, JPA, JUnit, Mockito",
+        github: "", live: "", image: ""
+      },
+      {
+        title: "Data Analytics Portfolio", category: "analytics", status: "Ongoing",
+        desc: "A set of SQL- and Power BI-driven analyses \u2014 retail sales, e-commerce performance, employment trends in India, and customer shopping behaviour \u2014 each exploring a different slice of business data.",
+        tags: "SQL, Power BI, Pandas",
+        github: "https://github.com/techmajumder", live: "", image: ""
+      },
+      {
+        title: "AI-Powered Outreach Platform", category: "backend", status: "In development",
+        desc: "A platform that turns a spreadsheet of contacts into individually personalised outreach messages, with a human always reviewing and approving before anything sends.",
+        tags: "Python, LangChain, OpenAI API, Streamlit",
+        github: "", live: "", image: ""
+      }
+    ],
+    contact: {
+      text: "I'm open to data analyst and backend engineering roles, in Kolkata or remote. Email is the fastest way to reach me.",
+      email: "add-your-email@example.com",
+      github: "https://github.com/techmajumder",
+      linkedin: "https://www.linkedin.com/in/sayan-majumder-353b05374/"
+    }
+  };
+
+  var CATEGORY_META = {
+    analytics: { label: "Data Analytics", color: "var(--teal)" },
+    backend: { label: "Backend", color: "var(--accent)" },
+    research: { label: "Research", color: "var(--violet)" }
+  };
+
+  /* ============ STATE ============ */
+  var data = loadData();
+
+  function loadData(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return JSON.parse(JSON.stringify(DEFAULT_DATA));
+      var parsed = JSON.parse(raw);
+      return parsed;
+    }catch(e){
+      return JSON.parse(JSON.stringify(DEFAULT_DATA));
+    }
+  }
+  function persist(){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  function esc(s){
+    return String(s === undefined || s === null ? "" : s).replace(/[&<>"']/g, function(c){
+      return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c];
+    });
+  }
+  function initials(name){
+    var parts = String(name || "").trim().split(/\s+/).filter(Boolean);
+    if(!parts.length) return "?";
+    if(parts.length === 1) return parts[0].charAt(0).toUpperCase();
+    return (parts[0].charAt(0) + parts[parts.length-1].charAt(0)).toUpperCase();
+  }
+  function $(id){ return document.getElementById(id); }
+
+  /* ============ PUBLIC RENDER ============ */
+  function render(){
+    document.title = data.name + " \u2014 " + data.role;
+
+    var mark = data.photo
+      ? '<img src="' + esc(data.photo) + '" alt="">'
+      : esc(initials(data.name));
+    $("brandMarkDesktop").innerHTML = mark;
+    $("brandMarkMobile").innerHTML = mark;
+    $("sideName").textContent = data.name;
+    $("sideRole").textContent = data.role;
+    $("sideLoc").textContent = data.location;
+
+    $("heroHeadline").textContent = data.heroHeadline;
+    $("heroSub").textContent = data.heroSub;
+    $("statsLedger").innerHTML = data.stats.map(function(s){
+      return '<div class="ledger-row"><span class="ledger-val">' + esc(s.value) + '</span><span class="ledger-label">' + esc(s.label) + '</span></div>';
+    }).join("");
+
+    $("aboutText").textContent = data.about;
+
+    $("eduList").innerHTML = data.education.map(function(e){
+      return '<div class="edu-row">' +
+        '<div class="edu-period">' + esc(e.period) + '</div>' +
+        '<div><div class="edu-degree">' + esc(e.degree) + '</div>' +
+        '<div class="edu-school">' + esc(e.school) + '</div>' +
+        (e.detail ? '<div class="edu-detail">' + esc(e.detail) + '</div>' : '') +
+        '</div></div>';
+    }).join("");
+
+    $("skillsGrid").innerHTML = data.skills.map(function(g){
+      var items = String(g.items || "").split(",").map(function(s){ return s.trim(); }).filter(Boolean);
+      return '<div class="skill-group"><h3>' + esc(g.group) + '</h3><div class="chip-row">' +
+        items.map(function(it){ return '<span class="chip">' + esc(it) + '</span>'; }).join("") +
+        '</div></div>';
+    }).join("");
+
+    $("projectGrid").innerHTML = data.projects.map(function(p){
+      var meta = CATEGORY_META[p.category] || CATEGORY_META.backend;
+      var tags = String(p.tags || "").split(",").map(function(s){ return s.trim(); }).filter(Boolean);
+      var thumb = p.image
+        ? '<img src="' + esc(p.image) + '" alt="">'
+        : '<span class="ph">' + esc(initials(p.title)) + '</span>';
+      var links = "";
+      if(p.github) links += '<a href="' + esc(p.github) + '" target="_blank" rel="noopener">GitHub</a>';
+      if(p.live) links += '<a href="' + esc(p.live) + '" target="_blank" rel="noopener">Live demo</a>';
+      return '<div class="project-card" style="--cat-color:' + meta.color + '">' +
+        '<div class="project-thumb">' + thumb + '</div>' +
+        '<div class="project-top"><div class="project-title">' + esc(p.title) + '</div>' +
+        (p.status ? '<span class="project-status">' + esc(p.status) + '</span>' : '') + '</div>' +
+        '<div class="project-cat">' + esc(meta.label) + '</div>' +
+        '<div class="project-desc">' + esc(p.desc) + '</div>' +
+        '<div class="project-tags">' + tags.map(function(t){ return '<span class="chip">' + esc(t) + '</span>'; }).join("") + '</div>' +
+        (links ? '<div class="project-links">' + links + '</div>' : '') +
+        '</div>';
+    }).join("");
+
+    $("certList").innerHTML = data.certifications.map(function(c){
+      return '<div class="cert-row"><div class="cert-left"><span class="cert-mark"></span>' +
+        '<div><div class="cert-name">' + esc(c.name) + '</div><div class="cert-issuer">' + esc(c.issuer) + '</div></div></div></div>';
+    }).join("");
+
+    $("contactText").textContent = data.contact.text;
+    var rows = [];
+    if(data.contact.email) rows.push(['Email', 'mailto:' + data.contact.email, data.contact.email]);
+    if(data.contact.github) rows.push(['GitHub', data.contact.github, data.contact.github.replace(/^https?:\/\//,'')]);
+    if(data.contact.linkedin) rows.push(['LinkedIn', data.contact.linkedin, data.contact.linkedin.replace(/^https?:\/\//,'')]);
+    $("contactLinks").innerHTML = rows.map(function(r){
+      return '<a class="contact-row" href="' + esc(r[1]) + '" target="_blank" rel="noopener">' +
+        '<span class="contact-key">' + esc(r[0]) + '</span><span class="contact-val">' + esc(r[2]) + '</span></a>';
+    }).join("");
+
+    $("footer").innerHTML = '\u00A9 ' + new Date().getFullYear() + ' ' + esc(data.name);
+
+    var navHTML = ['about','education','skills','projects','certifications','contact'].map(function(id){
+      var label = id.charAt(0).toUpperCase() + id.slice(1);
+      if(id === 'certifications') label = 'Certifications';
+      return '<a href="#' + id + '">' + label + '</a>';
+    }).join("");
+    $("mobileNavPanel").innerHTML = navHTML;
+  }
+
+  /* ============ MOBILE NAV ============ */
+  $("mobileNavToggle").addEventListener("click", function(){
+    var panel = $("mobileNavPanel");
+    var open = panel.classList.contains("hidden");
+    panel.classList.toggle("hidden", !open);
+    this.setAttribute("aria-expanded", String(open));
+  });
+  $("mobileNavPanel").addEventListener("click", function(e){
+    if(e.target.tagName === "A"){ $("mobileNavPanel").classList.add("hidden"); $("mobileNavToggle").setAttribute("aria-expanded","false"); }
+  });
+
+  /* ================================================================
+     ADMIN MODE
+     Hidden on purpose: nothing in the normal page links here.
+     Open it by adding #admin to the URL, e.g. yoursite.com/#admin
+     ================================================================ */
+  var isAdmin = false;
+
+  function checkHash(){
+    if(window.location.hash === "#admin" && !isAdmin){
+      $("adminLogin").classList.remove("hidden");
+      $("pwInput").value = "";
+      $("pwError").textContent = "";
+      setTimeout(function(){ $("pwInput").focus(); }, 30);
+    }
+  }
+  window.addEventListener("hashchange", checkHash);
+
+  function tryLogin(){
+    if($("pwInput").value === ADMIN_PASSWORD){
+      isAdmin = true;
+      $("adminLogin").classList.add("hidden");
+      $("adminBar").classList.remove("hidden");
+      document.body.classList.add("admin-on");
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    } else {
+      $("pwError").textContent = "Incorrect password.";
+    }
+  }
+  $("pwSubmit").addEventListener("click", tryLogin);
+  $("pwInput").addEventListener("keydown", function(e){ if(e.key === "Enter") tryLogin(); if(e.key === "Escape") closeLogin(); });
+  function closeLogin(){
+    $("adminLogin").classList.add("hidden");
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+  $("pwCancel").addEventListener("click", closeLogin);
+
+  $("exitAdminBtn").addEventListener("click", function(){
+    isAdmin = false;
+    $("adminBar").classList.add("hidden");
+    $("adminPanel").classList.add("hidden");
+    document.body.classList.remove("admin-on");
+  });
+
+  $("resetBtn").addEventListener("click", function(){
+    if(!confirm("Reset all content back to the built-in defaults? This clears your saved edits on this browser.")) return;
+    localStorage.removeItem(STORAGE_KEY);
+    data = loadData();
+    render();
+    if(!$("adminPanel").classList.contains("hidden")) openPanel();
+  });
+
+  $("exportBtn").addEventListener("click", function(){
+    var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = "portfolio-data.json";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  $("importBtn").addEventListener("click", function(){
+    var input = document.createElement("input");
+    input.type = "file"; input.accept = "application/json";
+    input.addEventListener("change", function(){
+      var file = input.files[0];
+      if(!file) return;
+      var reader = new FileReader();
+      reader.onload = function(){
+        try{
+          var parsed = JSON.parse(reader.result);
+          data = parsed;
+          persist();
+          render();
+          alert("Imported successfully.");
+          if(!$("adminPanel").classList.contains("hidden")) openPanel();
+        }catch(e){
+          alert("That file isn't valid JSON.");
+        }
+      };
+      reader.readAsText(file);
+    });
+    input.click();
+  });
+
+  /* ---------- Edit panel ---------- */
+  $("openPanelBtn").addEventListener("click", openPanel);
+  $("panelCloseBtn").addEventListener("click", function(){ $("adminPanel").classList.add("hidden"); });
+
+  function field(label, value, onInput, type){
+    var id = "f_" + Math.random().toString(36).slice(2,9);
+    var tag = type === "textarea" ? "textarea" : "input";
+    var html = '<div class="field"><label for="' + id + '">' + esc(label) + '</label>' +
+      '<' + tag + ' id="' + id + '">' + (type === "textarea" ? esc(value) : "") + '</' + tag + '>' +
+      (type !== "textarea" ? '' : '') + '</div>';
+    return { html: html, id: id, value: value, type: type };
+  }
+
+  function bindField(f, onInput){
+    var el = $(f.id);
+    if(f.type !== "textarea") el.value = f.value === undefined ? "" : f.value;
+    el.addEventListener("input", function(){ onInput(el.value); });
+  }
+
+  function openPanel(){
+    var b = [];
+
+    b.push("<h3>Basics</h3>");
+    b.push('<div id="basics"></div>');
+
+    b.push("<h3>Stats</h3><div class='hint'>Shown in the small panel on your hero section.</div>");
+    b.push('<div id="statsList"></div><button class="add-btn" id="addStat">+ Add stat</button>');
+
+    b.push("<h3>About</h3>");
+    b.push('<div id="aboutField"></div>');
+
+    b.push("<h3>Education</h3>");
+    b.push('<div id="eduAdminList"></div><button class="add-btn" id="addEdu">+ Add education entry</button>');
+
+    b.push("<h3>Skills</h3><div class='hint'>Separate items in a group with commas.</div>");
+    b.push('<div id="skillsAdminList"></div><button class="add-btn" id="addSkillGroup">+ Add skill group</button>');
+
+    b.push("<h3>Certifications</h3>");
+    b.push('<div id="certAdminList"></div><button class="add-btn" id="addCert">+ Add certification</button>');
+
+    b.push("<h3>Projects</h3><div class='hint'>Separate tech tags with commas. Image should be a URL to an already-hosted picture.</div>");
+    b.push('<div id="projAdminList"></div><button class="add-btn" id="addProj">+ Add project</button>');
+
+    b.push("<h3>Contact</h3>");
+    b.push('<div id="contactAdmin"></div>');
+
+    b.push('<div class="save-row"><button class="btn btn-primary" id="saveBtn" style="border:none;width:100%;justify-content:center;">Save changes</button><div class="save-msg" id="saveMsg"></div></div>');
+
+    $("panelBody").innerHTML = b.join("");
+    $("adminPanel").classList.remove("hidden");
+
+    renderBasics();
+    renderStatsAdmin();
+    renderAboutAdmin();
+    renderEduAdmin();
+    renderSkillsAdmin();
+    renderCertAdmin();
+    renderProjAdmin();
+    renderContactAdmin();
+
+    $("addStat").addEventListener("click", function(){ data.stats.push({label:"", value:""}); renderStatsAdmin(); });
+    $("addEdu").addEventListener("click", function(){ data.education.push({degree:"",school:"",period:"",detail:""}); renderEduAdmin(); });
+    $("addSkillGroup").addEventListener("click", function(){ data.skills.push({group:"",items:""}); renderSkillsAdmin(); });
+    $("addCert").addEventListener("click", function(){ data.certifications.push({name:"",issuer:""}); renderCertAdmin(); });
+    $("addProj").addEventListener("click", function(){ data.projects.push({title:"",category:"backend",status:"",desc:"",tags:"",github:"",live:"",image:""}); renderProjAdmin(); });
+
+    $("saveBtn").addEventListener("click", function(){
+      persist();
+      render();
+      $("saveMsg").textContent = "Saved \u2014 visible now on this browser.";
+      setTimeout(function(){ $("saveMsg").textContent = ""; }, 3000);
+    });
+  }
+
+  function renderBasics(){
+    var wrap = $("basics");
+    var f1 = field("Name", data.name);
+    var f2 = field("Role / title", data.role);
+    var f3 = field("Location", data.location);
+    var f4 = field("Photo URL (leave blank to use initials)", data.photo);
+    var f5 = field("Hero headline", data.heroHeadline, null, "textarea");
+    var f6 = field("Hero subtext", data.heroSub, null, "textarea");
+    wrap.innerHTML = f1.html + f2.html + f3.html + f4.html + f5.html + f6.html;
+    bindField(f1, function(v){ data.name = v; });
+    bindField(f2, function(v){ data.role = v; });
+    bindField(f3, function(v){ data.location = v; });
+    bindField(f4, function(v){ data.photo = v; });
+    $(f5.id).value = data.heroHeadline;
+    $(f5.id).addEventListener("input", function(){ data.heroHeadline = this.value; });
+    $(f6.id).value = data.heroSub;
+    $(f6.id).addEventListener("input", function(){ data.heroSub = this.value; });
+  }
+
+  function renderAboutAdmin(){
+    var wrap = $("aboutField");
+    var f = field("About paragraph", data.about, null, "textarea");
+    wrap.innerHTML = f.html;
+    var el = $(f.id);
+    el.value = data.about;
+    el.style.minHeight = "140px";
+    el.addEventListener("input", function(){ data.about = this.value; });
+  }
+
+  function renderStatsAdmin(){
+    var wrap = $("statsList");
+    wrap.innerHTML = data.stats.map(function(s, i){
+      return '<div class="arr-item"><button class="arr-remove" data-idx="' + i + '" aria-label="Remove">&times;</button>' +
+        '<div class="two-col">' +
+        '<div class="field"><label>Value</label><input data-i="' + i + '" data-k="value" value="' + esc(s.value) + '"></div>' +
+        '<div class="field"><label>Label</label><input data-i="' + i + '" data-k="label" value="' + esc(s.label) + '"></div>' +
+        '</div></div>';
+    }).join("");
+    wrap.querySelectorAll("input").forEach(function(el){
+      el.addEventListener("input", function(){ data.stats[this.dataset.i][this.dataset.k] = this.value; });
+    });
+    wrap.querySelectorAll(".arr-remove").forEach(function(btn){
+      btn.addEventListener("click", function(){ data.stats.splice(this.dataset.idx,1); renderStatsAdmin(); });
+    });
+  }
+
+  function renderEduAdmin(){
+    var wrap = $("eduAdminList");
+    wrap.innerHTML = data.education.map(function(e, i){
+      return '<div class="arr-item"><button class="arr-remove" data-idx="' + i + '" aria-label="Remove">&times;</button>' +
+        '<div class="field"><label>Degree / class</label><input data-i="' + i + '" data-k="degree" value="' + esc(e.degree) + '"></div>' +
+        '<div class="field"><label>School / institute</label><input data-i="' + i + '" data-k="school" value="' + esc(e.school) + '"></div>' +
+        '<div class="two-col">' +
+        '<div class="field"><label>Period</label><input data-i="' + i + '" data-k="period" value="' + esc(e.period) + '"></div>' +
+        '<div class="field"><label>Detail (grade, %)</label><input data-i="' + i + '" data-k="detail" value="' + esc(e.detail) + '"></div>' +
+        '</div></div>';
+    }).join("");
+    wrap.querySelectorAll("input").forEach(function(el){
+      el.addEventListener("input", function(){ data.education[this.dataset.i][this.dataset.k] = this.value; });
+    });
+    wrap.querySelectorAll(".arr-remove").forEach(function(btn){
+      btn.addEventListener("click", function(){ data.education.splice(this.dataset.idx,1); renderEduAdmin(); });
+    });
+  }
+
+  function renderSkillsAdmin(){
+    var wrap = $("skillsAdminList");
+    wrap.innerHTML = data.skills.map(function(g, i){
+      return '<div class="arr-item"><button class="arr-remove" data-idx="' + i + '" aria-label="Remove">&times;</button>' +
+        '<div class="field"><label>Group name</label><input data-i="' + i + '" data-k="group" value="' + esc(g.group) + '"></div>' +
+        '<div class="field"><label>Items (comma-separated)</label><input data-i="' + i + '" data-k="items" value="' + esc(g.items) + '"></div>' +
+        '</div>';
+    }).join("");
+    wrap.querySelectorAll("input").forEach(function(el){
+      el.addEventListener("input", function(){ data.skills[this.dataset.i][this.dataset.k] = this.value; });
+    });
+    wrap.querySelectorAll(".arr-remove").forEach(function(btn){
+      btn.addEventListener("click", function(){ data.skills.splice(this.dataset.idx,1); renderSkillsAdmin(); });
+    });
+  }
+
+  function renderCertAdmin(){
+    var wrap = $("certAdminList");
+    wrap.innerHTML = data.certifications.map(function(c, i){
+      return '<div class="arr-item"><button class="arr-remove" data-idx="' + i + '" aria-label="Remove">&times;</button>' +
+        '<div class="field"><label>Certification name</label><input data-i="' + i + '" data-k="name" value="' + esc(c.name) + '"></div>' +
+        '<div class="field"><label>Issuer</label><input data-i="' + i + '" data-k="issuer" value="' + esc(c.issuer) + '"></div>' +
+        '</div>';
+    }).join("");
+    wrap.querySelectorAll("input").forEach(function(el){
+      el.addEventListener("input", function(){ data.certifications[this.dataset.i][this.dataset.k] = this.value; });
+    });
+    wrap.querySelectorAll(".arr-remove").forEach(function(btn){
+      btn.addEventListener("click", function(){ data.certifications.splice(this.dataset.idx,1); renderCertAdmin(); });
+    });
+  }
+
+  function renderProjAdmin(){
+    var wrap = $("projAdminList");
+    wrap.innerHTML = data.projects.map(function(p, i){
+      return '<div class="arr-item"><button class="arr-remove" data-idx="' + i + '" aria-label="Remove">&times;</button>' +
+        '<div class="field"><label>Title</label><input data-i="' + i + '" data-k="title" value="' + esc(p.title) + '"></div>' +
+        '<div class="two-col">' +
+        '<div class="field"><label>Category</label><select data-i="' + i + '" data-k="category">' +
+          ['analytics','backend','research'].map(function(c){ return '<option value="' + c + '"' + (p.category===c?' selected':'') + '>' + CATEGORY_META[c].label + '</option>'; }).join("") +
+          '</select></div>' +
+        '<div class="field"><label>Status</label><input data-i="' + i + '" data-k="status" value="' + esc(p.status) + '"></div>' +
+        '</div>' +
+        '<div class="field"><label>Description</label><textarea data-i="' + i + '" data-k="desc">' + esc(p.desc) + '</textarea></div>' +
+        '<div class="field"><label>Tech tags (comma-separated)</label><input data-i="' + i + '" data-k="tags" value="' + esc(p.tags) + '"></div>' +
+        '<div class="field"><label>Image URL</label><input data-i="' + i + '" data-k="image" value="' + esc(p.image) + '"></div>' +
+        '<div class="two-col">' +
+        '<div class="field"><label>GitHub URL</label><input data-i="' + i + '" data-k="github" value="' + esc(p.github) + '"></div>' +
+        '<div class="field"><label>Live demo URL</label><input data-i="' + i + '" data-k="live" value="' + esc(p.live) + '"></div>' +
+        '</div></div>';
+    }).join("");
+    wrap.querySelectorAll("input, textarea, select").forEach(function(el){
+      el.addEventListener("input", function(){ data.projects[this.dataset.i][this.dataset.k] = this.value; });
+      el.addEventListener("change", function(){ data.projects[this.dataset.i][this.dataset.k] = this.value; });
+    });
+    wrap.querySelectorAll(".arr-remove").forEach(function(btn){
+      btn.addEventListener("click", function(){ data.projects.splice(this.dataset.idx,1); renderProjAdmin(); });
+    });
+  }
+
+  function renderContactAdmin(){
+    var wrap = $("contactAdmin");
+    wrap.innerHTML =
+      '<div class="field"><label>Intro line</label><textarea id="c_text">' + esc(data.contact.text) + '</textarea></div>' +
+      '<div class="field"><label>Email</label><input id="c_email" value="' + esc(data.contact.email) + '"></div>' +
+      '<div class="field"><label>GitHub URL</label><input id="c_github" value="' + esc(data.contact.github) + '"></div>' +
+      '<div class="field"><label>LinkedIn URL</label><input id="c_linkedin" value="' + esc(data.contact.linkedin) + '"></div>';
+    $("c_text").addEventListener("input", function(){ data.contact.text = this.value; });
+    $("c_email").addEventListener("input", function(){ data.contact.email = this.value; });
+    $("c_github").addEventListener("input", function(){ data.contact.github = this.value; });
+    $("c_linkedin").addEventListener("input", function(){ data.contact.linkedin = this.value; });
+  }
+
+  /* ============ INIT ============ */
+  render();
+  checkHash();
+})();
+</script>
+</body>
+</html>
